@@ -1,0 +1,11 @@
+{
+  "server": {
+    "baseDir": "src",
+    "routes": {
+      "/": "playground",
+      "/node_modules/": "node_modules",
+      "/dist/": "dist",
+      "/.playground": ".playground"
+    }
+  }
+}
