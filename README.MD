@@ -8,6 +8,11 @@ To install `ngx-spinner`, run:
 $ npm install ngx-spinner --save
 ```
 
+## Example
+
+For working example see below Plunker:
+https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview
+
 ## Usage
 
 Once you successfully installed library by runnig above command, now import required files in your `AppModule`:

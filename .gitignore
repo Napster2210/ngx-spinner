@@ -36,3 +36,6 @@ dist/*
 
 # Documentation
 docs/*
+
+# Other
+.tmp/*
