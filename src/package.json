@@ -1,0 +1,28 @@
+{
+  "name": "ngx-spinner",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Napster2210/ngx-spinner.git"
+  },
+  "author": {
+    "name": "Yuvraj Chauhan",
+    "email": "yuvrajchauhan41@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
+  },
+  "main": "ngx-spinner.umd.js",
+  "module": "ngx-spinner.js",
+  "jsnext:main": "ngx-spinner.js",
+  "typings": "ngx-spinner.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
