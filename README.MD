@@ -1,4 +1,23 @@
 # ngx-spinner
+### A library for spinner specifically for Angular 2/4/5.
+[![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%202%2B-brightgreen.svg?style=flat-square)]()
+[![License](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
+[![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
+
+## Table of contents
+- [Browser Support](#browser-support)
+- [Installation](#installation)
+- [Example](#example)
+- [Usage](#usage)
+- [Versioning](#versioning)
+- [Creator](#creator)
+- [License](#license)
+
+## Browser Support
+![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png)
+--- | --- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
 
 ## Installation
 
@@ -70,6 +89,17 @@ Now use selector in your `app.component.html`
 <ngx-spinner></ngx-spinner>
 ```
 
-## License
+## Versioning
+ngx-spinner will be maintained under the Semantic Versioning guidelines.
+Releases will be numbered with the following format:
 
-MIT © [Yuvraj Chauhan](mailto:yuvrajchauhan3113@gmail.com)
+`<major>.<minor>.<patch>`
+
+For more information on SemVer, please visit http://semver.org.
+
+## Creator
+#### [Yuvraj Chauhan](mailto:yuvrajchauhan3113@gmail.com)
+- [@GitHub](https://github.com/Napster2210)
+
+## License
+#### The MIT License (MIT)
