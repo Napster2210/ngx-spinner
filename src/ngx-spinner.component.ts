@@ -1,8 +1,6 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Backdrop } from './backdrop.interface';
-import { Spinner } from './spinner.interface';
 
 @Component({
     selector: 'ngx-spinner',
@@ -10,21 +8,18 @@ import { Spinner } from './spinner.interface';
     styleUrls: ['ngx-spinner.component.css']
 })
 
-export class NgxSpinnerComponent implements OnDestroy, OnInit {
+export class NgxSpinnerComponent implements OnDestroy {
 
-    @Input() backdrop: Backdrop = {
-        'opacity': 0.8,
-        'background-color': '#333'
-    }
-    @Input() spinner: Spinner = {
-        'size': 'large',
-        'color': '#fff',
-        'type': 'ball-scale-multiple'
-    }
+    @Input() bdOpacity = 0.8;
+    @Input() bdColor = '#333';
+    @Input() size = 'large';
+    @Input() color = '#fff';
+    @Input() type = 'ball-scale-multiple';
     spinnerClass: string;
     showSpinner = false;
     spinnerSubscription: Subscription;
     constructor(private spinnerService: NgxSpinnerService) {
+        this.spinnerClass = this.getClass(this.type, this.size) || 'la-ball-scale-multiple la-3x';
         this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(flag => {
             this.showSpinner = flag;
         });
@@ -46,10 +41,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
                 break;
         }
         return sizeClass + ' la-' + type;
-    }
-
-    ngOnInit() {
-        this.spinnerClass = this.getClass(this.spinner.type, this.spinner.size) || 'la-ball-scale-multiple la-3x';
     }
 
     ngOnDestroy() {
