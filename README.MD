@@ -13,6 +13,7 @@
 - [Versioning](#versioning)
 - [Creator](#creator)
 - [License](#license)
+- [Future Plan](#future-plan)
 
 ## Browser Support
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png)
@@ -103,3 +104,6 @@ For more information on SemVer, please visit http://semver.org.
 
 ## License
 #### The MIT License (MIT)
+
+## Future Plan
+Currently I'm working on some features to make spinner more configurable like backdrop color, spinner size, color and different types of spinner.
