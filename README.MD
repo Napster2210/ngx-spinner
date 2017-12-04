@@ -88,13 +88,13 @@ See [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
 ```
 
 - **[bdOpacity]**: between `0.0` to `1.0`.
-To set opacity of backdrop, default `0.8`
+  To set opacity of backdrop, default `0.8`
 - **[bdColor]**: Any css color format.
-To set background-color for backdrop, default `#333`
+  To set background-color for backdrop, default `#333`
 - **[size]**: Anyone from `small`, `default`, `medium`, `large`.
-To set size of spinner, default `large`
+  To set size of spinner, default `large`
 - **[color]**: Any css color format.
-To set color of spinner, default `#fff`
+  To set color of spinner, default `#fff`
 
 ## Versioning
 ngx-spinner will be maintained under the Semantic Versioning guidelines.
