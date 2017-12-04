@@ -30,7 +30,7 @@ class AppComponent implements OnInit {
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   imports: [BrowserModule, NgxSpinnerModule.forRoot()],
-  providers: [NgxSpinnerService]
+  providers: []
 })
 class AppModule { }
 

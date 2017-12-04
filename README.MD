@@ -7,8 +7,8 @@
 
 ## Table of contents
 - [Browser Support](#browser-support)
+- [Demo](#demo)
 - [Installation](#installation)
-- [Example](#example)
 - [Usage](#usage)
 - [Versioning](#versioning)
 - [Creator](#creator)
@@ -19,75 +19,82 @@
 --- | --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
 
+## Demo
+
+Workig Demo: [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
+
 ## Installation
 
-To install `ngx-spinner`, run:
+`ngx-spinner` is available via [npm](https://www.npmjs.com/package/ngx-spinner) and [yarn](https://yarnpkg.com/en/package/ngx-spinner)
 
+Using npm:
 ```bash
 $ npm install ngx-spinner --save
 ```
 
-## Example
-
-For working example see below Plunker:
-https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview
+Using yarn:
+```bash
+$ yarn add ngx-spinner
+```
 
 ## Usage
 
-Once you successfully installed library by runnig above command, now import required files in your `AppModule`:
-
+Import `NgxSpinnerModule` in  in the root module(`AppModule`):
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
 // Import library module
-import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule,
-
-    // Specify library as an import
+    // ...
     NgxSpinnerModule
-  ],
-  providers: [NgxSpinnerService], // Provide spinner service to hide/show spinner
-  bootstrap: [AppComponent]
+  ]
 })
 export class AppModule { }
 ```
 
-Once you imported module and service, you can use its hide/show method of service in your `AppComponent`:
-
+Add `NgxSpinnerService` service wherever you want to use the `ngx-spinner`.
 ```typescript
-import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
-})
 class AppComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.spinner.show(); // Call this method to show spinner
+    /** spinner starts on init */
+    this.spinner.show();
 
-    this.spinner.hide(); // Call this method to hide spinner
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 5000);
   }
 }
 ```
 
-Now use selector in your `app.component.html`
-
-```xml
-<!-- You can now use library component in app.component.html -->
+Now use in your template
+```html
 <ngx-spinner></ngx-spinner>
 ```
+See [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
+
+## NgxSpinner Service
+- `NgxSpinnerService.show()`  Shows the spinner
+- `NgxSpinnerService.hide()`  Hides the spinner
+
+## NgxSpinner Component
+```html
+<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff"></ngx-spinner>
+```
+
+- **[bdOpacity]**: between `0.0` to `1.0`.
+To set opacity of backdrop, default `0.8`
+- **[bdColor]**: Any css color format.
+To set background-color for backdrop, default `#333`
+- **[size]**: Anyone from `small`, `default`, `medium`, `large`.
+To set size of spinner, default `large`
+- **[color]**: Any css color format.
+To set color of spinner, default `#fff`
 
 ## Versioning
 ngx-spinner will be maintained under the Semantic Versioning guidelines.
