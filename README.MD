@@ -22,7 +22,7 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
 
 ## Demo
 
-Workig Demo: [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
+Working Demo: [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
 
 ## Installation
 
