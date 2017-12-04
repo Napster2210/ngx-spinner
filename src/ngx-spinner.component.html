@@ -1,5 +1,5 @@
-<div class="black-overlay" *ngIf="showSpinner">
-    <div class="la-ball-scale-multiple la-3x">
+<div class="black-overlay" *ngIf="showSpinner" [ngStyle]="{'opacity': bdOpacity,'background-color': bdColor}">
+    <div [class]="spinnerClass" [style.color]="color">
         <div></div>
         <div></div>
         <div></div>
