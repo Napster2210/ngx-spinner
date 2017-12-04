@@ -109,8 +109,11 @@ For more information on SemVer, please visit http://semver.org.
 #### [Yuvraj Chauhan](mailto:yuvrajchauhan3113@gmail.com)
 - [@GitHub](https://github.com/Napster2210)
 
+## Future Plan
+- Stable version v1.0.0 (Coming soon)
+- More than 50 different types of spinner (Coming soon)
+- Interceptor Implementation (Coming soon)
+- Github page with working example
+
 ## License
 #### The MIT License (MIT)
-
-## Future Plan
-Currently I'm working on some features to make spinner more configurable like backdrop color, spinner size, color and different types of spinner.
