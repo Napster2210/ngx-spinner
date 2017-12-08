@@ -6,6 +6,12 @@ import { NgxSpinnerService } from './ngx-spinner.service';
 export * from './ngx-spinner.component';
 export * from './ngx-spinner.service';
 
+/**
+ * Main module
+ *
+ * @export
+ * @class NgxSpinnerModule
+ */
 @NgModule({
   imports: [
     CommonModule
