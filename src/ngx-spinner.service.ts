@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Spinner service
@@ -19,7 +20,7 @@ export class NgxSpinnerService {
      * Creates an instance of NgxSpinnerService.
      * @memberof NgxSpinnerService
      */
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     /**
      * To show spinner
@@ -37,5 +38,11 @@ export class NgxSpinnerService {
      */
     hide() {
         this.spinnerObservable.next(false);
+    }
+
+    getCount(key: string): number {
+        const data = this.http.get('./loader.json');
+        console.log(data);
+        return data[key];
     }
 }

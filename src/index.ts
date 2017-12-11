@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerComponent } from './ngx-spinner.component';
 import { NgxSpinnerService } from './ngx-spinner.service';
 
@@ -14,7 +15,8 @@ export * from './ngx-spinner.service';
  */
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   declarations: [
     NgxSpinnerComponent

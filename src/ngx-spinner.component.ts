@@ -70,6 +70,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      */
     spinnerSubscription: Subscription;
 
+    divArray: Array<number> = [1, 2, 3];
+    divCount = 0;
+
+
     /**
      * Creates an instance of NgxSpinnerComponent.
      * @param {NgxSpinnerService} spinnerService Service for spinner functionality
@@ -87,6 +91,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @memberof NgxSpinnerComponent
      */
     ngOnInit() {
+        // this.divCount = this.spinnerService.getCount(this.type);
+        // this.divArray = Array(this.divCount).fill(0).map((x, i) => i);
         this.spinnerClass = this.getClass(this.type, this.size);
     }
 

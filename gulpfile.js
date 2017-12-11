@@ -51,7 +51,7 @@ gulp.task('inline-resources', function () {
  *    As of Angular 5, ngc accepts an array and no longer returns a promise.
  */
 gulp.task('ngc', function () {
-  ngc([ '--project', `${tmpFolder}/tsconfig.es5.json` ]);
+  ngc(['--project', `${tmpFolder}/tsconfig.es5.json`]);
   return Promise.resolve()
 });
 
@@ -61,7 +61,7 @@ gulp.task('ngc', function () {
  */
 gulp.task('rollup:fesm', function () {
   return gulp.src(`${buildFolder}/**/*.js`)
-  // transform the files here.
+    // transform the files here.
     .pipe(rollup({
 
       // Bundle's entry point
@@ -78,7 +78,8 @@ gulp.task('rollup:fesm', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@angular/http'
       ],
 
       // Format of generated bundle
@@ -94,7 +95,7 @@ gulp.task('rollup:fesm', function () {
  */
 gulp.task('rollup:umd', function () {
   return gulp.src(`${buildFolder}/**/*.js`)
-  // transform the files here.
+    // transform the files here.
     .pipe(rollup({
 
       // Bundle's entry point
@@ -111,7 +112,8 @@ gulp.task('rollup:umd', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@angular/http'
       ],
 
       // Format of generated bundle
@@ -151,7 +153,7 @@ gulp.task('copy:build', function () {
  * 8. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function () {
-  return gulp.src([`${srcFolder}/package.json`])
+  return gulp.src([`${srcFolder}/package.json`, `${srcFolder}/loader.json`])
     .pipe(gulp.dest(distFolder));
 });
 
