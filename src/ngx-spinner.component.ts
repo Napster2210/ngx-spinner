@@ -1,6 +1,7 @@
 import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
+import { LOADERS } from './loader.layout';
 
 /**
  * Main component
@@ -70,7 +71,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      */
     spinnerSubscription: Subscription;
 
-    divArray: Array<number> = [1, 2, 3];
+    divArray: Array<number> = [];
     divCount = 0;
 
 
@@ -91,8 +92,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @memberof NgxSpinnerComponent
      */
     ngOnInit() {
-        // this.divCount = this.spinnerService.getCount(this.type);
-        // this.divArray = Array(this.divCount).fill(0).map((x, i) => i);
         this.spinnerClass = this.getClass(this.type, this.size);
     }
 
@@ -105,6 +104,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @memberof NgxSpinnerComponent
      */
     getClass(type = 'ball-scale-multiple', size = 'large'): string {
+        this.divCount = LOADERS[type];
+        this.divArray = Array(this.divCount).fill(0).map((x, i) => i);
         let sizeClass = '';
         switch (size.toLowerCase()) {
             case 'small':
@@ -119,7 +120,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
             default:
                 break;
         }
-        return sizeClass + ' la-' + type;
+        return 'la-' + type + ' ' + sizeClass;
     }
 
     /**

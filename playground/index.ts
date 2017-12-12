@@ -9,14 +9,16 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app',
-  template: `<ngx-spinner [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size" [color]="spinnerConfig.color"></ngx-spinner>`
+  template: `<ngx-spinner [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size"
+  [color]="spinnerConfig.color" [type]="spinnerConfig.type"></ngx-spinner>`
 })
 class AppComponent implements OnInit {
 
   spinnerConfig: object = {
     bdColor: '#333',
     size: 'large',
-    color: '#fff'
+    color: '#fff',
+    type: 'timer'
   }
 
   constructor(private spinner: NgxSpinnerService) { }

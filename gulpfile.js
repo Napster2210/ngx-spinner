@@ -78,8 +78,7 @@ gulp.task('rollup:fesm', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common',
-        '@angular/http'
+        '@angular/common'
       ],
 
       // Format of generated bundle
@@ -112,8 +111,7 @@ gulp.task('rollup:umd', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common',
-        '@angular/http'
+        '@angular/common'
       ],
 
       // Format of generated bundle
@@ -153,7 +151,7 @@ gulp.task('copy:build', function () {
  * 8. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function () {
-  return gulp.src([`${srcFolder}/package.json`, `${srcFolder}/loader.json`])
+  return gulp.src([`${srcFolder}/package.json`])
     .pipe(gulp.dest(distFolder));
 });
 
