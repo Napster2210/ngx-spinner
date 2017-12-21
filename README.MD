@@ -1,28 +1,38 @@
-# ngx-spinner
-### A library for spinner specifically for Angular 2/4/5.
+<p align="center">
+  <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
+  <h1 align="center">NgxSpinner</h1>
+</p>
+
+A library for loading spinner specifically for Angular 2/4/5. (https://napster2210.github.io/ngx-spinner/)
+
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%202%2B-brightgreen.svg?style=flat-square)]()
 [![License](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
+The version 1.x supports supports Angular >= 5.
+
 ## Table of contents
+
 - [Browser Support](#browser-support)
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Versioning](#versioning)
 - [Creator](#creator)
-- [License](#license)
 - [Future Plan](#future-plan)
+- [Credits](#credits)
+- [License](#license)
 
 ## Browser Support
-![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png)
+
+![Chrome](http://icons.iconarchive.com/icons/google/chrome/48/Google-Chrome-icon.png) | ![Firefox](https://support.cdn.mozilla.net/static/sumo/img/favicon.ico) | ![IE](https://www.msccruises.co.uk/wcsstore/MSCB2CStoreFrontAssetStore//images/icon_ie.png) | ![Safari](https://aplweb.sercomtel.com.br/sistemas/areaCliente/img/logoSafari.png) | ![Opera](https://www.webcomponents.org/assets/opera.png)
 --- | --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
 
 ## Demo
 
-Working Demo: [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
+[Working Demo](https://napster2210.github.io/ngx-spinner/)
 
 ## Installation
 
@@ -77,15 +87,17 @@ Now use in your template
 ```html
 <ngx-spinner></ngx-spinner>
 ```
-See [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
+See [Demo](https://napster2210.github.io/ngx-spinner/)
 
 ## NgxSpinner Service
+
 - `NgxSpinnerService.show()`  Shows the spinner
 - `NgxSpinnerService.hide()`  Hides the spinner
 
 ## NgxSpinner Component
+
 ```html
-<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff"></ngx-spinner>
+<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff" [type]="ball-scale-multiple"></ngx-spinner>
 ```
 
 - **[bdOpacity]**: between `0.0` to `1.0`.
@@ -96,8 +108,19 @@ See [Plunkr Demo](https://plnkr.co/edit/vwWmv3mj8jUYA8ArHfXM?p=preview)
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
   To set color of spinner, default `#fff`
+- **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
+  To set type of spinner, default `ball-scale-multiple`
+  
+### How to use type?
+
+- Go to the [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
+- Select any animation, copy name of animation, replace all spaces with hyphen(-) and all letters should be lowercase. 
+  - Let's say if I select "Ball 8bits" animation then `type` will be `ball-8bits`.
+  - For more information you can check it out [Demo](https://napster2210.github.io/ngx-spinner/)
+
 
 ## Versioning
+
 ngx-spinner will be maintained under the Semantic Versioning guidelines.
 Releases will be numbered with the following format:
 
@@ -106,14 +129,18 @@ Releases will be numbered with the following format:
 For more information on SemVer, please visit http://semver.org.
 
 ## Creator
+
 #### [Yuvraj Chauhan](mailto:yuvrajchauhan3113@gmail.com)
 - [@GitHub](https://github.com/Napster2210)
 
 ## Future Plan
-- Stable version v1.0.0 (Coming soon)
-- More than 50 different types of spinner (Coming soon)
+
 - Interceptor Implementation (Coming soon)
-- Github page with working example
+
+## Credits
+
+ Inspired by [Load Awesome by Daniel Cardoso.](https://github.com/danielcardoso/load-awesome)
 
 ## License
+
 #### The MIT License (MIT)
