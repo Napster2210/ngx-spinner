@@ -18,7 +18,7 @@ class AppComponent implements OnInit {
     bdColor: '#333',
     size: 'large',
     color: '#fff',
-    type: 'timer'
+    type: 'pacman'
   }
 
   constructor(private spinner: NgxSpinnerService) { }
