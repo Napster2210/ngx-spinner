@@ -18,38 +18,150 @@ import { LOADERS } from './loader.layout';
 })
 
 export class NgxSpinnerComponent implements OnDestroy, OnInit {
+
+    /**
+     * Local variable for backdrop opacity
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    _bdOpacity = 0.8;
+
     /**
      * To set backdrop opacity(0.8)
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input() bdOpacity = 0.8;
+    @Input()
+    public set bdOpacity(opacity: number) {
+        this._bdOpacity = opacity;
+    }
+
+    /**
+     * To get value of backdrop opacity
+     *
+     * @readonly
+     * @type {number}
+     * @memberof NgxSpinnerComponent
+     */
+    public get bdOpacity(): number {
+        return this._bdOpacity;
+    }
+
+    /**
+     * Local variable for backdrop color
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    _bdColor = '#333';
+
     /**
      * To set backdrop color('#333')
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input() bdColor = '#333';
+    @Input()
+    public set bdColor(color: string) {
+        this._bdColor = color;
+    }
+
+    /**
+     * To get value of backdrop color
+     *
+     * @readonly
+     * @type {string}
+     * @memberof NgxSpinnerComponent
+     */
+    public get bdColor(): string {
+        return this._bdColor;
+    }
+
+    /**
+     * Local variable for spinner size
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    _size = '';
+
     /**
      * To set spinner size
      *
      * @type {string}
      * @memberof NgxSpinnerComponent
      */
-    @Input() size: string;
+    @Input()
+    public set size(value: string) {
+        this._size = value;
+    }
+
+    /**
+     * To get value of spinner size
+     *
+     * @readonly
+     * @type {string}
+     * @memberof NgxSpinnerComponent
+     */
+    public get size(): string {
+        return this._size;
+    }
+
+    /**
+     * Local variable for spinner color
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    _color = '#fff';
+
     /**
      * To set spinner color('#fff')
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input() color = '#fff';
+    @Input()
+    public set color(value: string) {
+        this._color = value;
+    }
+
+    /**
+     * To get value of spinner color
+     *
+     * @readonly
+     * @type {string}
+     * @memberof NgxSpinnerComponent
+     */
+    public get color(): string {
+        return this._color;
+    }
+
+    /**
+     * Local variable for spinner type
+     *
+     * @type {string}
+     * @memberof NgxSpinnerComponent
+     */
+    _type: string;
+
     /**
      * To set type of spinner
      *
      * @type {string}
      * @memberof NgxSpinnerComponent
      */
-    @Input() type: string;
+    @Input()
+    public set type(value: string) {
+        this._type = value;
+    }
+
+    /**
+     * To get value of spinner type
+     *
+     * @readonly
+     * @type {string}
+     * @memberof NgxSpinnerComponent
+     */
+    public get type(): string {
+        return this._type;
+    }
+
     /**
      * Class for spinner
      *
@@ -57,12 +169,14 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @memberof NgxSpinnerComponent
      */
     spinnerClass: string;
+
     /**
      * Flag to show/hide spinner
      *
      * @memberof NgxSpinnerComponent
      */
     showSpinner = false;
+
     /**
      * Subscription variable for spinner
      *
@@ -71,9 +185,20 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      */
     spinnerSubscription: Subscription;
 
+    /**
+     * Array for spinner divs
+     *
+     * @type {Array<number>}
+     * @memberof NgxSpinnerComponent
+     */
     divArray: Array<number> = [];
-    divCount = 0;
 
+    /**
+     * Counter for div
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    divCount = 0;
 
     /**
      * Creates an instance of NgxSpinnerComponent.
