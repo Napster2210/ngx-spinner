@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
 import { LOADERS } from './loader.layout';
@@ -17,70 +17,21 @@ import { LOADERS } from './loader.layout';
     styleUrls: ['ngx-spinner.component.css']
 })
 
-export class NgxSpinnerComponent implements OnDestroy, OnInit {
-
-    /**
-     * Local variable for backdrop opacity
-     *
-     * @memberof NgxSpinnerComponent
-     */
-    _bdOpacity = 0.8;
+export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
 
     /**
      * To set backdrop opacity(0.8)
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input()
-    public set bdOpacity(opacity: number) {
-        this._bdOpacity = opacity;
-    }
-
-    /**
-     * To get value of backdrop opacity
-     *
-     * @readonly
-     * @type {number}
-     * @memberof NgxSpinnerComponent
-     */
-    public get bdOpacity(): number {
-        return this._bdOpacity;
-    }
-
-    /**
-     * Local variable for backdrop color
-     *
-     * @memberof NgxSpinnerComponent
-     */
-    _bdColor = '#333';
+    @Input() bdOpacity = 0.8;
 
     /**
      * To set backdrop color('#333')
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input()
-    public set bdColor(color: string) {
-        this._bdColor = color;
-    }
-
-    /**
-     * To get value of backdrop color
-     *
-     * @readonly
-     * @type {string}
-     * @memberof NgxSpinnerComponent
-     */
-    public get bdColor(): string {
-        return this._bdColor;
-    }
-
-    /**
-     * Local variable for spinner size
-     *
-     * @memberof NgxSpinnerComponent
-     */
-    _size = '';
+    @Input() bdColor = '#333';
 
     /**
      * To set spinner size
@@ -88,57 +39,14 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @type {string}
      * @memberof NgxSpinnerComponent
      */
-    @Input()
-    public set size(value: string) {
-        this._size = value;
-    }
-
-    /**
-     * To get value of spinner size
-     *
-     * @readonly
-     * @type {string}
-     * @memberof NgxSpinnerComponent
-     */
-    public get size(): string {
-        return this._size;
-    }
-
-    /**
-     * Local variable for spinner color
-     *
-     * @memberof NgxSpinnerComponent
-     */
-    _color = '#fff';
+    @Input() size = '';
 
     /**
      * To set spinner color('#fff')
      *
      * @memberof NgxSpinnerComponent
      */
-    @Input()
-    public set color(value: string) {
-        this._color = value;
-    }
-
-    /**
-     * To get value of spinner color
-     *
-     * @readonly
-     * @type {string}
-     * @memberof NgxSpinnerComponent
-     */
-    public get color(): string {
-        return this._color;
-    }
-
-    /**
-     * Local variable for spinner type
-     *
-     * @type {string}
-     * @memberof NgxSpinnerComponent
-     */
-    _type: string;
+    @Input() color = '#fff';
 
     /**
      * To set type of spinner
@@ -146,21 +54,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @type {string}
      * @memberof NgxSpinnerComponent
      */
-    @Input()
-    public set type(value: string) {
-        this._type = value;
-    }
-
-    /**
-     * To get value of spinner type
-     *
-     * @readonly
-     * @type {string}
-     * @memberof NgxSpinnerComponent
-     */
-    public get type(): string {
-        return this._type;
-    }
+    @Input() type: string;
 
     /**
      * Class for spinner
@@ -217,7 +111,36 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      * @memberof NgxSpinnerComponent
      */
     ngOnInit() {
-        this.spinnerClass = this.getClass(this.type, this.size);
+        this.onInputChange();
+    }
+
+    /**
+     * On changes event for input variables
+     *
+     * @param {SimpleChanges} changes Object for changed values
+     * @memberof NgxSpinnerComponent
+     */
+    ngOnChanges(changes: SimpleChanges) {
+        const typeChange: SimpleChange = changes.type;
+        const sizeChange: SimpleChange = changes.size;
+
+        if (typeChange) {
+            if (typeof typeChange.currentValue !== 'undefined' && typeChange.currentValue !== typeChange.previousValue) {
+                if (typeChange.currentValue !== '') {
+                    this.type = typeChange.currentValue;
+                    this.onInputChange();
+                }
+            }
+        }
+
+        if (sizeChange) {
+            if (typeof sizeChange.currentValue !== 'undefined' && sizeChange.currentValue !== sizeChange.previousValue) {
+                if (sizeChange.currentValue !== '') {
+                    this.size = sizeChange.currentValue;
+                    this.onInputChange();
+                }
+            }
+        }
     }
 
     /**
@@ -246,6 +169,15 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
                 break;
         }
         return 'la-' + type + ' ' + sizeClass;
+    }
+
+    /**
+     * After input variables chnage event
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    onInputChange() {
+        this.spinnerClass = this.getClass(this.type, this.size);
     }
 
     /**
