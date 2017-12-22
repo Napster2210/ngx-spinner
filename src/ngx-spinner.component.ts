@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
 import { LOADERS } from './loader.layout';
@@ -14,7 +14,8 @@ import { LOADERS } from './loader.layout';
 @Component({
     selector: 'ngx-spinner',
     templateUrl: 'ngx-spinner.component.html',
-    styleUrls: ['ngx-spinner.component.css']
+    styleUrls: ['ngx-spinner.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NgxSpinnerComponent implements OnDestroy, OnInit {
@@ -71,9 +72,20 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit {
      */
     spinnerSubscription: Subscription;
 
+    /**
+     * Array for spinner template divs
+     *
+     * @type {Array<number>}
+     * @memberof NgxSpinnerComponent
+     */
     divArray: Array<number> = [];
-    divCount = 0;
 
+    /**
+     * Counter for div
+     *
+     * @memberof NgxSpinnerComponent
+     */
+    divCount = 0;
 
     /**
      * Creates an instance of NgxSpinnerComponent.
