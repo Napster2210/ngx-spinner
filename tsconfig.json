@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "experimentalDecorators": true,
+    "target": "es5",
     "moduleResolution": "node",
     "rootDir": "./src",
     "lib": [
