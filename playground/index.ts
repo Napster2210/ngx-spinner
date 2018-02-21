@@ -10,7 +10,8 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app',
   template: `<ngx-spinner [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size"
-  [color]="spinnerConfig.color" [type]="spinnerConfig.type"></ngx-spinner>`
+  [color]="spinnerConfig.color" [type]="spinnerConfig.type"></ngx-spinner>
+  <button (click)="showSpinner()">Start</button>`
 })
 class AppComponent implements OnInit {
 
@@ -24,7 +25,14 @@ class AppComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.spinner.show(); // Call this method to show spinner
+    // this.spinner.show(); // Call this method to show spinner
+  }
+
+  showSpinner() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
   }
 }
 
