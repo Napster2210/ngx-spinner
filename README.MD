@@ -97,7 +97,7 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
 ## NgxSpinner Component
 
 ```html
-<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff" [type]="ball-scale-multiple"></ngx-spinner>
+<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff" [loadingText]="Loading..." [type]="ball-scale-multiple"></ngx-spinner>
 ```
 
 - **[bdOpacity]**: between `0.0` to `1.0`.
@@ -108,6 +108,8 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
   To set color of spinner, default `#fff`
+- **[loadingText]**: Loading Text.
+  To set loadingText of spinner, default `false`  
 - **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
   To set type of spinner, default `ball-scale-multiple`
   
@@ -136,6 +138,7 @@ For more information on SemVer, please visit http://semver.org.
 ## Future Plan
 
 - Interceptor Implementation (Coming soon)
+- Spinner in specific container(DOM Element)
 
 ## Credits
 
