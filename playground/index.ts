@@ -10,7 +10,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app',
   template: `<ngx-spinner [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size"
-  [color]="spinnerConfig.color" [type]="spinnerConfig.type"></ngx-spinner>
+  [color]="spinnerConfig.color" [loadingText]="spinnerConfig.loadigText"></ngx-spinner>
   <button (click)="showSpinner()">Start</button>`
 })
 class AppComponent implements OnInit {
@@ -19,7 +19,8 @@ class AppComponent implements OnInit {
     bdColor: '#333',
     size: 'large',
     color: '#fff',
-    type: 'pacman'
+    type: 'pacman',
+    loadigText: 'Loading...'
   }
 
   constructor(private spinner: NgxSpinnerService) { }
@@ -30,9 +31,9 @@ class AppComponent implements OnInit {
 
   showSpinner() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000);
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 3000);
   }
 }
 

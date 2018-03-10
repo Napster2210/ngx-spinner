@@ -4,7 +4,7 @@ var gulp = require('gulp'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
   rename = require('gulp-rename'),
-  del = require('del'),
+  fs = require('fs-extra'),
   runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
 
@@ -21,7 +21,7 @@ gulp.task('clean:dist', function () {
 
   // Delete contents but not dist folder to avoid broken npm links
   // when dist directory is removed while npm link references it.
-  return deleteFolders([distFolder + '/**', '!' + distFolder]);
+  return fs.emptyDirSync(distFolder);
 });
 
 /**
@@ -167,14 +167,14 @@ gulp.task('copy:readme', function () {
  * 10. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
-  return deleteFolders([tmpFolder]);
+  return deleteFolder(tmpFolder);
 });
 
 /**
  * 11. Delete /build folder
  */
 gulp.task('clean:build', function () {
-  return deleteFolders([buildFolder]);
+  return deleteFolder(buildFolder);
 });
 
 gulp.task('compile', function () {
@@ -193,7 +193,9 @@ gulp.task('compile', function () {
     function (err) {
       if (err) {
         console.log('ERROR:', err.message);
-        deleteFolders([distFolder, tmpFolder, buildFolder]);
+        deleteFolder(distFolder);
+        deleteFolder(tmpFolder);
+        deleteFolder(buildFolder);
       } else {
         console.log('Compilation finished succesfully');
       }
@@ -216,6 +218,6 @@ gulp.task('default', ['build:watch']);
 /**
  * Deletes the specified folder
  */
-function deleteFolders(folders) {
-  return del(folders);
+function deleteFolder(folder) {
+  return fs.removeSync(folder);
 }
