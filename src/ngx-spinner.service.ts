@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-/**
- * Spinner service
- *
- * @export
- * @class NgxSpinnerService
- */
 @Injectable()
 export class NgxSpinnerService {
     /**

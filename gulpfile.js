@@ -78,12 +78,15 @@ gulp.task('rollup:fesm', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        'rxjs/Subject'
       ],
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'es'
+      output: {
+        format: 'es'
+      }
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -93,6 +96,13 @@ gulp.task('rollup:fesm', function () {
  *    generated file into the /dist folder
  */
 gulp.task('rollup:umd', function () {
+  const rollupGlobals = {
+    '@angular/core': 'ng.core',
+    '@angular/common': 'ng.common',
+    'rxjs/Subject': 'Rx.Subject',
+    'typescript': 'ts'
+  };
+
   return gulp.src(`${buildFolder}/**/*.js`)
     // transform the files here.
     .pipe(rollup({
@@ -109,27 +119,21 @@ gulp.task('rollup:umd', function () {
 
       // A list of IDs of modules that should remain external to the bundle
       // See "external" in https://rollupjs.org/#core-functionality
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: Object.keys(rollupGlobals),
 
-      // Format of generated bundle
-      // See "format" in https://rollupjs.org/#core-functionality
-      format: 'umd',
-
-      // Export mode to use
-      // See "exports" in https://rollupjs.org/#danger-zone
-      exports: 'named',
-
-      // The name to use for the module for UMD/IIFE bundles
-      // (required for bundles with exports)
-      // See "name" in https://rollupjs.org/#core-functionality
-      name: 'ngx-spinner',
-
-      // See "globals" in https://rollupjs.org/#core-functionality
-      globals: {
-        typescript: 'ts'
+      output: {
+        // Format of generated bundle
+        // See "format" in https://rollupjs.org/#core-functionality
+        format: 'umd',
+        // Export mode to use
+        // See "exports" in https://rollupjs.org/#danger-zone
+        exports: 'named',
+        // The name to use for the module for UMD/IIFE bundles
+        // (required for bundles with exports)
+        // See "name" in https://rollupjs.org/#core-functionality
+        name: 'ngx-spinner',
+        // See "globals" in https://rollupjs.org/#core-functionality
+        globals: rollupGlobals
       }
 
     }))

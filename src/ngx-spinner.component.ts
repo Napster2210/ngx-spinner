@@ -3,14 +3,6 @@ import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
 import { LOADERS } from './loader.layout';
 
-/**
- * Main component
- *
- * @export
- * @class NgxSpinnerComponent
- * @implements {OnDestroy}
- * @implements {OnInit}
- */
 @Component({
     selector: 'ngx-spinner',
     templateUrl: 'ngx-spinner.component.html',
@@ -36,7 +28,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * To set spinner size
      *
-     * @type {string}
      * @memberof NgxSpinnerComponent
      */
     @Input() size = '';
@@ -51,13 +42,12 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * To set type of spinner
      *
-     * @type {string}
      * @memberof NgxSpinnerComponent
      */
     @Input() type: string;
     /**
      * To set loading text(false)
-     * 
+     *
      * @memberof NgxSpinnerComponent
      */
     @Input() loadingText = false;
@@ -65,7 +55,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * Class for spinner
      *
-     * @type {string}
      * @memberof NgxSpinnerComponent
      */
     spinnerClass: string;
@@ -80,7 +69,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * Subscription variable for spinner
      *
-     * @type {Subscription}
      * @memberof NgxSpinnerComponent
      */
     spinnerSubscription: Subscription;
@@ -88,7 +76,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * Array for spinner divs
      *
-     * @type {Array<number>}
      * @memberof NgxSpinnerComponent
      */
     divArray: Array<number> = [];
@@ -102,7 +89,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
 
     /**
      * Creates an instance of NgxSpinnerComponent.
-     * @param {NgxSpinnerService} spinnerService Service for spinner functionality
+     *
      * @memberof NgxSpinnerComponent
      */
     constructor(private spinnerService: NgxSpinnerService) {
@@ -123,7 +110,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * On changes event for input variables
      *
-     * @param {SimpleChanges} changes Object for changed values
      * @memberof NgxSpinnerComponent
      */
     ngOnChanges(changes: SimpleChanges) {
@@ -152,9 +138,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     /**
      * To get class for spinner
      *
-     * @param {string} [type='ball-scale-multiple'] Spinner type
-     * @param {string} [size='large'] Spinner size
-     * @returns {string} It'll return spinner class
      * @memberof NgxSpinnerComponent
      */
     getClass(type = 'ball-scale-multiple', size = 'large'): string {
