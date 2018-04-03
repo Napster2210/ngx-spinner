@@ -3,7 +3,7 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 2/4/5. (https://napster2210.github.io/ngx-spinner/)
+A library for loading spinner specifically for Angular 5. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%202%2B-brightgreen.svg?style=flat-square)]()
