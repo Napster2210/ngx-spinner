@@ -50,9 +50,19 @@ gulp.task('inline-resources', function () {
  *
  *    As of Angular 5, ngc accepts an array and no longer returns a promise.
  */
+// gulp.task('ngc', function () {
+//   ngc(['--project', `${tmpFolder}/tsconfig.es5.json`]);
+//   return Promise.resolve()
+// });
 gulp.task('ngc', function () {
-  ngc(['--project', `${tmpFolder}/tsconfig.es5.json`]);
-  return Promise.resolve()
+  return ngc({
+    project: `${tmpFolder}/tsconfig.es5.json`
+  })
+    .then((exitCode) => {
+      if (exitCode === 1) {
+        throw new Error('Compiler error');
+      }
+    });
 });
 
 /**
@@ -78,12 +88,15 @@ gulp.task('rollup:fesm', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        'rxjs/Subject'
       ],
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'es'
+      output: {
+        format: 'es'
+      }
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -93,6 +106,13 @@ gulp.task('rollup:fesm', function () {
  *    generated file into the /dist folder
  */
 gulp.task('rollup:umd', function () {
+  const rollupGlobals = {
+    '@angular/core': 'ng.core',
+    '@angular/common': 'ng.common',
+    'rxjs/Subject': 'Rx.Subject',
+    'typescript': 'ts'
+  };
+
   return gulp.src(`${buildFolder}/**/*.js`)
     // transform the files here.
     .pipe(rollup({
@@ -109,27 +129,21 @@ gulp.task('rollup:umd', function () {
 
       // A list of IDs of modules that should remain external to the bundle
       // See "external" in https://rollupjs.org/#core-functionality
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: Object.keys(rollupGlobals),
 
-      // Format of generated bundle
-      // See "format" in https://rollupjs.org/#core-functionality
-      format: 'umd',
-
-      // Export mode to use
-      // See "exports" in https://rollupjs.org/#danger-zone
-      exports: 'named',
-
-      // The name to use for the module for UMD/IIFE bundles
-      // (required for bundles with exports)
-      // See "name" in https://rollupjs.org/#core-functionality
-      name: 'ngx-spinner',
-
-      // See "globals" in https://rollupjs.org/#core-functionality
-      globals: {
-        typescript: 'ts'
+      output: {
+        // Format of generated bundle
+        // See "format" in https://rollupjs.org/#core-functionality
+        format: 'umd',
+        // Export mode to use
+        // See "exports" in https://rollupjs.org/#danger-zone
+        exports: 'named',
+        // The name to use for the module for UMD/IIFE bundles
+        // (required for bundles with exports)
+        // See "name" in https://rollupjs.org/#core-functionality
+        name: 'ngx-spinner',
+        // See "globals" in https://rollupjs.org/#core-functionality
+        globals: rollupGlobals
       }
 
     }))
@@ -209,10 +223,18 @@ gulp.task('watch', function () {
   gulp.watch(`${srcFolder}/**/*`, ['compile']);
 });
 
-gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
+gulp.task('clean', function (callback) {
+  runSequence('clean:dist', 'clean:tmp', 'clean:build', callback);
+});
 
-gulp.task('build', ['clean', 'compile']);
-gulp.task('build:watch', ['build', 'watch']);
+gulp.task('build', function (callback) {
+  runSequence('clean', 'compile', callback);
+});
+
+gulp.task('build:watch', function (callback) {
+  runSequence('build', 'watch', callback);
+});
+
 gulp.task('default', ['build:watch']);
 
 /**

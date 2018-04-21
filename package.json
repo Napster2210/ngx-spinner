@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -49,12 +49,12 @@
     "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
   },
   "devDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/compiler-cli": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
     "@compodoc/compodoc": "^1.0.0-beta.10",
     "@types/jasmine": "2.5.53",
     "@types/node": "~6.0.60",
