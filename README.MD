@@ -97,13 +97,12 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
 ## NgxSpinner Component
 
 ```html
-<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff" [loadingText]="Loading..." [type]="ball-scale-multiple"></ngx-spinner>
+<ngx-spinner [bdColor]="rgba(51,51,51,0.8)" [size]="medium" [color]="#fff" [loadingText]="Loading..." [type]="ball-scale-multiple"></ngx-spinner>
 ```
 
-- **[bdOpacity]**: between `0.0` to `1.0`.
-  To set opacity of backdrop, default `0.8`
-- **[bdColor]**: Any css color format.
-  To set background-color for backdrop, default `#333`
+- **[bdColor]**: RGBA color format.
+  To set background-color for backdrop, default `rgba(51,51,51,0.8)`
+  Wehre `aplha` value is opacity of backdrop(0.8)
 - **[size]**: Anyone from `small`, `default`, `medium`, `large`.
   To set size of spinner, default `large`
 - **[color]**: Any css color format.

@@ -16,10 +16,9 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 class AppComponent implements OnInit {
 
   spinnerConfig: object = {
-    bdColor: '#333',
+    bdColor: 'rgba(51,51,51,0.8)',
     size: 'large',
     color: '#fff',
-    type: 'pacman',
     loadigText: 'Loading...'
   }
 
