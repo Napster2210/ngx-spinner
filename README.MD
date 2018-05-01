@@ -102,7 +102,13 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
 ## NgxSpinner Component
 
 ```html
-<ngx-spinner [bdColor]="rgba(51,51,51,0.8)" [size]="medium" [color]="#fff" [loadingText]="Loading..." [type]="ball-scale-multiple"></ngx-spinner>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  loadingText="Loading..."
+  type="ball-scale-multiple">
+</ngx-spinner>
 ```
 
 - **[bdColor]**: RGBA color format.
