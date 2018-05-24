@@ -3,14 +3,14 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 4/5. (https://napster2210.github.io/ngx-spinner/)
+A library for loading spinner specifically for Angular 6. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
-The version 1.x supports Angular 4 & 5. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
+The version 2.x supports Angular 6. <b>UPDATE: Now works with Angular 6(v2.0.2)</b>
 
 ## Table of contents
 

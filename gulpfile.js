@@ -54,17 +54,14 @@ gulp.task('inline-resources', function () {
 //   ngc(['--project', `${tmpFolder}/tsconfig.es5.json`]);
 //   return Promise.resolve()
 // });
-gulp.task('ngc', function () {
-  return ngc({
-    project: `${tmpFolder}/tsconfig.es5.json`
-  })
-    .then((exitCode) => {
-      if (exitCode === 1) {
-        throw new Error('Compiler error');
-      }
-    });
-});
 
+gulp.task('ngc', function () {
+  return ngc(['--project', `${tmpFolder}/tsconfig.es5.json`], (error) => {
+    if (error) {
+      throw new Error('ngc compilation failed: ' + error);
+    }
+  });
+});
 /**
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
