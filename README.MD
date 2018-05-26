@@ -3,14 +3,20 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 4/5. (https://napster2210.github.io/ngx-spinner/)
+A library for loading spinner specifically for Angular 4/5/6. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
-The version 1.x supports Angular 4 & 5. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
+The version 1.x supports Angular 4. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
+
+| Angular 4 | Angular 5 | Angular 6
+| --- | --- | --- |
+| >= `v1.2.0` | >= `v2.0.0` | >= `v6.0.0` |
 
 ## Table of contents
 
@@ -97,13 +103,17 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
 ## NgxSpinner Component
 
 ```html
-<ngx-spinner [bdOpacity]="0.9" [bdColor]="#909090" [size]="medium" [color]="#fff" [loadingText]="Loading..." [type]="ball-scale-multiple"></ngx-spinner>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  loadingText="Loading..."
+  type="ball-scale-multiple">
+</ngx-spinner>
 ```
 
-- **[bdOpacity]**: between `0.0` to `1.0`.
-  To set opacity of backdrop, default `0.8`
-- **[bdColor]**: Any css color format.
-  To set background-color for backdrop, default `#333`
+- **[bdColor]**: RGBA color format.
+  To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `aplha` value(0.8) is opacity of backdrop
 - **[size]**: Anyone from `small`, `default`, `medium`, `large`.
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
@@ -139,6 +149,8 @@ For more information on SemVer, please visit http://semver.org.
 
 - Interceptor Implementation (Coming soon)
 - Spinner in specific container(DOM Element)
+- Multiple Spinner Support
+- Configurable option using service
 
 ## Credits
 
