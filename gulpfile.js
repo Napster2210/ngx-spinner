@@ -79,7 +79,7 @@ gulp.task('rollup:fesm', function () {
       external: [
         '@angular/core',
         '@angular/common',
-        'rxjs/Subject'
+        'rxjs'
       ],
 
       // Format of generated bundle
@@ -99,7 +99,7 @@ gulp.task('rollup:umd', function () {
   const rollupGlobals = {
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
-    'rxjs/Subject': 'Rx.Subject',
+    'rxjs': 'Rx',
     'typescript': 'ts'
   };
 

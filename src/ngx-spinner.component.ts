@@ -1,6 +1,6 @@
 import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { LOADERS } from './loader.layout';
 
 @Component({
