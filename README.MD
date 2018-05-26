@@ -3,19 +3,20 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 4/5. (https://napster2210.github.io/ngx-spinner/)
+A library for loading spinner specifically for Angular 4/5/6. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
-The version 1.x supports Angular 4 & 5. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
+The version 1.x supports Angular 4. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
 
-| Angular 4 | Angular 5 |
-| --- | --- |
-| >= `v1.2.0` | >= `v2.0.0` |
+| Angular 4 | Angular 5 | Angular 6
+| --- | --- | --- |
+| >= `v1.2.0` | >= `v2.0.0` | >= `v6.0.0` |
 
 ## Table of contents
 
@@ -148,6 +149,8 @@ For more information on SemVer, please visit http://semver.org.
 
 - Interceptor Implementation (Coming soon)
 - Spinner in specific container(DOM Element)
+- Multiple Spinner Support
+- Configurable option using service
 
 ## Credits
 
