@@ -2,5 +2,5 @@
   <div [class]="spinnerClass" [style.color]="color">
     <div *ngFor="let i of divArray"></div>
   </div>
-  <p *ngIf="loadingText" [style.color]="color">{{loadingText}}</p>
+  <p *ngIf="loadingText" [style.color]="color" [ngStyle]="{'font-size': fontSize+'px'}">{{loadingText}}</p>
 </div>
