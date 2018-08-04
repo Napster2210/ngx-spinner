@@ -45,6 +45,13 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() loadingText = false;
 
   /**
+   * To set font-size of loading-text(16px)
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() fontSize: number = 16;
+
+  /**
    * Class for spinner
    *
    * @memberof NgxSpinnerComponent

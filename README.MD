@@ -108,7 +108,8 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   size="medium"
   color="#fff"
   loadingText="Loading..."
-  type="ball-scale-multiple">
+  type="ball-scale-multiple"
+  fontSize="16">
 </ngx-spinner>
 ```
 
@@ -119,7 +120,9 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
 - **[color]**: Any css color format.
   To set color of spinner, default `#fff`
 - **[loadingText]**: Loading Text.
-  To set loadingText of spinner, default `false`  
+  To set loadingText of spinner, default `false`
+- **[fontSize]**: font-size.
+  To set font-size (in 'px') of loading-text, default `16px`
 - **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
   To set type of spinner, default `ball-scale-multiple`
   
