@@ -1,15 +1,28 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "moduleResolution": "node",
-    "rootDir": "./src",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
-      "es2015",
+      "es2017",
       "dom"
     ],
-    "skipLibCheck": true,
-    "types": []
+    "paths": {
+      "ngx-spinner": [
+        "dist/ngx-spinner"
+      ],
+      "ngx-spinner/*": [
+        "dist/ngx-spinner/*"
+      ]
+    }
   }
 }
