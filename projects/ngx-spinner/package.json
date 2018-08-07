@@ -1,0 +1,44 @@
+{
+  "name": "ngx-spinner",
+  "version": "6.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Napster2210/ngx-spinner.git"
+  },
+  "author": {
+    "name": "Yuvraj Chauhan",
+    "email": "yuvrajchauhan41@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "spinner",
+    "angular4",
+    "angular5",
+    "angular6",
+    "loading-spinner",
+    "loading",
+    "loading-animations",
+    "loading-indicator",
+    "loading-screen",
+    "loadingview",
+    "loading-page",
+    "ngx",
+    "ng4",
+    "ng5",
+    "ng6",
+    "loadingscreen",
+    "progress",
+    "progress-loader",
+    "progress-indicators",
+    "progress-circle",
+    "loaders"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

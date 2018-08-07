@@ -1,6 +1,0 @@
-<div class="black-overlay" *ngIf="showSpinner" [ngStyle]="{'background-color': bdColor}">
-  <div [class]="spinnerClass" [style.color]="color">
-    <div *ngFor="let i of divArray"></div>
-  </div>
-  <p *ngIf="loadingText" [style.color]="color">{{loadingText}}</p>
-</div>

@@ -107,8 +107,8 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   bdColor="rgba(51,51,51,0.8)"
   size="medium"
   color="#fff"
-  loadingText="Loading..."
   type="ball-scale-multiple">
+ <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 ```
 
@@ -118,15 +118,14 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
   To set color of spinner, default `#fff`
-- **[loadingText]**: Loading Text.
-  To set loadingText of spinner, default `false`  
 - **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
   To set type of spinner, default `ball-scale-multiple`
-  
+- **Note:** You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
+
 ### How to use type?
 
 - Go to the [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
-- Select any animation, copy name of animation, replace all spaces with hyphen(-) and all letters should be lowercase. 
+- Select any animation, copy name of animation, replace all spaces with hyphen(-) and all letters should be lowercase.
   - Let's say if I select "Ball 8bits" animation then `type` will be `ball-8bits`.
   - For more information you can check it out [Demo](https://napster2210.github.io/ngx-spinner/)
 
@@ -148,7 +147,6 @@ For more information on SemVer, please visit http://semver.org.
 ## Future Plan
 
 - Interceptor Implementation (Coming soon)
-- Spinner in specific container(DOM Element)
 - Multiple Spinner Support
 - Configurable option using service
 
