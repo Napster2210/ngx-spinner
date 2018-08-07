@@ -3,6 +3,6 @@
         <div *ngFor="let i of divArray"></div>
     </div>
 </div>
-<div class="loading-text">
+<div class="loading-text" *ngIf="showSpinner">
     <ng-content></ng-content>
 </div>
