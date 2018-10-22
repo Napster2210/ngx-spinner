@@ -11667,7 +11667,7 @@
     }
 }
 
-.black-overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -11676,7 +11676,7 @@
     z-index: 99999 !important;
 }
 
-.black-overlay>div {
+.overlay>div {
     top: 50%;
     left: 50%;
     margin: 0;
