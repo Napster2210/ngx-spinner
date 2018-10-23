@@ -111,6 +111,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.spinnerService.getSpinner(this.name)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((spinner: NgxSpinner) => {
+        Object.assign(this.spinner, spinner);
         this.show = !this.show;
         if (this.show) this.onInputChange();
       });
