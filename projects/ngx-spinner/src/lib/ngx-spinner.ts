@@ -2,6 +2,13 @@ export const PRIMARY_SPINNER = 'primary'
 
 export type Size = 'default' | 'small' | 'medium' | 'large';
 
+export interface Spinner {
+  bdColor?: string;
+  size?: Size;
+  color?: string;
+  type?: string;
+}
+
 export class NgxSpinner {
   name: string;
   bdColor: string;
