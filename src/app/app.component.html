@@ -1,6 +1,38 @@
 <!-- <div style="background: aliceblue; height: 350px; width: 350px;border: 1px solid #dddd;margin-bottom:10px; position: relative;"> -->
-<ngx-spinner [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size" [color]="spinnerConfig.color">
-    <p style="font-size: 20px; color: white">Loading...</p>
-</ngx-spinner>
+<div class="row">
+  <div class="col-6" [ngStyle]="{'min-height': '40vh'}">
+    <h2 class="float-left">First Spinner</h2>
+    <button class="btn float-right position-relative" (click)="showSpinner(1)">Start</button>
+      <ngx-spinner name="1" [bdColor]="spinnerConfig.bdColor" [size]="spinnerConfig.size" [color]="spinnerConfig.color">
+        <p style="font-size: 20px; color: white">Loading first spinner...</p>
+      </ngx-spinner>
+  </div>
+  <div class="col-6">
+    <h2 class="float-left">Second Spinner</h2>
+    <button class="btn float-right position-relative" (click)="showSpinner('Wasabi')">Start</button>
+    <ngx-spinner name="Wasabi" [bdColor]="'rgba(0,128,0,0.8)'" [type]="'ball-climbing-dot'" [size]="spinnerConfig.size" [color]="'rgba(255,255,51,0.8)'">
+        <p style="font-size: 20px; color: white">Loading some wasabi...</p>
+    </ngx-spinner>
+  </div>
+  <div class="col-12 text-center">
+    <button class="btn btn-block btn-primary" (click)="showSpinner()">Full Screen Spinner(Directive's binding)</button>
+    <button class="btn btn-block btn-danger mt-0" (click)="changeAndShowSpinner()">Full Screen Spinner(Change properties on show call)</button>
+  </div>
+  <div class="col-6" [ngStyle]="{'min-height': '50vh'}">
+    <h2 class="float-left">Third Spinner</h2>
+    <button class="btn float-right position-relative" (click)="showSpinner(2)">Start</button>
+      <ngx-spinner name="2" [bdColor]="'rgba(238,130,238,.8)'" [type]="'ball-clip-rotate-pulse'" [size]="spinnerConfig.size" [color]="'rgba(255,255,51,0.8)'">
+        <p style="font-size: 20px; color: white">Loading third spinner...</p>
+      </ngx-spinner>
+  </div>
+  <div class="col-6">
+    <h2 class="float-left">Forth Spinner</h2>
+    <button class="btn float-right position-relative" (click)="showSpinner('Catchup')">Start</button>
+      <ngx-spinner name="Catchup" [bdColor]="'rgba(255,0,0,.8)'" [type]="'line-scale-party'" [size]="spinnerConfig.size" [color]="spinnerConfig.color">
+        <p style="font-size: 20px; color: white">Loading some catchup...</p>
+      </ngx-spinner>
+  </div>
+</div>
+<ngx-spinner><p style="font-size: 20px; color: white">{{loadingText}}</p></ngx-spinner>
+
 <!-- </div> -->
-<button (click)="showSpinner()">Start</button>
