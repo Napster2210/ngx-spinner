@@ -40,6 +40,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   @Input() fullScreen: boolean = true;
+
   /**
    * Class for spinner
    *
