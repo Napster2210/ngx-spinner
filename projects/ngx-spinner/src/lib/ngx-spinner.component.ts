@@ -34,11 +34,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() type: string;
   /**
-   * To set loading text(false)
    *
    * @memberof NgxSpinnerComponent
    */
-  @Input() loadingText = false;
+
   /**
    * Class for spinner
    *
