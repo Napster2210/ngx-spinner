@@ -39,9 +39,10 @@ export class AppComponent {
   spinnerConfig: object = {
     bdOpacity: 0.9,
     bdColor: '#333',
-    size: 'large',
+    size: 'medium',
     color: '#fff',
-    type: 'ball-8bits'
+    type: 'ball-8bits',
+    fullScreen: true
   };
 
   /**

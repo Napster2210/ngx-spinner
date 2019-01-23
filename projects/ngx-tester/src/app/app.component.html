@@ -1,11 +1,13 @@
 <app-header>
 </app-header>
 <app-banner></app-banner>
-<ngx-spinner [bdOpacity]="spinnerConfig['bdOpacity']" [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
-  [color]="spinnerConfig['color']" [type]="spinnerConfig['type']">
-  <p style="color: white">{{loadingText}}</p>
-</ngx-spinner>
-<mat-grid-list cols="2">
+<div *ngIf="spinnerConfig['fullScreen']">
+  <ngx-spinner [bdOpacity]="spinnerConfig['bdOpacity']" [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
+    [color]="spinnerConfig['color']" [type]="spinnerConfig['type']">
+    <p style="color: white">{{loadingText}}</p>
+  </ngx-spinner>
+</div>
+<mat-grid-list [cols]="spinnerConfig['fullScreen'] ? 2 : 3">
   <mat-grid-tile>
     <div class="config-container">
       <h3>Configuration</h3>
@@ -34,7 +36,18 @@
       <mat-form-field>
         <input matInput placeholder="Loading Text" type="text" [(ngModel)]="loadingText">
       </mat-form-field>
+      <mat-radio-group [(ngModel)]="spinnerConfig['fullScreen']" [style.paddingBottom.px]="20">
+        <label class="mat-input-placeholder mat-form-field-placeholder label-text">Fullscreen Mode</label>
+        <mat-radio-button [value]="true">On</mat-radio-button>
+        <mat-radio-button [value]="false">Off</mat-radio-button>
+      </mat-radio-group>
     </div>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="!spinnerConfig['fullScreen']">
+    <ngx-spinner [bdOpacity]="spinnerConfig['bdOpacity']" [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
+      [color]="spinnerConfig['color']" [type]="spinnerConfig['type']" [fullScreen]="false">
+      <p style="color: white">{{loadingText}}</p>
+    </ngx-spinner>
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="code-container">
@@ -79,6 +92,14 @@
             =
             <i class="input">
               <span>"{{spinnerConfig['type']}}"</span>
+            </i>
+          </span>
+
+          <span class="input-wrapper">
+            <span class="input-name">fullScreen</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['fullScreen']}}"</span>
             </i>
           </span>
           <i class="tag-name">&gt;</i>

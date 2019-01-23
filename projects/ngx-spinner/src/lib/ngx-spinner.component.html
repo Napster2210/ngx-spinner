@@ -1,8 +1,8 @@
-<div class="black-overlay" *ngIf="showSpinner" [ngStyle]="{'background-color': bdColor}">
+<div class="black-overlay" *ngIf="showSpinner" [ngStyle]="{'background-color': bdColor}" [style.position]="fullScreen ? 'fixed' : 'absolute'">
   <div [class]="spinnerClass" [style.color]="color">
     <div *ngFor="let i of divArray"></div>
   </div>
-</div>
-<div class="loading-text" *ngIf="showSpinner">
-  <ng-content></ng-content>
+  <div class="loading-text">
+    <ng-content></ng-content>
+  </div>
 </div>

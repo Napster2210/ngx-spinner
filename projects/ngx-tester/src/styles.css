@@ -4,7 +4,6 @@
 body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
-    overflow: hidden;
 }
 
 .github-corner:hover .octo-arm {
