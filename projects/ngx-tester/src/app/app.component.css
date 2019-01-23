@@ -12,6 +12,8 @@
 .config-container {
   display: flex;
   flex-direction: column;
+  height: calc(100% - 300px);
+  overflow: auto;
 }
 
 .code-container {
