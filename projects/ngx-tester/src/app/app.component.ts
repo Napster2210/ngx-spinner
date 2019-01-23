@@ -23,6 +23,14 @@ export class AppComponent {
   sizeArray: Array<string> = ['small', 'default', 'medium', 'large'];
 
   /**
+   * Loading Text for spinner
+   *
+   * @type {string}
+   * @memberof AppComponent
+   */
+  loadingText: string = 'Loading...';
+
+  /**
    * Spinner configuration
    *
    * @type {object}

@@ -2,7 +2,9 @@
 </app-header>
 <app-banner></app-banner>
 <ngx-spinner [bdOpacity]="spinnerConfig['bdOpacity']" [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
-  [color]="spinnerConfig['color']" [type]="spinnerConfig['type']"></ngx-spinner>
+  [color]="spinnerConfig['color']" [type]="spinnerConfig['type']">
+  <p style="color: white">{{loadingText}}</p>
+</ngx-spinner>
 <mat-grid-list cols="2">
   <mat-grid-tile>
     <div class="config-container">
@@ -28,6 +30,9 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Backdrop Opacity" type="number" min="0" max="1.0" step="0.1" [(ngModel)]="spinnerConfig['bdOpacity']">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Loading Text" type="text" [(ngModel)]="loadingText">
       </mat-form-field>
     </div>
   </mat-grid-tile>
@@ -76,7 +81,15 @@
               <span>"{{spinnerConfig['type']}}"</span>
             </i>
           </span>
-          <i class="tag-name"> &gt;&lt;/ngx-spinner&gt;</i>
+          <i class="tag-name">&gt;</i>
+          <span class="input-name" style="color: aquamarine">
+            <i class="tag-name">&lt;p
+              <span class="input-name">style="color: white"</span>
+              &gt;</i>
+            {{loadingText}}
+            <i class="tag-name">&lt;/p&gt;</i>
+          </span>
+          <i>&lt;/ngx-spinner&gt;</i>
         </div>
       </div>
       <div class="button-container">
