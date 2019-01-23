@@ -1,0 +1,101 @@
+.margin-10 {
+  margin: 10px;
+}
+
+.label-text {
+  display: block;
+  position: inherit;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.config-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-container {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  margin: 20px auto;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+.play-icon {
+  width: 6em;
+  height: 6em;
+  cursor: pointer;
+}
+
+.play-btn-label {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+:host ::ng-deep .mat-grid-tile .mat-figure {
+  align-items: flex-start;
+}
+
+:host ::ng-deep .mat-radio-button {
+  padding-right: 10px;
+}
+
+:host ::ng-deep .mat-fab {
+  width: 7em;
+  height: 7em;
+}
+
+:host ::ng-deep .mat-fab .mat-button-wrapper {
+  padding: 0;
+}
+
+.code-outer {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 14px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.code {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #303030;
+  color: #ce9178;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.code .tag-name {
+  color: #569cd6;
+  line-height: 20px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.code .input-wrapper {
+  margin: 2px;
+}
+
+.code .input-name {
+  color: #9cdcfe;
+}

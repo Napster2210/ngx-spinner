@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "6.1.2",
+  "version": "7.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Napster2210/ngx-spinner.git"
@@ -15,6 +15,7 @@
     "angular4",
     "angular5",
     "angular6",
+    "angular7",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -26,6 +27,7 @@
     "ng4",
     "ng5",
     "ng6",
+    "ng7",
     "loadingscreen",
     "progress",
     "progress-loader",
@@ -38,7 +40,7 @@
     "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
   }
 }

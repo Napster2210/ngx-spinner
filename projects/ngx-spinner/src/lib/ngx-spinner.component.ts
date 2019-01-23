@@ -34,11 +34,12 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() type: string;
   /**
-   * To set loading text(false)
+   * To enable/disable fullscreen mode
    *
+   * @type {boolean}
    * @memberof NgxSpinnerComponent
    */
-  @Input() loadingText = false;
+  @Input() fullScreen: boolean = true;
   /**
    * Class for spinner
    *

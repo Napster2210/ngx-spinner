@@ -3,7 +3,7 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 4/5/6. (https://napster2210.github.io/ngx-spinner/)
+A library for loading spinner specifically for Angular 4/5/6/7. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
@@ -12,11 +12,16 @@ A library for loading spinner specifically for Angular 4/5/6. (https://napster22
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
+## What's New
+
+- Latest update for **Angular 7** 🎉🎉🥳🥳
+- Fullscreen Mode(Enable/Disable)
+
 The version 1.x supports Angular 4. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
 
-| Angular 4 | Angular 5 | Angular 6
+| Angular 4 | Angular 5 | Angular 6/7
 | --- | --- | --- |
-| >= `v1.2.0` | >= `v2.0.0` | >= `v6.0.0` |
+| >= `v1.2.0` | >= `v2.0.0` | >= `v7.0.0` |
 
 ## Table of contents
 
@@ -120,6 +125,8 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   To set color of spinner, default `#fff`
 - **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
   To set type of spinner, default `ball-scale-multiple`
+- **[fullScreen]**: `true` or `false`
+To enable/disable fullscreen mode(overlay), default `true`
 - **Note:** You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
 
 ### How to use type?
