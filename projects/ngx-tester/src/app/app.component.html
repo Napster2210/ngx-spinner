@@ -1,0 +1,91 @@
+<app-header>
+</app-header>
+<app-banner></app-banner>
+<ngx-spinner [bdOpacity]="spinnerConfig['bdOpacity']" [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
+  [color]="spinnerConfig['color']" [type]="spinnerConfig['type']"></ngx-spinner>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <div class="config-container">
+      <h3>Configuration</h3>
+      <mat-form-field>
+        <input matInput placeholder="Spinner Color" [(colorPicker)]="spinnerConfig['color']" [cpCancelButton]="true"
+          [(ngModel)]="spinnerConfig['color']" [cpPosition]="'bottom'">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Backdrop Color" [(colorPicker)]="spinnerConfig['bdColor']" [cpCancelButton]="true"
+          [(ngModel)]="spinnerConfig['bdColor']" [cpPosition]="'bottom'">
+      </mat-form-field>
+      <mat-radio-group [(ngModel)]="spinnerConfig['size']" [style.paddingBottom.px]="20">
+        <label class="mat-input-placeholder mat-form-field-placeholder label-text">Spinner Size</label>
+        <mat-radio-button *ngFor="let label of sizeArray" [value]="label">{{label}}</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field>
+        <mat-select placeholder="Spinner Type" [(ngModel)]="spinnerConfig['type']">
+          <mat-option *ngFor="let loader of loaders" [value]="loader">
+            {{ loader }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Backdrop Opacity" type="number" min="0" max="1.0" step="0.1" [(ngModel)]="spinnerConfig['bdOpacity']">
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="code-container">
+      <div class="code-outer">
+        <div class="code">
+          <i class="tag-name">&lt;ngx-spinner</i>
+
+          <span class="input-wrapper">
+            <span class="input-name">bdOpacity</span>
+            =
+            <i class="input">
+              <span>{{spinnerConfig['bdOpacity']}}</span>
+            </i>
+          </span>
+
+          <span class="input-wrapper">
+            <span class="input-name">bdColor</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['bdColor']}}"</span>
+            </i>
+          </span>
+
+          <span class="input-wrapper">
+            <span class="input-name">size</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['size']}}"</span>
+            </i>
+          </span>
+
+          <span class="input-wrapper">
+            <span class="input-name">color</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['color']}}"</span>
+            </i>
+          </span>
+
+          <span class="input-wrapper">
+            <span class="input-name">type</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['type']}}"</span>
+            </i>
+          </span>
+          <i class="tag-name"> &gt;&lt;/ngx-spinner&gt;</i>
+        </div>
+      </div>
+      <div class="button-container">
+        <button mat-fab color="" (click)="showSpinner()" title="Play Spinner">
+          <img src="assets/play-btn.png" class="play-icon" />
+        </button>
+        <span class="play-btn-label">Play Spinner</span>
+        <p>(Spinner will stop automatically after 3 seconds)</p>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
