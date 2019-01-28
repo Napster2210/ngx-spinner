@@ -34,9 +34,8 @@ export class NgxSpinnerService {
    * @memberof NgxSpinnerService
    */
   show(name: string = PRIMARY_SPINNER, spinner?: Spinner) {
-    if(spinner) { spinner["name"] = name; this.spinnerObservable.next(new NgxSpinner (spinner)); }
+    if(spinner) this.spinnerObservable.next(new NgxSpinner({name: name, ...spinner}));
     else this.spinnerObservable.next(new NgxSpinner({ name }));
-
   }
 
   /**
