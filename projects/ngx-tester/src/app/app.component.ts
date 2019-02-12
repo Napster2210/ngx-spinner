@@ -42,7 +42,8 @@ export class AppComponent {
     size: 'medium',
     color: '#fff',
     type: 'ball-8bits',
-    fullScreen: true
+    fullScreen: false,
+    infinityLoader: true
   };
 
   /**
@@ -119,9 +120,14 @@ export class AppComponent {
    * @memberof AppComponent
    */
   showSpinner() {
+    if(this.spinnerConfig['infinityLoader']) {
+      return this.spinner.show();
+    }
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
     }, 3000);
   }
+
+ 
 }

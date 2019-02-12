@@ -42,6 +42,12 @@
         <mat-radio-button [value]="true">On</mat-radio-button>
         <mat-radio-button [value]="false">Off</mat-radio-button>
       </mat-radio-group>
+      <mat-radio-group [(ngModel)]="spinnerConfig['infinityLoader']" [style.paddingBottom.px]="20">
+        <label class="mat-input-placeholder mat-form-field-placeholder label-text">Infinity Loader Mode</label>
+        <mat-radio-button [value]="true">On</mat-radio-button>
+        <mat-radio-button [value]="false">Off</mat-radio-button>
+      </mat-radio-group>
+
     </div>
   </mat-grid-tile>
   <mat-grid-tile *ngIf="!spinnerConfig['fullScreen']">
