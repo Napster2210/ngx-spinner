@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs';
 import { LOADERS } from './ngx-spinner.enum';
@@ -6,7 +6,8 @@ import { LOADERS } from './ngx-spinner.enum';
 @Component({
   selector: 'ngx-spinner',
   templateUrl: 'ngx-spinner.component.html',
-  styleUrls: ['ngx-spinner.component.css']
+  styleUrls: ['ngx-spinner.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
   /**
@@ -75,9 +76,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  constructor(private spinnerService: NgxSpinnerService) {
+  constructor(private spinnerService: NgxSpinnerService, private readonly changeDetector: ChangeDetectorRef) {
     this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(flag => {
       this.showSpinner = flag;
+      this.changeDetector.markForCheck();
     });
   }
   /**
@@ -146,6 +148,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   onInputChange() {
     this.spinnerClass = this.getClass(this.type, this.size);
+      this.changeDetector.markForCheck();
   }
   /**
    * Component destroy event
