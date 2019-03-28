@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
+interface Spinner {
+  showSpinner: boolean,
+  timeout: number
+}
 @Injectable({
   providedIn: 'root'
 })
