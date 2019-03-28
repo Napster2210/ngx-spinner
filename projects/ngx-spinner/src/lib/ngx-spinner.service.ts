@@ -18,11 +18,11 @@ export class NgxSpinnerService {
   constructor() { }
   /**
    * To show spinner
-   *
+   * timeout feature to avoid infinite loop.default to 35 seconds (Max REST Api Timeout is 30 seconds)
    * @memberof NgxSpinnerService
    */
-  show() {
-    this.spinnerObservable.next(true);
+  show(timeout?: number) {
+    this.spinnerObservable.next({showSpinner: true,timeout: timeout ? timeout : 35000}); 
   }
   /**
    * To hide spinner
@@ -30,6 +30,6 @@ export class NgxSpinnerService {
    * @memberof NgxSpinnerService
    */
   hide() {
-    this.spinnerObservable.next(false);
+    this.spinnerObservable.next({showSpinner: false,timeout:null});
   }
 }

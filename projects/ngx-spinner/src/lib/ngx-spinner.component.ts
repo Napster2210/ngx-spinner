@@ -71,13 +71,25 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   divCount = 0;
   /**
+   * clear previous timer to set new timer.
+   */
+  previousTimer:NodeJS.Timer
+  /**
    * Creates an instance of NgxSpinnerComponent.
    *
    * @memberof NgxSpinnerComponent
    */
   constructor(private spinnerService: NgxSpinnerService) {
-    this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(flag => {
-      this.showSpinner = flag;
+    this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(spinnerObj => {
+      this.showSpinner = spinnerObj.showSpinner;
+      if(this.previousTimer) {
+        clearTimeout(this.previousTimer);
+      }
+      if(spinnerObj.timeout) {
+        this.previousTimer = setTimeout(()=>{
+          this.showSpinner = false;
+        },spinnerObj.timeout);  
+      }
     });
   }
   /**
