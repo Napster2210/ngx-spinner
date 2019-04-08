@@ -11668,7 +11668,7 @@
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -11676,7 +11676,7 @@
     z-index: 99999 !important;
 }
 
-.overlay>div {
+.overlay>div:not(.loading-text) {
     top: 50%;
     left: 50%;
     margin: 0;

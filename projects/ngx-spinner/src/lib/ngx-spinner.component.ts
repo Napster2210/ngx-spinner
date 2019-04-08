@@ -81,6 +81,12 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
   **/
   ngUnsubscribe: Subject<void> = new Subject();
+  /**
+   * To toggle fullscreen mode
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() fullScreen: boolean = true;
 
   /**
    * Creates an instance of NgxSpinnerComponent.
@@ -88,11 +94,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   constructor(
-      private spinnerService: NgxSpinnerService,
-      @Attribute('name') name: string) {
-
+    private spinnerService: NgxSpinnerService,
+    @Attribute('name') name: string) {
     this.name = name || PRIMARY_SPINNER;
-   }
+  }
 
   /**
    * Initialization method
@@ -105,7 +110,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       bdColor: this.bdColor,
       size: this.size,
       color: this.color,
-      type: this.type
+      type: this.type,
+      fullScreen: this.fullScreen
     });
 
     this.spinnerService.getSpinner(this.name)

@@ -7,6 +7,7 @@ export interface Spinner {
   size?: Size;
   color?: string;
   type?: string;
+  fullScreen?: boolean;
 }
 
 export class NgxSpinner {
@@ -18,6 +19,7 @@ export class NgxSpinner {
   class: string;
   divCount: number;
   divArray: Array<number>;
+  fullScreen: boolean;
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);
