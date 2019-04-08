@@ -14,6 +14,8 @@ A library for loading spinner specifically for Angular 4/5/6/7. (https://napster
 
 ## What's New
 
+- Multiple Spinner Support
+- Configurable option through service
 - Latest update for **Angular 7** 🎉🎉🥳🥳
 - Fullscreen Mode(Enable/Disable)
 
@@ -44,6 +46,7 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
 ## Demo
 
 [Working Demo](https://napster2210.github.io/ngx-spinner/)
+- More working example for coming soon(stackblitz)...
 
 ## Installation
 
@@ -98,7 +101,7 @@ Now use in your template
 ```html
 <ngx-spinner></ngx-spinner>
 ```
-See [Demo](https://napster2210.github.io/ngx-spinner/)
+See [Demo](#demo)
 
 ## NgxSpinner Service
 
@@ -127,7 +130,19 @@ See [Demo](https://napster2210.github.io/ngx-spinner/)
   To set type of spinner, default `ball-scale-multiple`
 - **[fullScreen]**: `true` or `false`
 To enable/disable fullscreen mode(overlay), default `true`
-- **Note:** You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
+---
+#### NOTE: 
+- You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
+- If you want multiple `ngx-spinner` instance fro multiple spinner support, just add `name` attribute with `ngx-spinner` component.But in this case, in `show/hide` method you've to pass that particular name of spinner. Check [Demo](#demo)
+- You can also change the options/configuration of spinner through service now.
+```javascript
+this.spinner.show('mySpinner', {
+  type: 'line-scale-party', 
+  size: 'large', 
+  bdColor: 'rgba(100,149,237, .8)', 
+  color: 'white'
+});
+```
 
 ### How to use type?
 
@@ -154,8 +169,6 @@ For more information on SemVer, please visit http://semver.org.
 ## Future Plan
 
 - Interceptor Implementation (Coming soon)
-- Multiple Spinner Support
-- Configurable option using service
 
 ## Credits
 

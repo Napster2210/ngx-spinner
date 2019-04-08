@@ -2,8 +2,7 @@ import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleCh
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PRIMARY_SPINNER, NgxSpinner, Size } from './ngx-spinner';
-import { LOADERS } from './ngx-spinner.enum';
+import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
 
 @Component({
   selector: 'ngx-spinner',
@@ -13,80 +12,71 @@ import { LOADERS } from './ngx-spinner.enum';
 export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
 
   /**
-    * Spinner name
-    * @memberof NgxSpinnerComponent
-  */
+   * Spinner name
+   * @memberof NgxSpinnerComponent
+   */
   private name: string;
-
   /**
-   * To set backdrop color('rgba(51,51,51,0.8)')
+   * To set backdrop color(DEFAULTS.BD_COLOR)
    * Only supports RGBA color format
    * @memberof NgxSpinnerComponent
    */
-  @Input() bdColor: string = 'rgba(51,51,51,0.8)';
-
+  @Input() bdColor = DEFAULTS.BD_COLOR;
   /**
    * To set spinner size
    *
    * @memberof NgxSpinnerComponent
    */
   @Input() size: Size = 'large';
-
   /**
-   * To set spinner color('#fff')
+   * To set spinner color(DEFAULTS.SPINNER_COLOR)
    *
    * @memberof NgxSpinnerComponent
    */
-  @Input() color: string = '#fff';
-
+  @Input() color = DEFAULTS.SPINNER_COLOR;
   /**
    * To set type of spinner
    *
    * @memberof NgxSpinnerComponent
    */
-  @Input() type: string = 'ball-scale-multiple';
-
+  @Input() type = DEFAULTS.SPINNER_TYPE;
+  /**
+   * To toggle fullscreen mode
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() fullScreen = true;
   /**
    * Spinner Object
    *
    * @memberof NgxSpinnerComponent
    */
   spinner: NgxSpinner = new NgxSpinner();
-
   /**
    * Array for spinner's divs
    *
    * @memberof NgxSpinnerComponent
    */
   divArray: Array<number> = [];
-
   /**
    * Counter for div
    *
    * @memberof NgxSpinnerComponent
    *
    */
-  divCount: number = 0;
-
+  divCount = 0;
   /**
    * Show spinner
    *
    * @memberof NgxSpinnerComponent
   **/
-  show: boolean = false;
-
+  show = false;
   /**
    * Unsubscribe from spinner's observable
    *
    * @memberof NgxSpinnerComponent
   **/
   ngUnsubscribe: Subject<void> = new Subject();
-  /**
-   * To toggle fullscreen mode
-   *
-   * @memberof NgxSpinnerComponent
-   */
-  @Input() fullScreen: boolean = true;
 
   /**
    * Creates an instance of NgxSpinnerComponent.
@@ -98,7 +88,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     @Attribute('name') name: string) {
     this.name = name || PRIMARY_SPINNER;
   }
-
   /**
    * Initialization method
    *
@@ -119,7 +108,9 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       .subscribe((spinner: NgxSpinner) => {
         Object.assign(this.spinner, spinner);
         this.show = !this.show;
-        if (this.show) this.onInputChange();
+        if (this.show) {
+          this.onInputChange();
+        }
       });
   }
   /**
@@ -138,7 +129,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
 
         }
       }
-    };
+    }
 
     if (sizeChange) {
       if (typeof sizeChange.currentValue !== 'undefined' && sizeChange.currentValue !== sizeChange.previousValue) {
@@ -173,7 +164,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     }
     return 'la-' + type + ' ' + sizeClass;
   }
-
   /**
    * Check if input variables have changed
    *
