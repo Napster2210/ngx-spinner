@@ -173,6 +173,8 @@ For more information on SemVer, please visit http://semver.org.
 ## Credits
 
  Inspired by [Load Awesome by Daniel Cardoso.](https://github.com/danielcardoso/load-awesome)
+ 
+ Thanks [Alex Vieira Alencar](https://github.com/iamavieira) for Multiple Spinner Support
 
 ## License
 
