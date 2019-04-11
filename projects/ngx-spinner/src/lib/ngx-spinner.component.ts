@@ -1,7 +1,7 @@
 import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange, Attribute } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
-import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
 
 @Component({
@@ -94,6 +94,25 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   ngOnInit() {
+    this.setDefaultOptions();
+    this.spinnerService.getSpinner(this.name)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((spinner: NgxSpinner) => {
+        this.setDefaultOptions();
+        Object.assign(this.spinner, spinner);
+        this.show = spinner.show;
+        if (this.show) {
+          this.fullScreen = spinner.fullScreen;
+          this.onInputChange();
+        }
+      });
+  }
+  /**
+   * To set default ngx-spinner options
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  setDefaultOptions = () => {
     this.spinner = new NgxSpinner({
       name: this.name,
       bdColor: this.bdColor,
@@ -102,19 +121,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       type: this.type,
       fullScreen: this.fullScreen
     });
-
-    this.spinnerService.getSpinner(this.name)
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        distinctUntilChanged()
-      )
-      .subscribe((spinner: NgxSpinner) => {
-        Object.assign(this.spinner, spinner);
-        this.show = spinner.show;
-        if (this.show) {
-          this.onInputChange();
-        }
-      });
   }
   /**
    * On changes event for input variables
@@ -129,7 +135,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       if (typeof typeChange.currentValue !== 'undefined' && typeChange.currentValue !== typeChange.previousValue) {
         if (typeChange.currentValue !== '') {
           this.spinner.type = typeChange.currentValue;
-
         }
       }
     }
@@ -138,7 +143,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       if (typeof sizeChange.currentValue !== 'undefined' && sizeChange.currentValue !== sizeChange.previousValue) {
         if (sizeChange.currentValue !== '') {
           this.spinner.size = sizeChange.currentValue;
-
         }
       }
     }
