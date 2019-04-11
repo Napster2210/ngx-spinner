@@ -14,12 +14,12 @@ A library for loading spinner specifically for Angular 4/5/6/7. (https://napster
 
 ## What's New
 
-- Multiple Spinner Support
-- Configurable option through service
+- Multiple Spinner Support 🎉🎉🥳🥳
+- Configurable option through service 🎉🎉🥳🥳
 - Latest update for **Angular 7** 🎉🎉🥳🥳
 - Fullscreen Mode(Enable/Disable)
 
-The version 1.x supports Angular 4. <b>UPDATE: Now works with Angular 4(v1.2.0)</b>
+Use appropriate version based on your Angular version.
 
 | Angular 4 | Angular 5 | Angular 6/7
 | --- | --- | --- |
@@ -39,14 +39,23 @@ The version 1.x supports Angular 4. <b>UPDATE: Now works with Angular 4(v1.2.0)<
 
 ## Browser Support
 
-![Chrome](http://icons.iconarchive.com/icons/google/chrome/48/Google-Chrome-icon.png) | ![Firefox](https://support.cdn.mozilla.net/static/sumo/img/favicon.ico) | ![IE](https://www.msccruises.co.uk/wcsstore/MSCB2CStoreFrontAssetStore//images/icon_ie.png) | ![Safari](https://aplweb.sercomtel.com.br/sistemas/areaCliente/img/logoSafari.png) | ![Opera](https://www.webcomponents.org/assets/opera.png)
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera
 --- | --- | --- | --- | --- |
-Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | Latest ✔ |
+Latest ✔ | Latest ✔ | IE11, Edge ✔ | Latest ✔ | Latest ✔ |
 
 ## Demo
 
 [Working Demo](https://napster2210.github.io/ngx-spinner/)
-- More working example for coming soon(stackblitz)...
+### StackBlitz Demo:
+
+- [Normal Usage](https://stackblitz.com/edit/angular-kruvnm)
+
+- [Inside Container](https://stackblitz.com/edit/angular-7arfhb)
+
+- [Multiple Spinner](https://stackblitz.com/edit/angular-utwjxi)
+
+- [Change Options Through Service](https://stackblitz.com/edit/angular-exgxk2)
+
 
 ## Installation
 
@@ -133,7 +142,7 @@ To enable/disable fullscreen mode(overlay), default `true`
 ---
 #### NOTE: 
 - You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
-- If you want multiple `ngx-spinner` instance fro multiple spinner support, just add `name` attribute with `ngx-spinner` component.But in this case, in `show/hide` method you've to pass that particular name of spinner. Check [Demo](#demo)
+- If you want multiple `ngx-spinner` instance, just add `name` attribute with `ngx-spinner` component. But in this case, you've to pass that particular name of a spinner in `show/hide` method. Check [Demo](#demo)
 - You can also change the options/configuration of spinner through service now.
 ```javascript
 this.spinner.show('mySpinner', {
@@ -174,8 +183,8 @@ For more information on SemVer, please visit http://semver.org.
 
  Inspired by [Load Awesome by Daniel Cardoso.](https://github.com/danielcardoso/load-awesome)
  
- Thanks [Alex Vieira Alencar](https://github.com/iamavieira) for Multiple Spinner Support
+ Thanks [Alex Vieira Alencar](https://github.com/iamavieira) for helping me with Multiple Spinner Support.
 
-## License
+### License
 
-#### The MIT License (MIT)
+ngx-spinner is [MIT licensed](./LICENSE).
