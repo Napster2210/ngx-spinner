@@ -31,19 +31,28 @@ export class NgxSpinnerService {
    * @memberof NgxSpinnerService
    */
   show(name: string = PRIMARY_SPINNER, spinner?: Spinner) {
-    if (spinner) {
-      spinner['name'] = name;
-      this.spinnerObservable.next(new NgxSpinner(spinner));
-    } else {
-      this.spinnerObservable.next(new NgxSpinner({ name }));
-    }
+    const showPromise = new Promise((resolve, reject) => {
+      if (spinner && Object.keys(spinner).length) {
+        spinner['name'] = name;
+        this.spinnerObservable.next(new NgxSpinner({ ...spinner, show: true }));
+        resolve(true);
+      } else {
+        this.spinnerObservable.next(new NgxSpinner({ name, show: true }));
+        resolve(true);
+      }
+    });
+    return showPromise;
   }
   /**
   * To hide spinner
   *
   * @memberof NgxSpinnerService
   */
-  hide(name: string = PRIMARY_SPINNER): void {
-    this.spinnerObservable.next(new NgxSpinner({ name }));
+  hide(name: string = PRIMARY_SPINNER) {
+    const hidePromise = new Promise((resolve, reject) => {
+      this.spinnerObservable.next(new NgxSpinner({ name, show: false }));
+      resolve(true);
+    });
+    return hidePromise;
   }
 }

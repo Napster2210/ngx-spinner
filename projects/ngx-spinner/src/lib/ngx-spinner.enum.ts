@@ -82,6 +82,7 @@ export class NgxSpinner {
   divCount: number;
   divArray: Array<number>;
   fullScreen: boolean;
+  show: boolean;
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);

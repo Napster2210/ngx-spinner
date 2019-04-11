@@ -1,7 +1,7 @@
 import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange, Attribute } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
 
 @Component({
@@ -104,10 +104,13 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     });
 
     this.spinnerService.getSpinner(this.name)
-      .pipe(takeUntil(this.ngUnsubscribe))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        distinctUntilChanged()
+      )
       .subscribe((spinner: NgxSpinner) => {
         Object.assign(this.spinner, spinner);
-        this.show = !this.show;
+        this.show = spinner.show;
         if (this.show) {
           this.onInputChange();
         }
