@@ -1,4 +1,4 @@
-<div *ngIf="show" class="overlay" [ngStyle]="{'background-color': spinner.bdColor}"
+<div *ngIf="spinner.show" class="overlay" [ngStyle]="{'background-color': spinner.bdColor}"
   [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'">
   <div [class]="spinner.class" [style.color]="spinner.color">
     <div *ngFor="let index of spinner.divArray"></div>
