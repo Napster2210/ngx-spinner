@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { NgxSpinner, PRIMARY_SPINNER, Spinner } from './ngx-spinner.enum';
 
@@ -12,7 +12,7 @@ export class NgxSpinnerService {
    *
    * @memberof NgxSpinnerService
    */
-  private spinnerObservable = new Subject<NgxSpinner>();
+  private spinnerObservable = new ReplaySubject<NgxSpinner>(1);
   /**
    * Creates an instance of NgxSpinnerService.
    * @memberof NgxSpinnerService
