@@ -13,7 +13,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
   /**
    * Array for spinner size
    *
@@ -28,7 +27,7 @@ export class AppComponent {
    * @type {string}
    * @memberof AppComponent
    */
-  loadingText: string = 'Loading...';
+  loadingText = 'Loading...';
 
   /**
    * Spinner configuration
@@ -118,10 +117,10 @@ export class AppComponent {
    *
    * @memberof AppComponent
    */
-  showSpinner() {
-    this.spinner.show();
+  showSpinner(name: string) {
+    this.spinner.show(name);
     setTimeout(() => {
-      this.spinner.hide();
+      this.spinner.hide(name);
     }, 3000);
   }
 }
