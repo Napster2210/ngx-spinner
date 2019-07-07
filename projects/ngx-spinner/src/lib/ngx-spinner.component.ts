@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
-import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
 
 @Component({
@@ -115,8 +115,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.setDefaultOptions();
     this.spinnerService.getSpinner(this.name)
       .pipe(
-        distinctUntilChanged(),
-        debounceTime(500),
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe((spinner: NgxSpinner) => {

@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Napster2210/ngx-spinner.git"
@@ -16,7 +16,6 @@
     "angular5",
     "angular6",
     "angular7",
-    "angular8",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -29,7 +28,6 @@
     "ng5",
     "ng6",
     "ng7",
-    "ng8",
     "loadingscreen",
     "progress",
     "progress-loader",
