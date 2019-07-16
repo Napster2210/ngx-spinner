@@ -22,9 +22,9 @@ A library for loading spinner specifically for Angular 4/5/6/7/8. (https://napst
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7/8 |
-| ----------- | ----------- | ------------- |
-| >= `v1.2.0` | >= `v2.0.0` | >= `v8.0.1`   |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8   |
+| ----------- | ----------- | ----------- | ----------- |
+| >= `v1.2.0` | >= `v2.0.0` | >= `v7.2.0` | >= `v8.0.3` |
 
 ## Table of contents
 
