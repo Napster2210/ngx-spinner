@@ -61,6 +61,7 @@ export const DEFAULTS = {
 };
 
 export const PRIMARY_SPINNER = 'primary';
+export const ALL_SPINNERS = 'all';
 
 export type Size = 'default' | 'small' | 'medium' | 'large';
 

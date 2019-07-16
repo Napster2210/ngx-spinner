@@ -120,7 +120,8 @@ export class AppComponent {
   showSpinner(name: string) {
     this.spinner.show(name);
     setTimeout(() => {
-      this.spinner.hide(name);
+      this.spinner.hide();
     }, 3000);
   }
 }
+
