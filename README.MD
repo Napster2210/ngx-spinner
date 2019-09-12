@@ -80,7 +80,7 @@ Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
 ```typescript
 // Import library module
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -94,7 +94,7 @@ export class AppModule {}
 Add `NgxSpinnerService` service wherever you want to use the `ngx-spinner`.
 
 ```typescript
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 class AppComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService) {}
