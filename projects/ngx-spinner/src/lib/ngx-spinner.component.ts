@@ -12,12 +12,24 @@ import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'ngx-spinner',
   templateUrl: 'ngx-spinner.component.html',
   styleUrls: ['ngx-spinner.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fadeIn', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(300)
+      ]),
+      transition(':leave',
+        animate(200, style({ opacity: 0 })))
+    ])
+  ]
 })
 export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
 
@@ -58,6 +70,12 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() name: string;
   /**
+   * z-index value
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() zIndex: number;
+  /**
    * Spinner Object
    *
    * @memberof NgxSpinnerComponent
@@ -96,9 +114,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   constructor(private spinnerService: NgxSpinnerService, private changeDetector: ChangeDetectorRef) {
     this.bdColor = DEFAULTS.BD_COLOR;
-    this.size = 'large';
+    this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;
     this.type = DEFAULTS.SPINNER_TYPE;
+    this.size = 'large';
     this.fullScreen = true;
     this.name = PRIMARY_SPINNER;
 
@@ -141,7 +160,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       fullScreen: this.fullScreen,
       divArray: this.divArray,
       divCount: this.divCount,
-      show: this.show
+      show: this.show,
+      zIndex: this.zIndex,
     });
   }
   /**
@@ -201,6 +221,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   ngOnDestroy() {
-    this.ngUnsubscribe.unsubscribe();
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

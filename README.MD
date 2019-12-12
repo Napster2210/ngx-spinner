@@ -3,40 +3,50 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library for loading spinner specifically for Angular 4/5/6/7/8. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4/5/6/7/8. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%208%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
 
 ## What's New
 
-- Latest update for **Angular 8** 🎉🎉🥳🥳
-- Multiple Spinner Support 🎉🎉🥳🥳
-- Configurable option through service 🎉🎉🥳🥳
-- Fullscreen Mode(Enable/Disable)
-- `show()/hide()` methods return promise
+- Latest Angular Dependencies
+- Dynamic `z-index`
+- Smooth animation while `hide/show` the spinner
+- Debounce time to delay the spinner from hide
+- BUG fixes
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8   |
-| ----------- | ----------- | ----------- | ----------- |
-| >= `v1.2.0` | >= `v2.0.0` | >= `v7.2.0` | >= `v8.0.3` |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 |
+| ----------- | ----------- | ----------- | --------- |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  |
 
 ## Table of contents
 
+- [What's New](#whats-new)
+- [Table of contents](#table-of-contents)
 - [Browser Support](#browser-support)
+- [Features](#features)
 - [Demo](#demo)
+  - [StackBlitz Demo:](#stackblitz-demo)
 - [Installation](#installation)
 - [Usage](#usage)
+- [NgxSpinner Service](#ngxspinner-service)
+- [NgxSpinner Component](#ngxspinner-component)
+    - [NOTE:](#note)
+  - [How to use type?](#how-to-use-type)
 - [Versioning](#versioning)
 - [Creator](#creator)
+    - [Yuvraj Chauhan](#yuvraj-chauhan)
 - [Future Plan](#future-plan)
 - [Credits](#credits)
-- [License](#license)
+  - [License](#license)
 
 ## Browser Support
 
@@ -44,9 +54,19 @@ Use appropriate version based on your Angular version.
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Latest ✔                                                                                                                                                                                                      | Latest ✔                                                                                                                                                                                                          | IE11, Edge ✔                                                                                                                                                                                                    | Latest ✔                                                                                                                                                                                                                  | Latest ✔                                                                                                                                                                                                  |
 
+## Features
+
+- **Angular 8** Support
+- Multiple Spinners 
+- Configurable option through service
+- Fullscreen Mode(Enable/Disable)
+- `show()/hide()` methods return promise
+- Dynamic `z-index`
+- Smooth animation while `hide/show` the spinner
+
 ## Demo
 
-[Working Demo](https://napster2210.github.io/ngx-spinner/)
+[Working Demo](https://napster2210.github.io/ngx-spinner/)(Not Updated one)
 
 ### StackBlitz Demo:
 
@@ -149,6 +169,8 @@ See [Demo](#demo)
   To enable/disable fullscreen mode(overlay), default `true`
 - **[name]**: For multiple spinners
   To set name for spinner, default `primary`
+- **[zIndex]**: For dynamic z-index
+  To set z-index for the spinner, default `99999`
 
 ---
 
@@ -191,9 +213,9 @@ For more information on SemVer, please visit http://semver.org.
 
 ## Future Plan
 
-- Dynamic `z-index`
 - Image support for spinner
-- Interceptor Implementation (Coming soon)
+- Interceptor Implementation
+- Better DEMO website
 
 ## Credits
 
