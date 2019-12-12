@@ -11673,7 +11673,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 99999 !important;
 }
 
 .overlay>div:not(.loading-text) {
@@ -11689,5 +11688,4 @@
     top: 60%;
     left: 50%;
     transform: translate(-50%, -60%);
-    z-index: 99999 !important;
 }

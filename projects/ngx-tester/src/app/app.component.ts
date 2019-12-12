@@ -119,8 +119,6 @@ export class AppComponent {
    */
   showSpinner(name: string) {
     this.spinner.show(name);
-    setTimeout(() => {
-      this.spinner.hide(name);
-    }, 3000);
+    this.spinner.hide(name, 3000);
   }
 }

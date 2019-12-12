@@ -58,6 +58,7 @@ export const DEFAULTS = {
   BD_COLOR: 'rgba(51,51,51,0.8)',
   SPINNER_COLOR: '#fff',
   SPINNER_TYPE: 'ball-scale-multiple',
+  Z_INDEX: 99999,
 };
 
 export const PRIMARY_SPINNER = 'primary';
@@ -70,6 +71,7 @@ export interface Spinner {
   color?: string;
   type?: string;
   fullScreen?: boolean;
+  zIndex?: number;
 }
 
 export class NgxSpinner {
@@ -83,6 +85,7 @@ export class NgxSpinner {
   divArray: Array<number>;
   fullScreen: boolean;
   show: boolean;
+  zIndex: number;
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);
