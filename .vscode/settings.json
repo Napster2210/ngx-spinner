@@ -4,6 +4,7 @@
     "codelyzer",
     "devkit",
     "jasminewd",
+    "ngcc",
     "packagr",
     "tsickle"
   ]
