@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve ngx-tester -o",
-    "build:lib": "ng build ngx-spinner && npm run copy",
+    "build:lib": "ng build ngx-spinner --prod && npm run copy",
     "copy": "cp README.md dist/ngx-spinner/",
     "build:app": "ng build ngx-tester --prod",
     "test": "ng test",
