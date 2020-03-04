@@ -3,7 +3,7 @@
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library with more than 50 different loading spinners for Angular 4/5/6/7/8. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4/5/6/7/8/9. (https://napster2210.github.io/ngx-spinner/)
 
 [![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
@@ -16,16 +16,14 @@ A library with more than 50 different loading spinners for Angular 4/5/6/7/8. (h
 ## What's New
 
 - Latest Angular Dependencies
-- Dynamic `z-index`
-- Smooth animation while `hide/show` the spinner
-- Debounce time to delay the spinner from hide
-- BUG fixes
+- Angular 9 support
+- `ng add` command to add `ngx-spinner` to the project
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 |
-| ----------- | ----------- | ----------- | --------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9 |
+| ----------- | ----------- | ----------- | --------- | --------- |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | `v9.0.0`  |
 
 ## Table of contents
 
@@ -56,7 +54,7 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 8** Support
+- **Angular 9** Support
 - Multiple Spinners 
 - Configurable option through service
 - Fullscreen Mode(Enable/Disable)
