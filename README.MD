@@ -12,6 +12,7 @@ A library with more than 50 different loading spinners for Angular 4/5/6/7/8/9. 
 [![Support](https://img.shields.io/badge/Support-Angular%208%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
+[![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
@@ -43,6 +44,7 @@ Use appropriate version based on your Angular version.
 - [Creator](#creator)
     - [Yuvraj Chauhan](#yuvraj-chauhan)
 - [Future Plan](#future-plan)
+- [Ask Me](#ask-me)
 - [Credits](#credits)
   - [License](#license)
 
@@ -214,6 +216,9 @@ For more information on SemVer, please visit http://semver.org.
 - Image support for spinner
 - Interceptor Implementation
 - Better DEMO website
+
+## Ask Me
+- Now you can directly send me a message on [Gitter](https://gitter.im/ngx-spinner/community) for any query/suggestion/updates
 
 ## Credits
 
