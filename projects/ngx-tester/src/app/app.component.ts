@@ -41,7 +41,8 @@ export class AppComponent {
     size: 'medium',
     color: '#fff',
     type: 'ball-8bits',
-    fullScreen: true
+    fullScreen: true,
+    template: '<img src="http://pa1.narvii.com/5722/2c617cd9674417d272084884b61e4bb7dd5f0b15_hq.gif" />',
   };
 
   /**
