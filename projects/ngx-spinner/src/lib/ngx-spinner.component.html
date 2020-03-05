@@ -1,8 +1,9 @@
-<div [@fadeIn]="'in'" *ngIf="spinner.show" class="overlay" [style.background-color]="spinner.bdColor" [style.z-index]="spinner.zIndex"
-  [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'">
-  <div [class]="spinner.class" [style.color]="spinner.color">
+<div [@fadeIn]="'in'" *ngIf="spinner.show" class="overlay" [style.background-color]="spinner.bdColor"
+  [style.z-index]="spinner.zIndex" [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'">
+  <div *ngIf="!template" [class]="spinner.class" [style.color]="spinner.color">
     <div *ngFor="let index of spinner.divArray"></div>
   </div>
+  <div *ngIf="template" [innerHTML]="template"></div>
   <div class="loading-text" [style.z-index]="spinner.zIndex">
     <ng-content></ng-content>
   </div>
