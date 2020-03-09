@@ -72,6 +72,7 @@ export interface Spinner {
   type?: string;
   fullScreen?: boolean;
   zIndex?: number;
+  template?: string;
 }
 
 export class NgxSpinner {
@@ -86,6 +87,7 @@ export class NgxSpinner {
   fullScreen: boolean;
   show: boolean;
   zIndex: number;
+  template: string;
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);

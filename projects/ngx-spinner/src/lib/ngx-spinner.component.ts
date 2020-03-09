@@ -76,6 +76,12 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() zIndex: number;
   /**
+   * Custom template for spinner/loader
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() template: string;
+  /**
    * Spinner Object
    *
    * @memberof NgxSpinnerComponent
@@ -120,6 +126,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.size = 'large';
     this.fullScreen = true;
     this.name = PRIMARY_SPINNER;
+    this.template = null;
 
     this.divArray = [];
     this.divCount = 0;
@@ -162,6 +169,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       divCount: this.divCount,
       show: this.show,
       zIndex: this.zIndex,
+      template: this.template,
     });
   }
   /**

@@ -14,6 +14,11 @@
           "options": {
             "tsConfig": "projects/ngx-spinner/tsconfig.lib.json",
             "project": "projects/ngx-spinner/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -48,6 +53,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/ngx-tester",
             "index": "projects/ngx-tester/src/index.html",
             "main": "projects/ngx-tester/src/main.ts",
@@ -84,6 +90,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }

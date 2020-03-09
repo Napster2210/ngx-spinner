@@ -36,12 +36,12 @@ export class AppComponent {
    * @memberof AppComponent
    */
   spinnerConfig: object = {
-    bdOpacity: 0.9,
-    bdColor: '#333',
+    bdColor: 'rgba(0, 0, 0, 1)',
     size: 'medium',
     color: '#fff',
     type: 'ball-8bits',
-    fullScreen: true
+    fullScreen: true,
+    template: '<img src="https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif" />',
   };
 
   /**

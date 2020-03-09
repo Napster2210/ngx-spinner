@@ -1,31 +1,30 @@
+A library with more than 50 different loading spinners for Angular 4/5/6/7/8/9. (https://napster2210.github.io/ngx-spinner/)
+
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-A library with more than 50 different loading spinners for Angular 4/5/6/7/8. (https://napster2210.github.io/ngx-spinner/)
-
-[![ng5](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%208%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![devDependency Status](https://img.shields.io/david/expressjs/express.svg?style=flat-square)]()
+[![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
+- Angular 9 support 🥳🥳🥳🥳
 - Latest Angular Dependencies
-- Dynamic `z-index`
-- Smooth animation while `hide/show` the spinner
-- Debounce time to delay the spinner from hide
-- BUG fixes
+- `ng add` command to add `ngx-spinner` to the project
+- Image Support(Finally) 🥳🥳🥳🥳
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 |
-| ----------- | ----------- | ----------- | --------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9 |
+| ----------- | ----------- | ----------- | --------- | --------- |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | `v9.0.0`  |
 
 ## Table of contents
 
@@ -34,17 +33,20 @@ Use appropriate version based on your Angular version.
 - [Browser Support](#browser-support)
 - [Features](#features)
 - [Demo](#demo)
-  - [StackBlitz Demo:](#stackblitz-demo)
+  - [StackBlitz Demo](#stackblitz-demo)
 - [Installation](#installation)
 - [Usage](#usage)
-- [NgxSpinner Service](#ngxspinner-service)
-- [NgxSpinner Component](#ngxspinner-component)
-    - [NOTE:](#note)
+- [Methods](#methods)
+- [Available Options](#available-options)
+    - [Using Spinner Type](#using-spinner-type)
+    - [Using Custom Spinner](#using-custom-spinner)
+    - [NOTE](#note)
   - [How to use type?](#how-to-use-type)
 - [Versioning](#versioning)
 - [Creator](#creator)
     - [Yuvraj Chauhan](#yuvraj-chauhan)
 - [Future Plan](#future-plan)
+- [Ask Me](#ask-me)
 - [Credits](#credits)
   - [License](#license)
 
@@ -56,7 +58,8 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 8** Support
+- **Angular 9** Support
+- Custom spinner image support(gif), you can pass `img` tag 
 - Multiple Spinners 
 - Configurable option through service
 - Fullscreen Mode(Enable/Disable)
@@ -68,7 +71,7 @@ Use appropriate version based on your Angular version.
 
 [Working Demo](https://napster2210.github.io/ngx-spinner/)(Not Updated one)
 
-### StackBlitz Demo:
+### StackBlitz Demo
 
 - [Normal Usage](https://stackblitz.com/edit/angular-kruvnm)
 
@@ -94,11 +97,18 @@ Using yarn:
 $ yarn add ngx-spinner
 ```
 
+Using angular-cli:
+
+```bash
+$ ng add ngx-spinner
+```
+
 ## Usage
 
 Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
 ```typescript
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -106,7 +116,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
   imports: [
     // ...
     NgxSpinnerModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
 ```
@@ -139,23 +150,12 @@ Now use in your template
 
 See [Demo](#demo)
 
-## NgxSpinner Service
+## Methods
 
 - `NgxSpinnerService.show()` Shows the spinner
 - `NgxSpinnerService.hide()` Hides the spinner
 
-## NgxSpinner Component
-
-```html
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
-</ngx-spinner>
-```
+## Available Options
 
 - **[bdColor]**: RGBA color format.
   To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `aplha` value(0.8) is opacity of backdrop
@@ -171,10 +171,32 @@ See [Demo](#demo)
   To set name for spinner, default `primary`
 - **[zIndex]**: For dynamic z-index
   To set z-index for the spinner, default `99999`
+- **[template]**: For custom spinner image
+  To set custom template for the custom spinner, default `null`
+
+#### Using Spinner Type
+```html
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+```
+
+#### Using Custom Spinner
+```html
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 1)">
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />" 
+</ngx-spinner>
+```
 
 ---
 
-#### NOTE:
+#### NOTE
 
 - You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
 - If you want multiple `ngx-spinner` instance, just add `name` attribute with `ngx-spinner` component. But in this case, you've to pass that particular name of a spinner in `show/hide` method. Check [Demo](#demo)
@@ -184,8 +206,9 @@ See [Demo](#demo)
 this.spinner.show("mySpinner", {
   type: "line-scale-party",
   size: "large",
-  bdColor: "rgba(100,149,237, .8)",
-  color: "white"
+  bdColor: "rgba(0, 0, 0, 1)",
+  color: "white",
+  template: "<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
 });
 ```
 
@@ -213,9 +236,11 @@ For more information on SemVer, please visit http://semver.org.
 
 ## Future Plan
 
-- Image support for spinner
 - Interceptor Implementation
 - Better DEMO website
+
+## Ask Me
+- Now you can directly send me a message on [Gitter](https://gitter.im/ngx-spinner/community) for any query/suggestion/updates
 
 ## Credits
 

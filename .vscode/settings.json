@@ -4,7 +4,9 @@
     "codelyzer",
     "devkit",
     "jasminewd",
+    "ngcc",
     "packagr",
+    "rgba",
     "tsickle"
   ]
 }
