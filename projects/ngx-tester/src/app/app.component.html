@@ -18,7 +18,7 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Backdrop Color" [(colorPicker)]="spinnerConfig['bdColor']" [cpCancelButton]="true"
-          [(ngModel)]="spinnerConfig['bdColor']" [cpPosition]="'bottom'">
+          [(ngModel)]="spinnerConfig['bdColor']" [cpPosition]="'bottom'" [cpOutputFormat]="'rgba'">
       </mat-form-field>
       <mat-radio-group [(ngModel)]="spinnerConfig['size']" [style.paddingBottom.px]="20">
         <label class="mat-input-placeholder mat-form-field-placeholder label-text">Spinner Size</label>

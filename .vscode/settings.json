@@ -6,6 +6,7 @@
     "jasminewd",
     "ngcc",
     "packagr",
+    "rgba",
     "tsickle"
   ]
 }

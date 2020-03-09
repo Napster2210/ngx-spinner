@@ -18,6 +18,7 @@
     "angular6",
     "angular7",
     "angular8",
+    "angular9",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -31,12 +32,14 @@
     "ng6",
     "ng7",
     "ng8",
+    "ng9",
     "loadingscreen",
     "progress",
     "progress-loader",
     "progress-indicators",
     "progress-circle",
-    "loaders"
+    "loaders",
+    "ivy"
   ],
   "license": "MIT",
   "bugs": {
