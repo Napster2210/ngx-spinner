@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "8.1.0",
+  "version": "9.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve ngx-tester -o",
