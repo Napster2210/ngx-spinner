@@ -24,7 +24,7 @@ Use appropriate version based on your Angular version.
 
 | Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9 |
 | ----------- | ----------- | ----------- | --------- | --------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | `v9.0.0`  |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | `v9.0.1`  |
 
 ## Table of contents
 
