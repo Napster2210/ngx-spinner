@@ -1,79 +1,55 @@
-.margin-10 {
-  margin: 10px;
+mat-accordion {
+  width: 100%;
 }
 
-.label-text {
-  display: block;
-  position: inherit;
-  font-size: 12px;
-  margin-bottom: 8px;
+mat-form-field {
+  width: 90%;
 }
 
-.config-container {
+mat-expansion-panel {
+  position: relative;
+  overflow: visible;
+}
+
+mat-expansion-panel-header {
+  background-color: lightgray !important;
+}
+
+mat-grid-list {
+  margin-top: 15px;
+}
+
+mat-grid-tile {
+  overflow: unset;
+}
+
+mat-radio-button {
+  padding-right: 10px;
+  padding-bottom: 1.34375em;
+}
+
+.container {
   display: flex;
+  padding: 20px;
+  flex: 1 auto;
   flex-direction: column;
-  height: calc(100% - 300px);
-  overflow: auto;
 }
 
 .code-container {
   display: flex;
-  align-content: center;
-  justify-content: flex-start;
   margin: 20px auto;
   flex-direction: column;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 0 auto;
-  padding-top: 2em;
-}
-
-.play-icon {
-  width: 6em;
-  height: 6em;
-  cursor: pointer;
-}
-
-.play-btn-label {
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-:host ::ng-deep .mat-grid-tile .mat-figure {
-  align-items: flex-start;
-}
-
-:host ::ng-deep .mat-radio-button {
-  padding-right: 10px;
-}
-
-:host ::ng-deep .mat-fab {
-  width: 7em;
-  height: 7em;
-}
-
-:host ::ng-deep .mat-fab .mat-button-wrapper {
-  padding: 0;
+  font-size: 1rem;
 }
 
 .code-outer {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 14px;
-  width: 70%;
+  font-size: 1rem;
+  width: 100%;
   margin: 0 auto;
 }
 
 .code {
+  position: relative;
   margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,6 +61,7 @@
   padding: 10px;
   border-radius: 4px;
   font-family: monospace;
+  font-size: 1rem;
 }
 
 .code .tag-name {
@@ -92,12 +69,57 @@
   line-height: 20px;
   font-weight: 700;
   margin-right: 10px;
+  font-size: 1rem;
 }
 
 .code .input-wrapper {
   margin: 2px;
+  font-size: 1rem;
 }
 
 .code .input-name {
   color: #9cdcfe;
+  font-size: 1rem;
+}
+
+.copy-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.label-text {
+  display: block;
+  position: inherit;
+  font-size: 11px;
+  margin-bottom: 8px;
+  color: rgba(0,0,0,.54);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+:host ::ng-deep .mat-grid-tile .mat-figure {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
 }
