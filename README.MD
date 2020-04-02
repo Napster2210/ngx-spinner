@@ -66,10 +66,11 @@ Use appropriate version based on your Angular version.
 - `show()/hide()` methods return promise
 - Dynamic `z-index`
 - Smooth animation while `hide/show` the spinner
+- New updated DEMO website
 
 ## Demo
 
-[Working Demo](https://napster2210.github.io/ngx-spinner/)(Not Updated one)
+[Working Demo](https://napster2210.github.io/ngx-spinner/)
 
 ### StackBlitz Demo
 
@@ -237,7 +238,7 @@ For more information on SemVer, please visit http://semver.org.
 ## Future Plan
 
 - Interceptor Implementation
-- Better DEMO website
+- Smaller bundle
 
 ## Ask Me
 - Now you can directly send me a message on [Gitter](https://gitter.im/ngx-spinner/community) for any query/suggestion/updates
