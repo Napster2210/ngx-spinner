@@ -1,56 +1,13 @@
-<app-header>
-</app-header>
-<app-banner></app-banner>
-<div *ngIf="spinnerConfig['fullScreen']">
-  <ngx-spinner name='sample' [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
-    [color]="spinnerConfig['color']" [type]="spinnerConfig['type']" [template]="spinnerConfig['template']">
-    <p style="color: white">{{loadingText}}</p>
-  </ngx-spinner>
-</div>
+<app-header></app-header>
 
-<mat-grid-list [cols]="spinnerConfig['fullScreen'] ? 2 : 3">
-  <mat-grid-tile>
-    <div class="config-container">
-      <h3>Configuration</h3>
-      <mat-form-field>
-        <input matInput placeholder="Spinner Color" [(colorPicker)]="spinnerConfig['color']" [cpCancelButton]="true"
-          [(ngModel)]="spinnerConfig['color']" [cpPosition]="'bottom'">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Backdrop Color" [(colorPicker)]="spinnerConfig['bdColor']" [cpCancelButton]="true"
-          [(ngModel)]="spinnerConfig['bdColor']" [cpPosition]="'bottom'" [cpOutputFormat]="'rgba'">
-      </mat-form-field>
-      <mat-radio-group [(ngModel)]="spinnerConfig['size']" [style.paddingBottom.px]="20">
-        <label class="mat-input-placeholder mat-form-field-placeholder label-text">Spinner Size</label>
-        <mat-radio-button *ngFor="let label of sizeArray" [value]="label">{{label}}</mat-radio-button>
-      </mat-radio-group>
-      <mat-form-field>
-        <mat-select placeholder="Spinner Type" [(ngModel)]="spinnerConfig['type']">
-          <mat-option *ngFor="let loader of loaders" [value]="loader">
-            {{ loader }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Loading Text" type="text" [(ngModel)]="loadingText">
-      </mat-form-field>
-      <mat-radio-group [(ngModel)]="spinnerConfig['fullScreen']" [style.paddingBottom.px]="20">
-        <label class="mat-input-placeholder mat-form-field-placeholder label-text">Fullscreen Mode</label>
-        <mat-radio-button [value]="true">On</mat-radio-button>
-        <mat-radio-button [value]="false">Off</mat-radio-button>
-      </mat-radio-group>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile *ngIf="!spinnerConfig['fullScreen']">
-    <ngx-spinner name='sample' [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
-      [color]="spinnerConfig['color']" [type]="spinnerConfig['type']" [fullScreen]="false">
-      <p style="color: white">{{loadingText}}</p>
-    </ngx-spinner>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div class="code-container">
-      <div class="code-outer">
-        <div class="code">
+<app-banner></app-banner>
+
+<div class="container">
+
+  <div class="code-container">
+    <div class="code-outer">
+      <div class="code">
+        <div #codeElem>
           <i class="tag-name">&lt;ngx-spinner</i>
 
           <span class="input-wrapper">
@@ -62,7 +19,7 @@
           </span>
 
           <span class="input-wrapper">
-            <span class="input-name">size</span>
+            <span class="input-name"> size</span>
             =
             <i class="input">
               <span>"{{spinnerConfig['size']}}"</span>
@@ -70,7 +27,7 @@
           </span>
 
           <span class="input-wrapper">
-            <span class="input-name">color</span>
+            <span class="input-name"> color</span>
             =
             <i class="input">
               <span>"{{spinnerConfig['color']}}"</span>
@@ -78,7 +35,7 @@
           </span>
 
           <span class="input-wrapper">
-            <span class="input-name">type</span>
+            <span class="input-name"> type</span>
             =
             <i class="input">
               <span>"{{spinnerConfig['type']}}"</span>
@@ -86,30 +43,124 @@
           </span>
 
           <span class="input-wrapper">
-            <span class="input-name">[fullScreen]</span>
+            <span class="input-name"> [fullScreen]</span>
             =
             <i class="input">
               <span>"{{spinnerConfig['fullScreen']}}"</span>
             </i>
           </span>
+
+          <span class="input-wrapper" *ngIf="spinnerConfig['template']">
+            <span class="input-name"> template</span>
+            =
+            <i class="input">
+              <span>"{{spinnerConfig['template']}}"</span>
+            </i>
+          </span>
           <i class="tag-name">&gt;</i>
-          <span class="input-name" style="color: aquamarine">
+          <span class="input-name" style="color: aquamarine;" *ngIf="loadingText">
             <i class="tag-name">&lt;p
               <span class="input-name">style="color: white"</span>
               &gt;</i>
             {{loadingText}}
             <i class="tag-name">&lt;/p&gt;</i>
           </span>
-          <i>&lt;/ngx-spinner&gt;</i>
+          <i class="tag-name">&lt;/ngx-spinner&gt;</i>
         </div>
-      </div>
-      <div class="button-container">
-        <button mat-fab color="" (click)="showSpinner('sample')" title="Play Spinner">
-          <img src="assets/play-btn.png" class="play-icon" />
-        </button>
-        <span class="play-btn-label">Play Spinner</span>
-        <p>(Spinner will stop automatically after 3 seconds)</p>
+        <button mat-button color="accent" class="copy-btn" (click)="copyCode()">Copy</button>
       </div>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Spinner Options
+        </mat-panel-title>
+        <mat-panel-description>
+          Set different configuration
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list [cols]="noOfColumns" rowHeight="85">
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Spinner Type</mat-label>
+            <mat-select placeholder="Spinner Type" [(ngModel)]="spinnerConfig['type']">
+              <mat-option *ngFor="let loader of loaders" [value]="loader">
+                {{ loader }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Spinner Colour</mat-label>
+            <input matInput placeholder="Spinner Color" [(colorPicker)]="spinnerConfig['color']" [cpCancelButton]="true"
+              [(ngModel)]="spinnerConfig['color']" [cpPosition]="'bottom'">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Backdrop Colour</mat-label>
+            <input matInput placeholder="Backdrop Color" [(colorPicker)]="spinnerConfig['bdColor']"
+              [cpCancelButton]="true" [(ngModel)]="spinnerConfig['bdColor']" [cpPosition]="'bottom'"
+              [cpOutputFormat]="'rgba'">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Loading Text</mat-label>
+            <input matInput placeholder="Loading Text" type="text" [(ngModel)]="loadingText">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <!-- <mat-radio-group [(ngModel)]="spinnerConfig['fullScreen']" [style.width.%]="90">
+            <label class="mat-input-placeholder mat-form-field-placeholder label-text">Fullscreen Mode</label>
+            <mat-radio-button value="true">On</mat-radio-button>
+            <mat-radio-button value="false">Off</mat-radio-button>
+          </mat-radio-group> -->
+          <label class="mat-input-placeholder mat-form-field-placeholder label-text" [style.width.%]="90"
+            [style.paddingBottom.rem]="3">Fullscreen Mode</label>
+          <mat-slide-toggle class="example-margin" color="primary" [checked]="spinnerConfig['fullScreen']"
+            [style.width.%]="90" (toggleChange)="setFullscreenMode()">
+            {{spinnerConfig['fullScreen'] ? 'Enabled' : 'Disabled'}}
+          </mat-slide-toggle>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-radio-group [(ngModel)]="spinnerConfig['size']">
+            <label class="mat-input-placeholder mat-form-field-placeholder label-text">Spinner Size</label>
+            <mat-radio-button *ngFor="let label of sizeArray" [value]="label">{{label}}</mat-radio-button>
+          </mat-radio-group>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="noOfColumns">
+          <mat-form-field appearance="outline" [style.width.%]="97">
+            <mat-label>Custom Template</mat-label>
+            <textarea matInput placeholder="Custom Template" type="text"
+              [(ngModel)]="spinnerConfig['template']"></textarea>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div *ngIf="!spinnerConfig['fullScreen']">
+        <ngx-spinner name='sample' [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
+          [color]="spinnerConfig['color']" [type]="spinnerConfig['type']" [template]="spinnerConfig['template']"
+          [fullScreen]="spinnerConfig['fullScreen']">
+          <p style="color: white">{{loadingText}}</p>
+        </ngx-spinner>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="button-container">
+    <button mat-raised-button color="accent" (click)="showSpinner('sample')" title="Start Spinner">Start
+      Spinner</button>
+    <p [style.fontSize.px]="14">(The spinner will be stopped automatically after 3 seconds)</p>
+  </div>
+
+  <div *ngIf="spinnerConfig['fullScreen']">
+    <ngx-spinner name='sample' [bdColor]="spinnerConfig['bdColor']" [size]="spinnerConfig['size']"
+      [color]="spinnerConfig['color']" [type]="spinnerConfig['type']" [template]="spinnerConfig['template']">
+      <p style="color: white">{{loadingText}}</p>
+    </ngx-spinner>
+  </div>

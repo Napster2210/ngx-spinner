@@ -1,4 +1,4 @@
-.banner {
+/* .banner {
     display: flex;
     max-width: 700px;
     margin: 0 auto;
@@ -22,8 +22,25 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-}
+} */
 
 .title {
-    margin-top: 30px;
+    margin: 24px 10%;
+    text-align: center;
+}
+
+.github-link {
+    fill:#151513; 
+    color:#fff; 
+    position: absolute; 
+    top: 56px; 
+    border: 0; 
+    right: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .github-link {
+        width: 60px;
+        height: 60px;
+    }
 }

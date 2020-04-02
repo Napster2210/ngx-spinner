@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "schematics": "./schematics/collection.json",
   "repository": {
     "type": "git",
