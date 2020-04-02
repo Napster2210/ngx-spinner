@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+const TABLET_SIZE = 768;
+const MOBILE_SIZE = 425;
 
 /**
  * App Component
@@ -36,12 +39,12 @@ export class AppComponent {
    * @memberof AppComponent
    */
   spinnerConfig: object = {
-    bdColor: 'rgba(0, 0, 0, 1)',
+    bdColor: 'rgba(0, 0, 0, 0.8)',
     size: 'medium',
     color: '#fff',
-    type: 'ball-8bits',
+    type: 'square-jelly-box',
     fullScreen: true,
-    template: '<img src="https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif" />',
+    template: null,
   };
 
   /**
@@ -105,12 +108,33 @@ export class AppComponent {
     'triangle-skew-spin'
   ];
 
+  @ViewChild('codeElem') codeElement;
+
+  noOfColumns = 3;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const deviceWidth = event.target.innerWidth;
+    if (deviceWidth <= MOBILE_SIZE) {
+      this.noOfColumns = 1;
+    } else if (deviceWidth <= TABLET_SIZE) {
+      this.noOfColumns = 2;
+    }
+  }
+
   /**
    * Creates an instance of AppComponent.
    * @param {NgxSpinnerService} spinner Spinner service
    * @memberof AppComponent
    */
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(private spinner: NgxSpinnerService) {
+    const deviceWidth = window.innerWidth;
+    if (deviceWidth <= MOBILE_SIZE) {
+      this.noOfColumns = 1;
+    } else if (deviceWidth <= TABLET_SIZE) {
+      this.noOfColumns = 2;
+    }
+  }
 
   /**
    * To show/hide spinner
@@ -120,5 +144,21 @@ export class AppComponent {
   showSpinner(name: string) {
     this.spinner.show(name);
     this.spinner.hide(name, 3000);
+  }
+
+  /**
+   * To copy code of ngx-spinner
+   *
+   * @memberof AppComponent
+   */
+  copyCode = () => {
+    const copyText = this.codeElement.nativeElement; // document.getElementsByClassName('code');
+    window.getSelection().selectAllChildren(copyText);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  }
+
+  setFullscreenMode = () => {
+    this.spinnerConfig['fullScreen'] = !this.spinnerConfig['fullScreen'];
   }
 }
