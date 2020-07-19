@@ -1,11 +1,12 @@
 {
   "name": "ngx-spinner",
-  "version": "9.0.2",
+  "version": "10.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve ngx-tester -o",
-    "build:lib": "ng build ngx-spinner --prod && npm run copy",
+    "build:lib": "ng build ngx-spinner --prod && npm run copy && npm run build:schematics",
     "copy": "cp README.md dist/ngx-spinner/",
+    "build:schematics": "cd projects/ngx-spinner && npm run build",
     "build:app": "ng build ngx-tester --prod",
     "test": "ng test",
     "lint": "ng lint",

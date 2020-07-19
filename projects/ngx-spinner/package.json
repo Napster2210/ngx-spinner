@@ -1,7 +1,12 @@
 {
   "name": "ngx-spinner",
-  "version": "9.0.2",
+  "version": "10.0.0",
   "schematics": "./schematics/collection.json",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Napster2210/ngx-spinner.git"
@@ -19,6 +24,7 @@
     "angular7",
     "angular8",
     "angular9",
+    "angular10",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -33,6 +39,7 @@
     "ng7",
     "ng8",
     "ng9",
+    "ng10",
     "loadingscreen",
     "progress",
     "progress-loader",
@@ -46,8 +53,8 @@
     "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0"
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
