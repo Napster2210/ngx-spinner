@@ -4,8 +4,11 @@
     "codelyzer",
     "devkit",
     "jasminewd",
+    "loadingscreen",
+    "loadingview",
     "ngcc",
     "packagr",
+    "postbuild",
     "rgba",
     "tsickle"
   ]
