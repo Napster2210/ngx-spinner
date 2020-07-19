@@ -3,7 +3,7 @@
   <div *ngIf="!template" [class]="spinner.class" [style.color]="spinner.color">
     <div *ngFor="let index of spinner.divArray"></div>
   </div>
-  <div *ngIf="template" [innerHTML]="template"></div>
+  <div *ngIf="template" [innerHTML]="template | safeHtml"></div>
   <div class="loading-text" [style.z-index]="spinner.zIndex">
     <ng-content></ng-content>
   </div>
