@@ -31,9 +31,9 @@ export class NgxSpinnerService {
    *
    * @memberof NgxSpinnerService
    */
-  show(name: string = PRIMARY_SPINNER, spinner?: Spinner) {
-    setTimeout(() => {
-      const showPromise = new Promise((resolve, _reject) => {
+  show(name: string = PRIMARY_SPINNER, spinner?: Spinner): Promise<boolean> {
+    return new Promise((resolve, _reject) => {
+      setTimeout(() => {
         if (spinner && Object.keys(spinner).length) {
           spinner['name'] = name;
           this.spinnerObservable.next(new NgxSpinner({ ...spinner, show: true }));
@@ -42,22 +42,22 @@ export class NgxSpinnerService {
           this.spinnerObservable.next(new NgxSpinner({ name, show: true }));
           resolve(true);
         }
-      });
-      return showPromise;
-    }, 10);
+      }, 10);
+    });
   }
+
   /**
   * To hide spinner
   *
   * @memberof NgxSpinnerService
   */
-  hide(name: string = PRIMARY_SPINNER, debounce: number = 10) {
-    setTimeout(() => {
-      const hidePromise = new Promise((resolve, _reject) => {
+  hide(name: string = PRIMARY_SPINNER, debounce: number = 10): Promise<boolean> {
+    return new Promise((resolve, _reject) => {
+      setTimeout(() => {
         this.spinnerObservable.next(new NgxSpinner({ name, show: false }));
         resolve(true);
-      });
-      return hidePromise;
-    }, debounce);
+      }, debounce);
+    });
   }
+
 }
