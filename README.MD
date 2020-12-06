@@ -194,8 +194,8 @@ See [Demo](#demo)
 #### Using Custom Spinner
 ```html
 <ngx-spinner
-  bdColor="rgba(0, 0, 0, 1)">
-  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />" 
+  bdColor="rgba(0, 0, 0, 1)"
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />">
 </ngx-spinner>
 ```
 
