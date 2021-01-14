@@ -149,7 +149,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
         if (spinner.show) {
           this.onInputChange();
         }
-        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
       });
   }
   /**
