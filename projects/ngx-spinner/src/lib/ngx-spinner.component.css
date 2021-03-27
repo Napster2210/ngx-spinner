@@ -11675,7 +11675,7 @@
   }
 }
 
-.overlay {
+.ngx-spinner-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11683,7 +11683,7 @@
     height: 100%;
 }
 
-.overlay>div:not(.loading-text) {
+.ngx-spinner-overlay>div:not(.loading-text) {
     top: 50%;
     left: 50%;
     margin: 0;
