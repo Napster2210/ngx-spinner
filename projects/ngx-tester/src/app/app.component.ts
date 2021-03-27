@@ -45,6 +45,7 @@ export class AppComponent {
     type: 'square-jelly-box',
     fullScreen: true,
     template: null,
+    showSpinner: false
   };
 
   /**

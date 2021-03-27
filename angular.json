@@ -17,7 +17,8 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json",
+              "project": "projects/ngx-spinner/ng-package.json"
             }
           }
         },
