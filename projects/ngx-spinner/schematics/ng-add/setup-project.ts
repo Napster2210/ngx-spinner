@@ -1,3 +1,4 @@
+// import { getWorkspace } from '@schematics/angular/utility/config';
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -14,14 +15,13 @@ import {
   getProjectMainFile,
   hasNgModuleImport,
 } from '@angular/cdk/schematics';
-import { getWorkspace } from '@schematics/angular/utility/config';
 
 /** Name of the ngx-spinner module */
 const spinnerModuleName = 'NgxSpinnerModule';
 
 export default function (options: any): Rule {
   return (host: Tree, _context: SchematicContext) => {
-    const workspace = getWorkspace(host);
+    const workspace = ''; //getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);
 
     if (project.projectType === 'application') {
@@ -35,7 +35,7 @@ export default function (options: any): Rule {
 
 function addSpinnerModule(options: any) {
   return (host: Tree, _context: SchematicContext) => {
-    const workspace = getWorkspace(host);
+    const workspace = ''; //getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);
     const appModulePath = getAppModulePath(host, getProjectMainFile(project));
 

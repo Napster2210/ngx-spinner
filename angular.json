@@ -10,14 +10,15 @@
       "prefix": "ngx",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-spinner/tsconfig.lib.json",
             "project": "projects/ngx-spinner/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json",
+              "project": "projects/ngx-spinner/ng-package.json"
             }
           }
         },
@@ -79,7 +80,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,

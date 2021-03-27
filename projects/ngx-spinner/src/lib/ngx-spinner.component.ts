@@ -6,7 +6,9 @@ import {
   OnChanges,
   SimpleChange,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  HostListener,
+  ViewChild
 } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
@@ -82,13 +84,28 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() template: string;
   /**
+   * Show/Hide the spinner
+   *
+   * @type {boolean}
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() showSpinner: boolean;
+
+  /**
+   * To enable/disable animation
+   *
+   * @type {boolean}
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() disableAnimation: boolean = false;
+  /**
    * Spinner Object
    *
    * @memberof NgxSpinnerComponent
    */
   spinner: NgxSpinner = new NgxSpinner();
   /**
-   * Array for spinner's divs
+   * Array for spinner's div
    *
    * @memberof NgxSpinnerComponent
    */
@@ -112,6 +129,20 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
   **/
   ngUnsubscribe: Subject<void> = new Subject();
+  /**
+   * Element Reference
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @ViewChild('overlay') spinnerDOM;
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (this.spinnerDOM && this.spinnerDOM.nativeElement) {
+      event.returnValue = false;
+      event.preventDefault();
+    }
+  }
 
   /**
    * Creates an instance of NgxSpinnerComponent.
@@ -127,6 +158,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.fullScreen = true;
     this.name = PRIMARY_SPINNER;
     this.template = null;
+    this.showSpinner = false;
 
     this.divArray = [];
     this.divCount = 0;
@@ -149,7 +181,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
         if (spinner.show) {
           this.onInputChange();
         }
-        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
       });
   }
   /**
@@ -170,6 +202,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
       show: this.show,
       zIndex: this.zIndex,
       template: this.template,
+      showSpinner: this.showSpinner
     });
   }
   /**
@@ -186,6 +219,13 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
         } else if (typeof changedProp.currentValue !== 'undefined' && changedProp.currentValue !== changedProp.previousValue) {
           if (changedProp.currentValue !== '') {
             this.spinner[propName] = changedProp.currentValue;
+            if (propName === 'showSpinner') {
+              if (changedProp.currentValue) {
+                this.spinnerService.show(this.spinner.name, this.spinner);
+              } else {
+                this.spinnerService.hide(this.spinner.name);
+              }
+            }
           }
         }
       }
