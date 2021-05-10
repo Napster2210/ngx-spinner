@@ -8,7 +8,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   HostListener,
-  ViewChild
+  ViewChild, ElementRef
 } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
@@ -139,9 +139,21 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (this.spinnerDOM && this.spinnerDOM.nativeElement) {
-      event.returnValue = false;
-      event.preventDefault();
+      if (this.fullScreen) {
+        event.returnValue = false;
+        event.preventDefault();
+      } else if (this.isInsideSpinner(event.target)) {
+        event.returnValue = false;
+        event.preventDefault();
+      }
     }
+  }
+
+  isInsideSpinner(element): boolean {
+    if (element === this.elementRef.nativeElement.parentElement) {
+      return true;
+    }
+    return element.parentNode && this.isInsideSpinner(element.parentNode);
   }
 
   /**
@@ -149,7 +161,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  constructor(private spinnerService: NgxSpinnerService, private changeDetector: ChangeDetectorRef) {
+  constructor(private spinnerService: NgxSpinnerService, private changeDetector: ChangeDetectorRef, private elementRef: ElementRef) {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;
