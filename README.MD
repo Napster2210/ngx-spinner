@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 11. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 12. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -19,16 +19,16 @@ A library with more than 50 different loading spinners for Angular 4 - 11. (http
 
 ## What's New
 
-- Angular 11 support 🥳🥳🥳🥳
+- Angular 12 support 🥳🥳🥳🥳
 - Option to disable fade animation
 - Show/Hide spinner from template using @Input() variable
 - Bug Fixes/Improvements
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9  | Angular 10  | Angular 11  |
-| ----------- | ----------- | ----------- | --------- | ---------- | ----------- | ----------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | >=`v9.0.1` | >=`v10.0.1` | >=`v11.0.1` |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9  | Angular 10  | Angular 11  | Angular 12  |
+| ----------- | ----------- | ----------- | --------- | ---------- | ----------- | ----------- | ----------- |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | >=`v9.0.1` | >=`v10.0.1` | >=`v11.0.1` | >=`v12.0.0` |
 
 ## Table of contents
 
@@ -63,9 +63,9 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 11** Support
-- Custom spinner image support(gif), you can pass `img` tag 
-- Multiple Spinners 
+- **Angular 12** Support
+- Custom spinner image support(gif), you can pass `img` tag
+- Multiple Spinners
 - Configurable option through service
 - Fullscreen Mode(Enable/Disable)
 - `show()/hide()` methods return promise
