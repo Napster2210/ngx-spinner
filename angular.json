@@ -19,8 +19,10 @@
             "production": {
               "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json",
               "project": "projects/ngx-spinner/ng-package.json"
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -96,19 +98,24 @@
                   "maximumWarning": "6kb"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-tester:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ngx-tester:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-tester:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -155,14 +162,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/ngx-tester-e2e/protractor.conf.js",
-            "devServerTarget": "ngx-tester:serve"
+            "protractorConfig": "projects/ngx-tester-e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "ngx-tester:serve:production"
+            },
+            "development": {
+              "devServerTarget": "ngx-tester:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
