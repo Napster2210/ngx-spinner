@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:collection": "cp schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",

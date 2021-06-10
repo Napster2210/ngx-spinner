@@ -1,10 +1,10 @@
 {
   "name": "ngx-spinner",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve ngx-tester -o",
-    "build:lib": "ng build ngx-spinner --prod && npm run copy && npm run build:schematics",
+    "build:lib": "ng build ngx-spinner --prod && npm run copy",
     "copy": "cp README.md dist/ngx-spinner/",
     "build:schematics": "cd projects/ngx-spinner && npm run build",
     "build:app": "ng build ngx-tester --prod",
@@ -47,7 +47,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^11.2.4",
+    "ng-packagr": "^12.0.5",
     "protractor": "~7.0.0",
     "ts-node": "^8.5.4",
     "tslint": "^6.1.3",
