@@ -174,18 +174,22 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   ngOnInit() {
     this.setDefaultOptions();
+    this.initializeSpinnerObservable();
+  }
+
+  initializeSpinnerObservable = ()=>{
     this.spinnerService.getSpinner(this.name)
-      .pipe(
-        takeUntil(this.ngUnsubscribe)
-      )
-      .subscribe((spinner: NgxSpinner) => {
-        this.setDefaultOptions();
-        Object.assign(this.spinner, spinner);
-        if (spinner.show) {
-          this.onInputChange();
-        }
-        this.changeDetector.detectChanges();
-      });
+    .pipe(
+      takeUntil(this.ngUnsubscribe)
+    )
+    .subscribe((spinner: NgxSpinner) => {
+      this.setDefaultOptions();
+      Object.assign(this.spinner, spinner);
+      if (spinner.show) {
+        this.onInputChange();
+      }
+      this.changeDetector.detectChanges();
+    });
   }
 
   /**
@@ -243,6 +247,9 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
               } else {
                 this.spinnerService.hide(this.spinner.name);
               }
+            }
+            if (propName === 'name') {
+              this.initializeSpinnerObservable();
             }
           }
         }
