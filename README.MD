@@ -166,7 +166,7 @@ See [Demo](#demo)
 ## Available Options
 
 - **[bdColor]**: RGBA color format.
-  To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `aplha` value(0.8) is opacity of backdrop
+  To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `alpha` value(0.8) is opacity of backdrop
 - **[size]**: Anyone from `small`, `default`, `medium`, `large`.
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
