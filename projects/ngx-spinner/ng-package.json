@@ -3,5 +3,8 @@
   "dest": "../../dist/ngx-spinner",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "assets": [
+    "./animations"
+  ]
 }

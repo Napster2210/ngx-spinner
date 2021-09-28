@@ -20,7 +20,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'ngx-spinner',
   templateUrl: 'ngx-spinner.component.html',
-  styleUrls: ['ngx-spinner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeIn', [
