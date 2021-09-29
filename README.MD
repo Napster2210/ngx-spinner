@@ -115,7 +115,7 @@ $ ng add ngx-spinner
 ## Usage
 Add css animation files to angular.json config
 
-```json
+```jsonc
 {
   "styles": [
     "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
