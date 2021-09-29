@@ -20,6 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'ngx-spinner',
   templateUrl: 'ngx-spinner.component.html',
+  styleUrls: ['./ngx-spinner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeIn', [
@@ -155,7 +156,6 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;
-    this.type = DEFAULTS.SPINNER_TYPE;
     this.size = 'large';
     this.fullScreen = true;
     this.name = PRIMARY_SPINNER;
@@ -207,7 +207,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   setDefaultOptions = () => {
-    this.spinner = new NgxSpinner({
+    this.spinner = NgxSpinner.create({
       name: this.name,
       bdColor: this.bdColor,
       size: this.size,
@@ -255,7 +255,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   getClass(type: string, size: Size): string {
     this.spinner.divCount = LOADERS[type];
-    this.spinner.divArray = Array(this.spinner.divCount).fill(0).map((x, i) => i);
+    this.spinner.divArray = Array(this.spinner.divCount).fill(0).map((_, i) => i);
     let sizeClass = '';
     switch (size.toLowerCase()) {
       case 'small':

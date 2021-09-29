@@ -23,6 +23,7 @@ A library with more than 50 different loading spinners for Angular 4 - 12. (http
 - Option to disable fade animation
 - Show/Hide spinner from template using @Input() variable
 - Bug Fixes/Improvements
+- Reduce bundle size
 
 Use appropriate version based on your Angular version.
 
@@ -112,6 +113,16 @@ $ ng add ngx-spinner
 ```
 
 ## Usage
+Add css animation files to angular.json config
+
+```json
+{
+  "styles": [
+    "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+    // You're able to add multiple files if you need
+  ]
+}
+```
 
 Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
@@ -153,7 +164,7 @@ class AppComponent implements OnInit {
 Now use in your template
 
 ```html
-<ngx-spinner></ngx-spinner>
+<ngx-spinner [type]="ball-scale-multiple"></ngx-spinner>
 ```
 
 See [Demo](#demo)
@@ -172,7 +183,7 @@ See [Demo](#demo)
 - **[color]**: Any css color format.
   To set color of spinner, default `#fff`
 - **[type]**: Choose any animation spinner from [Load Awesome](http://github.danielcardoso.net/load-awesome/animations.html).
-  To set type of spinner, default `ball-scale-multiple`
+  To set type of spinner
 - **[fullScreen]**: `true` or `false`
   To enable/disable fullscreen mode(overlay), default `true`
 - **[name]**: For multiple spinners
@@ -257,7 +268,6 @@ For more information on SemVer, please visit http://semver.org.
 
 ## Future Plan
 
-- Smaller bundle
 - Interceptor Implementation
 
 ## Ask Me
