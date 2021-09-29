@@ -57,7 +57,6 @@ export const LOADERS = {
 export const DEFAULTS = {
   BD_COLOR: 'rgba(51,51,51,0.8)',
   SPINNER_COLOR: '#fff',
-  SPINNER_TYPE: 'ball-scale-multiple',
   Z_INDEX: 99999,
 };
 
@@ -93,5 +92,13 @@ export class NgxSpinner {
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);
+  }
+
+  static create(init?: Partial<NgxSpinner>): NgxSpinner {
+    if (init?.type == null || init.type.length === 0) {
+      console.warn(`[ngx-spinner]: Property "type" is missed. Please, provide animation type to <ngx-spinner> component
+        and ensure css is added to angular.json file`);
+    }
+    return new NgxSpinner(init); 
   }
 }
