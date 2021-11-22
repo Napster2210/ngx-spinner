@@ -1,0 +1,105 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "projects/ngx-spinner/tsconfig.lib.json",
+          "projects/ngx-tester/tsconfig.app.json",
+          "projects/ngx-tester-e2e/tsconfig.e2e.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "no-unused-vars": [
+          "error",
+          {
+            "vars": "all",
+            "args": "none"
+          }
+        ],
+        "no-empty-function": "error",
+        "eqeqeq": [
+          2,
+          "smart"
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "quotes": [
+          2,
+          "single",
+          {
+            "avoidEscape": true
+          }
+        ]
+      }
+    }, {
+      "files": [
+        "projects/ngx-spinner/**/*.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "ngx",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "ngx",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ]
+      }
+    }, {
+      "files": [
+        "projects/ngx-tester/**/*.ts",
+        "projects/ngx-tester-e2e/**/*.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ]
+      }
+    }, {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ],
+  "plugins": [
+    "unused-imports"
+  ]
+}

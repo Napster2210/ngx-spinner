@@ -10,4 +10,7 @@ import { SafeHtmlPipe } from './safe-html.pipe';
   declarations: [NgxSpinnerComponent, SafeHtmlPipe],
   exports: [NgxSpinnerComponent]
 })
-export class NgxSpinnerModule { }
+export class NgxSpinnerModule {
+
+}
+

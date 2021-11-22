@@ -13,12 +13,8 @@ export class NgxSpinnerService {
    * @memberof NgxSpinnerService
    */
   // private spinnerObservable = new ReplaySubject<NgxSpinner>(1);
-  public spinnerObservable = new BehaviorSubject<NgxSpinner>(null);
-  /**
-   * Creates an instance of NgxSpinnerService.
-   * @memberof NgxSpinnerService
-   */
-  constructor() { }
+  public spinnerObservable = new BehaviorSubject<NgxSpinner>({} as NgxSpinner);
+
   /**
   * Get subscription of desired spinner
   * @memberof NgxSpinnerService

@@ -77,19 +77,19 @@ export interface Spinner {
 }
 
 export class NgxSpinner {
-  name: string;
-  bdColor: string;
+  name?: string;
+  bdColor?: string;
   size: Size;
-  color: string;
+  color?: string;
   type: string;
-  class: string;
-  divCount: number;
-  divArray: Array<number>;
-  fullScreen: boolean;
-  show: boolean;
-  zIndex: number;
-  template: string;
-  showSpinner: boolean;
+  class?: string;
+  divCount?: number;
+  divArray?: Array<number>;
+  fullScreen?: boolean;
+  show?: boolean;
+  zIndex?: number;
+  template?: string;
+  showSpinner?: boolean;
 
   constructor(init?: Partial<NgxSpinner>) {
     Object.assign(this, init);

@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-spinner": {
-      "root": "projects/ngx-spinner",
+      "root": "",
       "sourceRoot": "projects/ngx-spinner/src",
       "projectType": "library",
       "prefix": "ngx",
@@ -33,21 +33,18 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-spinner/tsconfig.lib.json",
-              "projects/ngx-spinner/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-spinner/**/*.ts",
+              "projects/ngx-spinner/**/*.html"
             ]
           }
         }
       }
     },
     "ngx-tester": {
-      "root": "projects/ngx-tester/",
+      "root": "",
       "sourceRoot": "projects/ngx-tester/src",
       "projectType": "application",
       "prefix": "app",
@@ -141,21 +138,19 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-tester/tsconfig.app.json",
-              "projects/ngx-tester/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-tester/**/*.ts",
+              "projects/ngx-tester/**/*.html"
             ]
           }
         }
       }
     },
     "ngx-tester-e2e": {
-      "root": "projects/ngx-tester-e2e/",
+      "root": "",
+      "sourceRoot": "projects/ngx-tester-e2e/src",
       "projectType": "application",
       "prefix": "",
       "architect": {
@@ -175,11 +170,11 @@
           "defaultConfiguration": "development"
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": "projects/ngx-tester-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-tester-e2e/**/*.ts",
+              "projects/ngx-tester-e2e/**/*.html"
             ]
           }
         }

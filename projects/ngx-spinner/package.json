@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:collection": "cp schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
@@ -26,6 +26,7 @@
     "angular10",
     "angular11",
     "angular12",
+    "angular13",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -43,6 +44,7 @@
     "ng10",
     "ng11",
     "ng12",
+    "ng13",
     "loadingscreen",
     "progress",
     "progress-loader",
@@ -56,8 +58,8 @@
     "url": "https://github.com/Napster2210/ngx-spinner.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^12.0.0",
-    "@angular/core": "^12.0.0"
+    "@angular/common": ">=13.0.1",
+    "@angular/core": ">=13.0.1"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {

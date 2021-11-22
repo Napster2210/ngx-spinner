@@ -1,4 +1,4 @@
-import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
+import { Component, ViewChild, HostListener} from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 const TABLET_SIZE = 768;
@@ -162,4 +162,5 @@ export class AppComponent {
   setFullscreenMode = () => {
     this.spinnerConfig['fullScreen'] = !this.spinnerConfig['fullScreen'];
   }
+
 }

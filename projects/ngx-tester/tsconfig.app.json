@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
+    "sourceRoot": "projects/ngx-tester",
     "types": []
   },
   "files": [
@@ -10,5 +11,6 @@
   ],
   "include": [
     "projects/ngx-tester/src/**/*.d.ts"
-  ]
+  ],
+  "exclude": ["**/*.spec.ts"]
 }

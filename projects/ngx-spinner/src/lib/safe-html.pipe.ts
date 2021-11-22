@@ -7,11 +7,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SafeHtmlPipe implements PipeTransform {
 
   constructor(private _sanitizer: DomSanitizer) {
+    //do nothing
   }
 
   transform(v: string): SafeHtml {
-    if (v) {
-      return this._sanitizer.bypassSecurityTrustHtml(v);
-    }
+    return v ? this._sanitizer.bypassSecurityTrustHtml(v) : undefined;
   }
+
 }

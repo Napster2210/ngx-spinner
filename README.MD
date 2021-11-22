@@ -14,21 +14,20 @@ A library with more than 50 different loading spinners for Angular 4 - 12. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2010%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2011%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 12 support 🥳🥳🥳🥳
-- Option to disable fade animation
-- Show/Hide spinner from template using @Input() variable
+- Angular 13 support 🥳🥳🥳🥳
 - Bug Fixes/Improvements
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9  | Angular 10  | Angular 11  | Angular 12  |
-| ----------- | ----------- | ----------- | --------- | ---------- | ----------- | ----------- | ----------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | >=`v9.0.1` | >=`v10.0.1` | >=`v11.0.2` | >=`v12.0.0` |
+| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9  | Angular 10  | Angular 11  | Angular 12  | Angular 13  |
+| ----------- | ----------- | ----------- | --------- | ---------- | ----------- | ----------- | ----------- | ----------- |
+| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | >=`v9.0.1` | >=`v10.0.1` | >=`v11.0.2` | >=`v12.0.0` | >=`v13.0.2` |
 
 ## Table of contents
 
@@ -62,18 +61,7 @@ Use appropriate version based on your Angular version.
 | Latest ✔                                                                                                                                                                                                      | Latest ✔                                                                                                                                                                                                          | IE11, Edge ✔                                                                                                                                                                                                    | Latest ✔                                                                                                                                                                                                                  | Latest ✔                                                                                                                                                                                                  |
 
 ## Features
-
-- **Angular 12** Support
-- Custom spinner image support(gif), you can pass `img` tag 
-- Multiple Spinners 
-- Configurable option through service
-- Fullscreen Mode(Enable/Disable)
-- `show()/hide()` methods return promise
-- Dynamic `z-index`
-- Smooth animation while `hide/show` the spinner
-- New updated DEMO website
-- Option to disable fade animation
-- Show/Hide spinner from template using @Input() variable
+- Angular 13 support 🥳🥳🥳🥳
 
 ## Demo
 

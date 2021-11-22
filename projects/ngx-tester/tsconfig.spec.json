@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "sourceRoot": "projects/ngx-tester",
     "outDir": "../../out-tsc/spec",
     "types": [
       "jasmine",
