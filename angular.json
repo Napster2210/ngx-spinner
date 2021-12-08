@@ -31,6 +31,15 @@
             "tsConfig": "projects/ngx-spinner/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-spinner/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-spinner/**/*.ts",
+              "projects/ngx-spinner/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -93,8 +102,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "production": {
               "browserTarget": "ngx-tester:build:production"
@@ -153,5 +161,8 @@
       }
     }
   },
-  "defaultProject": "ngx-spinner"
+  "defaultProject": "ngx-spinner",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
