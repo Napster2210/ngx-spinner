@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 12. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 13. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -14,22 +14,25 @@ A library with more than 50 different loading spinners for Angular 4 - 12. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2010%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2011%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 12 support 🥳🥳🥳🥳
-- Option to disable fade animation
-- Show/Hide spinner from template using @Input() variable
+- Angular 13 support 🥳🥳🥳🥳
 - Bug Fixes/Improvements
 - Reduce bundle size
 
 Use appropriate version based on your Angular version.
 
-| Angular 4   | Angular 5   | Angular 6/7 | Angular 8 | Angular 9  | Angular 10  | Angular 11  | Angular 12  |
-| ----------- | ----------- | ----------- | --------- | ---------- | ----------- | ----------- | ----------- |
-| >= `v1.2.0` | >= `v2.0.0` | `v7.2.0`    | `v8.1.0`  | >=`v9.0.1` | >=`v10.0.1` | >=`v11.0.2` | >=`v12.0.0` |
+| Angular 13  | Angular 12  | Angular 11  | Angular 10  |
+| ----------- | ----------- | ----------- | ----------- |
+| >=`v13.0.0` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
+
+| Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
+| ---------- | --------- | ----------- | ---------- | ---------- |
+| >=`v9.0.1` | `v8.1.0`  | `v7.2.0`    | >=`v1.2.0` | >=`v2.0.0` |
 
 ## Table of contents
 
@@ -43,14 +46,14 @@ Use appropriate version based on your Angular version.
 - [Usage](#usage)
 - [Methods](#methods)
 - [Available Options](#available-options)
-    - [Using Spinner Type](#using-spinner-type)
-    - [Using Custom Spinner](#using-custom-spinner)
-    - [NOTE](#note)
+  - [Using Spinner Type](#using-spinner-type)
+  - [Using Custom Spinner](#using-custom-spinner)
+  - [NOTE](#note)
   - [How to use type?](#how-to-use-type)
 - [Useful Tips](#useful-tips)
 - [Versioning](#versioning)
 - [Creator](#creator)
-    - [Yuvraj Chauhan](#yuvraj-chauhan)
+  - [Yuvraj Chauhan](#yuvraj-chauhan)
 - [Future Plan](#future-plan)
 - [Ask Me](#ask-me)
 - [Credits](#credits)
@@ -64,9 +67,9 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 12** Support
-- Custom spinner image support(gif), you can pass `img` tag 
-- Multiple Spinners 
+- **Angular 13** Support
+- Custom spinner image support(gif), you can pass `img` tag
+- Multiple Spinners
 - Configurable option through service
 - Fullscreen Mode(Enable/Disable)
 - `show()/hide()` methods return promise
@@ -127,14 +130,14 @@ Add css animation files to angular.json config
 Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
 ```typescript
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   imports: [
     // ...
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -177,7 +180,7 @@ See [Demo](#demo)
 ## Available Options
 
 - **[bdColor]**: RGBA color format.
-  To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `aplha` value(0.8) is opacity of backdrop
+  To set background-color for backdrop, default `rgba(51,51,51,0.8)` where `alpha` value(0.8) is opacity of backdrop
 - **[size]**: Anyone from `small`, `default`, `medium`, `large`.
   To set size of spinner, default `large`
 - **[color]**: Any css color format.
@@ -198,6 +201,7 @@ See [Demo](#demo)
   To enable/disable fade animation of spinner, default `false`
 
 #### Using Spinner Type
+
 ```html
 <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"
@@ -210,6 +214,7 @@ See [Demo](#demo)
 ```
 
 #### Using Custom Spinner
+
 ```html
 <ngx-spinner
   bdColor="rgba(0, 0, 0, 1)"
@@ -232,7 +237,8 @@ this.spinner.show("mySpinner", {
   size: "large",
   bdColor: "rgba(0, 0, 0, 1)",
   color: "white",
-  template: "<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
+  template:
+    "<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />",
 });
 ```
 
@@ -242,7 +248,6 @@ this.spinner.show("mySpinner", {
 - Select any animation, copy name of animation, replace all spaces with hyphen(-) and all letters should be lowercase.
   - Let's say if I select "Ball 8bits" animation then `type` will be `ball-8bits`.
   - For more information you can check it out [Demo](https://napster2210.github.io/ngx-spinner/)
-
 
 ## Useful Tips
 
@@ -271,6 +276,7 @@ For more information on SemVer, please visit http://semver.org.
 - Interceptor Implementation
 
 ## Ask Me
+
 - Now you can directly send me a message on [Gitter](https://gitter.im/ngx-spinner/community) for any query/suggestion/updates
 
 ## Credits
