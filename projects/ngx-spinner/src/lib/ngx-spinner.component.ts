@@ -135,7 +135,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  @ViewChild('overlay') spinnerDOM;
+  @ViewChild('overlay') spinnerDOM: { nativeElement: any; };
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -166,13 +166,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     this.divCount = 0;
     this.show = false;
   }
-  /**
-   * Initialization method
-   *
-   * @memberof NgxSpinnerComponent
-   */
-  ngOnInit() {
-    this.setDefaultOptions();
+
+  initObservable() {
     this.spinnerService.getSpinner(this.name)
       .pipe(
         takeUntil(this.ngUnsubscribe)
@@ -185,6 +180,16 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
         }
         this.changeDetector.detectChanges();
       });
+  }
+
+  /**
+   * Initialization method
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  ngOnInit() {
+    this.setDefaultOptions();
+    this.initObservable();
   }
 
   /**
@@ -242,6 +247,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
               } else {
                 this.spinnerService.hide(this.spinner.name);
               }
+            }
+
+            if (propName === 'name') {
+              this.initObservable();
             }
           }
         }
