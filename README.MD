@@ -20,15 +20,15 @@ A library with more than 50 different loading spinners for Angular 4 - 13. (http
 
 ## What's New
 
+- Smaller bundle size 🥳🥳🥳🥳
 - Angular 13 support 🥳🥳🥳🥳
 - Bug Fixes/Improvements
-- Reduce bundle size
 
 Use appropriate version based on your Angular version.
 
 | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
 | ----------- | ----------- | ----------- | ----------- |
-| >=`v13.0.0` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
+| >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
 
 | Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
 | ---------- | --------- | ----------- | ---------- | ---------- |
@@ -78,6 +78,7 @@ Use appropriate version based on your Angular version.
 - New updated DEMO website
 - Option to disable fade animation
 - Show/Hide spinner from template using @Input() variable
+- Smaller bundle size
 
 ## Demo
 
@@ -116,12 +117,13 @@ $ ng add ngx-spinner
 ```
 
 ## Usage
+
 Add css animation files to angular.json config
 
 ```jsonc
 {
   "styles": [
-    "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+    "node_modules/ngx-spinner/animations/ball-scale-multiple.css" // ===> Add css file based on your animation name(here it's "ball-scale-multiple")
     // You're able to add multiple files if you need
   ]
 }
@@ -131,12 +133,14 @@ Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
 ```typescript
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   imports: [
     // ...
+    BrowserAnimationsModule,
     NgxSpinnerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -167,7 +171,7 @@ class AppComponent implements OnInit {
 Now use in your template
 
 ```html
-<ngx-spinner [type]="ball-scale-multiple"></ngx-spinner>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 ```
 
 See [Demo](#demo)
@@ -230,6 +234,7 @@ See [Demo](#demo)
 - You can pass `HTML` code as loading text now, instead of input parameter(`loadingText`). Check above code for reference.
 - If you want multiple `ngx-spinner` instance, just add `name` attribute with `ngx-spinner` component. But in this case, you've to pass that particular name of a spinner in `show/hide` method. Check [Demo](#demo)
 - You can also change the options/configuration of spinner through service now.
+- For smaller bundle size, add specific css file under "styles" array in `angular.json` file
 
 ```javascript
 this.spinner.show("mySpinner", {
@@ -248,6 +253,7 @@ this.spinner.show("mySpinner", {
 - Select any animation, copy name of animation, replace all spaces with hyphen(-) and all letters should be lowercase.
   - Let's say if I select "Ball 8bits" animation then `type` will be `ball-8bits`.
   - For more information you can check it out [Demo](https://napster2210.github.io/ngx-spinner/)
+  - For smaller bundle size you need to add css for `ball-8bits` animation(e.g. `ball-8bits.css`)
 
 ## Useful Tips
 
@@ -284,6 +290,8 @@ For more information on SemVer, please visit http://semver.org.
 Inspired by [Load Awesome by Daniel Cardoso.](https://github.com/danielcardoso/load-awesome)
 
 Thanks [Alex Vieira Alencar](https://github.com/iamavieira) for helping me with Multiple Spinner Support.
+
+Thanks [ennjin](https://github.com/ennjin) for reducing the bundle size.
 
 ### License
 
