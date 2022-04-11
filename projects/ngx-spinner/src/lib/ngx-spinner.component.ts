@@ -9,13 +9,17 @@ import {
   ChangeDetectorRef,
   HostListener,
   ViewChild,
-  ElementRef
+  ElementRef,
+  Inject,
+  Optional
 } from '@angular/core';
-import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NgxSpinnerService } from './ngx-spinner.service';
+import { LOADERS, DEFAULTS, Size, NgxSpinner, PRIMARY_SPINNER } from './ngx-spinner.enum';
+import { NGX_SPINNER_CONFIG, NgxSpinnerConfig } from './config';
+
 
 @Component({
   selector: 'ngx-spinner',
@@ -152,7 +156,10 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  constructor(private spinnerService: NgxSpinnerService, private changeDetector: ChangeDetectorRef, private elementRef: ElementRef) {
+  constructor(private spinnerService: NgxSpinnerService,
+              private changeDetector: ChangeDetectorRef,
+              private elementRef: ElementRef,
+              @Optional() @Inject(NGX_SPINNER_CONFIG) private globalConfig: NgxSpinnerConfig) {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;
@@ -212,12 +219,14 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   setDefaultOptions = () => {
+    const { type } = this.globalConfig ?? {}
+
     this.spinner = NgxSpinner.create({
       name: this.name,
       bdColor: this.bdColor,
       size: this.size,
       color: this.color,
-      type: this.type,
+      type: this.type ?? type,
       fullScreen: this.fullScreen,
       divArray: this.divArray,
       divCount: this.divCount,

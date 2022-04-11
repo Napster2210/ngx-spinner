@@ -54,6 +54,7 @@ export const LOADERS = {
   'triangle-skew-spin': 1
 };
 
+// We are able to add it to global config (NgxSpinnerConfig) if there will be any request
 export const DEFAULTS = {
   BD_COLOR: 'rgba(51,51,51,0.8)',
   SPINNER_COLOR: '#fff',
@@ -99,6 +100,6 @@ export class NgxSpinner {
       console.warn(`[ngx-spinner]: Property "type" is missed. Please, provide animation type to <ngx-spinner> component
         and ensure css is added to angular.json file`);
     }
-    return new NgxSpinner(init); 
+    return new NgxSpinner(init);
   }
 }

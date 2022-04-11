@@ -148,6 +148,24 @@ import { NgxSpinnerModule } from "ngx-spinner";
 export class AppModule {}
 ```
 
+Note. There is possibility to use global configuration for NgxSpinnerModule.
+Just call `forRoot` method for NgxSpinnerModule and pass configuration object.
+The input properties of NgxSpinnerComponent has higher priority than global options
+
+```typescript
+// Available options
+interface NgxSpinnerConfig {
+  type?: string;
+}
+
+// Use in app
+@NgModule({
+  imports: [
+    NgxSpinnerModule.forRoot({ type: 'ball-8bits' })
+  ]
+})
+```
+
 Add `NgxSpinnerService` service wherever you want to use the `ngx-spinner`.
 
 ```typescript
