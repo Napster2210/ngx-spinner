@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 13. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 14. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -15,20 +15,20 @@ A library with more than 50 different loading spinners for Angular 4 - 13. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2011%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2014%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Smaller bundle size 🥳🥳🥳🥳
-- Angular 13 support 🥳🥳🥳🥳
+- Angular 14 support 🥳🥳🥳🥳
 - Bug Fixes/Improvements
 
 Use appropriate version based on your Angular version.
 
-| Angular 13  | Angular 12  | Angular 11  | Angular 10  |
-| ----------- | ----------- | ----------- | ----------- |
-| >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
+| Angular 14  | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| >=`v14.0.0` | >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
 
 | Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
 | ---------- | --------- | ----------- | ---------- | ---------- |
@@ -67,7 +67,7 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 13** Support
+- **Angular 14** Support
 - Custom spinner image support(gif), you can pass `img` tag
 - Multiple Spinners
 - Configurable option through service
@@ -146,6 +146,25 @@ import { NgxSpinnerModule } from "ngx-spinner";
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
+```
+
+#### NOTE
+
+- There is possibility to use global configuration for NgxSpinnerModule.
+- Just call `forRoot` method for NgxSpinnerModule and pass configuration object.
+- The input properties of NgxSpinnerComponent has higher priority than global options
+
+```typescript
+// Available options
+interface NgxSpinnerConfig {
+  type?: string;
+}
+// Use in app
+@NgModule({
+  imports: [
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+  ]
+})
 ```
 
 Add `NgxSpinnerService` service wherever you want to use the `ngx-spinner`.

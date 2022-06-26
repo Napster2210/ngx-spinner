@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-.ngx-spinner-overlay>div:not(.loading-text) {
+.ngx-spinner-overlay > div:not(.loading-text) {
   top: 50%;
   left: 50%;
   margin: 0;

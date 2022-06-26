@@ -214,7 +214,6 @@
       }
     }
   },
-  "defaultProject": "ngx-spinner",
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"

@@ -1,6 +1,13 @@
-<div [@.disabled]="disableAnimation" [@fadeIn]="'in'" *ngIf="spinner.show" class="ngx-spinner-overlay"
-  [style.background-color]="spinner.bdColor" [style.z-index]="spinner.zIndex"
-  [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'" #overlay>
+<div
+  [@.disabled]="disableAnimation"
+  [@fadeIn]="'in'"
+  *ngIf="spinner.show"
+  class="ngx-spinner-overlay"
+  [style.background-color]="spinner.bdColor"
+  [style.z-index]="spinner.zIndex"
+  [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'"
+  #overlay
+>
   <div *ngIf="!template" [class]="spinner.class" [style.color]="spinner.color">
     <div *ngFor="let index of spinner.divArray"></div>
   </div>

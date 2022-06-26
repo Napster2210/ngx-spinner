@@ -1,13 +1,9 @@
 {
   "extends": "../../.eslintrc.json",
-  "ignorePatterns": [
-    "!**/*"
-  ],
+  "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
         "project": [
           "projects/ngx-spinner/tsconfig.lib.json",
@@ -35,9 +31,7 @@
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "rules": {}
     }
   ]
