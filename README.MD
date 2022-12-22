@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 14. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 15. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -16,15 +16,20 @@ A library with more than 50 different loading spinners for Angular 4 - 14. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2014%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2015%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 14 support 🥳🥳🥳🥳
+- Angular 15 support 🥳🥳🥳🥳
 - Bug Fixes/Improvements
 
 Use appropriate version based on your Angular version.
+
+| Angular 15  |
+| ----------- |
+| >=`v15.0.1` |
 
 | Angular 14  | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
@@ -67,7 +72,7 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 14** Support
+- **Angular 15** Support
 - Custom spinner image support(gif), you can pass `img` tag
 - Multiple Spinners
 - Configurable option through service
