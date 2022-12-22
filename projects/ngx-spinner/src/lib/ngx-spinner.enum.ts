@@ -95,7 +95,7 @@ export class NgxSpinner {
   }
 
   static create(init?: Partial<NgxSpinner>): NgxSpinner {
-    if (init?.type == null || init.type.length === 0) {
+    if (!init?.template && (init?.type == null || init.type.length === 0)) {
       console.warn(`[ngx-spinner]: Property "type" is missed. Please, provide animation type to <ngx-spinner> component
         and ensure css is added to angular.json file`);
     }
