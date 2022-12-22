@@ -23,7 +23,7 @@ mat-grid-tile {
   overflow: unset;
 }
 
-mat-radio-button {
+.radio-btn {
   padding-right: 10px;
   padding-bottom: 1.34375em;
 }
@@ -100,7 +100,7 @@ mat-radio-button {
   position: inherit;
   font-size: 11px;
   margin-bottom: 8px;
-  color: rgba(0,0,0,.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .button-container {

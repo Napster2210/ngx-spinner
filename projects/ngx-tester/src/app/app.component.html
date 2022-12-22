@@ -131,7 +131,7 @@
         <mat-grid-tile>
           <mat-radio-group [(ngModel)]="spinnerConfig['size']">
             <label class="mat-input-placeholder mat-form-field-placeholder label-text">Spinner Size</label>
-            <mat-radio-button *ngFor="let label of sizeArray" [value]="label">{{label}}</mat-radio-button>
+            <mat-radio-button class="radio-btn" *ngFor="let label of sizeArray" [value]="label">{{label}}</mat-radio-button>
           </mat-radio-group>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="noOfColumns">
