@@ -33,3 +33,5 @@ dist/*
 
 # Playground tmp files
 .playground
+
+.angular
