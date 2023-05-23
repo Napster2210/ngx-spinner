@@ -1,6 +1,6 @@
 {
   "name": "ngx-spinner",
-  "version": "15.0.1",
+  "version": "16.0.0",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:collection": "cp schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
@@ -29,6 +29,7 @@
     "angular13",
     "angular14",
     "angular15",
+    "angular16",
     "loading-spinner",
     "loading",
     "loading-animations",
@@ -49,6 +50,7 @@
     "ng13",
     "ng14",
     "ng15",
+    "ng16",
     "loadingscreen",
     "progress",
     "progress-loader",

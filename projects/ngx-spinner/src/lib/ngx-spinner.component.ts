@@ -147,18 +147,19 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @ViewChild("overlay") spinnerDOM: { nativeElement: any };
 
-  @HostListener("document:keydown", ["$event"])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (this.spinnerDOM && this.spinnerDOM.nativeElement) {
-      if (
-        this.fullScreen ||
-        (!this.fullScreen && this.isSpinnerZone(event.target))
-      ) {
-        event.returnValue = false;
-        event.preventDefault();
-      }
-    }
-  }
+  // TODO: https://github.com/Napster2210/ngx-spinner/issues/259
+  // @HostListener("document:keydown", ["$event"])
+  // handleKeyboardEvent(event: KeyboardEvent) {
+  //   if (this.spinnerDOM && this.spinnerDOM.nativeElement) {
+  //     if (
+  //       this.fullScreen ||
+  //       (!this.fullScreen && this.isSpinnerZone(event.target))
+  //     ) {
+  //       event.returnValue = false;
+  //       event.preventDefault();
+  //     }
+  //   }
+  // }
 
   /**
    * Creates an instance of NgxSpinnerComponent.
