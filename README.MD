@@ -30,7 +30,7 @@ Use appropriate version based on your Angular version.
 
 | Angular 16  | Angular 15  |
 | ----------- | ----------- |
-| >=`v16.0.0` | >=`v15.0.1` |
+| >=`v16.0.1` | >=`v15.0.1` |
 
 | Angular 14  | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
