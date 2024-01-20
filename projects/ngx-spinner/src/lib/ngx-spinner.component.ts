@@ -7,7 +7,6 @@ import {
   SimpleChange,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  HostListener,
   ViewChild,
   ElementRef,
   Optional,
@@ -31,11 +30,15 @@ import {
   animate,
 } from "@angular/animations";
 import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
+import { SafeHtmlPipe } from "./safe-html.pipe";
+import { NgFor, NgIf } from "@angular/common";
 
 @Component({
   selector: "ngx-spinner",
   templateUrl: "ngx-spinner.component.html",
   styleUrls: ["./ngx-spinner.component.css"],
+  imports: [SafeHtmlPipe, NgIf, NgFor],
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger("fadeIn", [

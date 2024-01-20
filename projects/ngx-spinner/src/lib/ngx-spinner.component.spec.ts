@@ -17,8 +17,7 @@ describe("NgxSpinnerComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [NgxSpinnerComponent, SafeHtmlPipe],
-      imports: [NoopAnimationsModule],
+      imports: [NoopAnimationsModule, NgxSpinnerComponent, SafeHtmlPipe],
       providers: [NgxSpinnerService],
     }).compileComponents();
   }));

@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule, provideSpinnerConfig } from 'ngx-spinner';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
@@ -45,7 +45,7 @@ import { BannerComponent } from './banner/banner.component';
     MatExpansionModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [provideSpinnerConfig({type: 'ball-scale-multiple'}),],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
