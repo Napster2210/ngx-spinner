@@ -7,7 +7,6 @@ import {
   SimpleChange,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  HostListener,
   ViewChild,
   ElementRef,
   Optional,
