@@ -31,8 +31,12 @@ import {
   animate,
 } from "@angular/animations";
 import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
+import { SafeHtmlPipe } from "./safe-html.pipe";
+import { NgFor, NgIf } from "@angular/common";
 
 @Component({
+  imports: [SafeHtmlPipe, NgIf, NgFor],
+  standalone: true,
   selector: "ngx-spinner",
   templateUrl: "ngx-spinner.component.html",
   styleUrls: ["./ngx-spinner.component.css"],
