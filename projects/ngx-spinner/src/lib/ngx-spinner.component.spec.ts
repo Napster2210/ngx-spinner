@@ -1,25 +1,25 @@
 import { ChangeDetectorRef, SimpleChange } from "@angular/core";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-
 import { NgxSpinnerComponent } from "./ngx-spinner.component";
 import { NgxSpinnerService } from "./ngx-spinner.service";
 import { SafeHtmlPipe } from "./safe-html.pipe";
+import { Size } from "./ngx-spinner.enum";
 
 describe("NgxSpinnerComponent", () => {
   let component: NgxSpinnerComponent;
   let fixture: ComponentFixture<NgxSpinnerComponent>;
   let elementStyle: CSSStyleDeclaration;
   let spinnerService: NgxSpinnerService;
-  let spinnerSpyGet: any;
-  let spinnerSpyShow: any;
-  let spinnerSpyHide: any;
+  let spinnerSpyGet: jasmine.Spy;
+  let spinnerSpyShow: jasmine.Spy;
+  let spinnerSpyHide: jasmine.Spy;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [NoopAnimationsModule, NgxSpinnerComponent, SafeHtmlPipe],
-    providers: [NgxSpinnerService],
-}).compileComponents();
+      imports: [NoopAnimationsModule, NgxSpinnerComponent, SafeHtmlPipe],
+      providers: [NgxSpinnerService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe("NgxSpinnerComponent", () => {
     component = fixture.componentInstance;
     component.show = true;
 
-    spinnerService = fixture.debugElement.injector.get(NgxSpinnerService);
+    spinnerService = TestBed.inject(NgxSpinnerService);
     spinnerSpyGet = spyOn(spinnerService, "getSpinner").and.callThrough();
     spinnerSpyShow = spyOn(spinnerService, "show").and.callThrough();
     spinnerSpyHide = spyOn(spinnerService, "hide").and.callThrough();
@@ -38,301 +38,206 @@ describe("NgxSpinnerComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  describe("the bdColor input", () => {
-    describe("when not specified", () => {
-      it("should set the default background color", () => {
-        fixture.detectChanges();
+  const testBackgroundColor = (
+    specifiedColor: string,
+    expectedColor: string,
+  ) => {
+    component.bdColor = specifiedColor;
+    fixture.detectChanges();
+    elementStyle = getComputedStyle(
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
+    );
+    expect(elementStyle.backgroundColor).toBe(expectedColor);
+  };
 
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        expect(elementStyle.backgroundColor).toBe("rgba(51, 51, 51, 0.8)");
-      });
+  describe("bdColor input", () => {
+    it("should set the default background color when not specified", () => {
+      testBackgroundColor(undefined, "rgba(51, 51, 51, 0.8)");
     });
 
-    describe("when specified", () => {
-      it("should set the specified background color", () => {
-        const specifiedColor = "rgba(255, 99, 71, 0.6)";
-        component.bdColor = specifiedColor;
-        fixture.detectChanges();
-
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        expect(elementStyle.backgroundColor).toBe(specifiedColor);
-      });
+    it("should set the specified background color when specified", () => {
+      testBackgroundColor("rgba(255, 99, 71, 0.6)", "rgba(255, 99, 71, 0.6)");
     });
   });
 
-  describe("the size input", () => {
-    describe("when not specified", () => {
-      it("should set the appropriate class", () => {
-        fixture.detectChanges();
-        component.onInputChange();
-        const cdr = fixture.debugElement.injector.get<ChangeDetectorRef>(
-          ChangeDetectorRef as any
-        );
-        cdr.detectChanges();
+  const testSizeClass = (specifiedSize: Size, expectedClass: string) => {
+    component.size = specifiedSize;
+    fixture.detectChanges();
+    component.onInputChange();
+    fixture.detectChanges();
+    const childElement = fixture.nativeElement.querySelector(
+      ".ngx-spinner-overlay div",
+    );
+    expect(childElement.getAttribute("class")).toContain(expectedClass);
+  };
 
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.getAttribute("class")).toContain("la-3x");
-      });
+  describe("size input", () => {
+    it("should set the large size class when not specified", () => {
+      testSizeClass(undefined, "la-3x");
     });
 
-    describe("when specified", () => {
-      it("should set the appropriate class", () => {
-        component.size = "small";
-        fixture.detectChanges();
-        component.onInputChange();
-        const cdr = fixture.debugElement.injector.get<ChangeDetectorRef>(
-          ChangeDetectorRef as any
-        );
-        cdr.detectChanges();
-
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.getAttribute("class")).toContain("la-sm");
-      });
+    it("should set the small size class when specified", () => {
+      testSizeClass("small", "la-sm");
     });
   });
 
-  describe("the color input", () => {
-    describe("when not specified", () => {
-      it("should set the default #fff color", () => {
-        fixture.detectChanges();
+  const testColor = (specifiedColor: string, expectedColor: string) => {
+    component.color = specifiedColor;
+    fixture.detectChanges();
+    const childElementStyle = getComputedStyle(
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay div"),
+    );
+    expect(childElementStyle.color).toContain(expectedColor);
+  };
 
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElementStyle = getComputedStyle(
-          parentElement.querySelector("div")
-        );
-        expect(childElementStyle.color).toContain("rgb(255, 255, 255)");
-      });
+  describe("color input", () => {
+    it("should set the default color when not specified", () => {
+      testColor(undefined, "rgb(255, 255, 255)");
     });
 
-    describe("when specified", () => {
-      it("should set the specified color", () => {
-        const specifiedColor = "rgba(255, 99, 71, 0.6)";
-        component.color = specifiedColor;
-        fixture.detectChanges();
-
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElementStyle = getComputedStyle(
-          parentElement.querySelector("div")
-        );
-        expect(childElementStyle.color).toContain(specifiedColor);
-      });
+    it("should set the specified color when specified", () => {
+      testColor("rgba(255, 99, 71, 0.6)", "rgba(255, 99, 71, 0.6)");
     });
   });
 
-  describe("the type input", () => {
-    describe("when not specified", () => {
-      it("should set the appropriate class", () => {
-        fixture.detectChanges();
-        component.onInputChange();
-        const cdr = fixture.debugElement.injector.get<ChangeDetectorRef>(
-          ChangeDetectorRef as any
-        );
-        cdr.detectChanges();
+  const testTypeClass = (specifiedType: string, expectedClass: string) => {
+    component.type = specifiedType;
+    fixture.detectChanges();
+    component.onInputChange();
+    fixture.detectChanges();
+    const childElement = fixture.nativeElement.querySelector(
+      ".ngx-spinner-overlay div",
+    );
+    expect(childElement.getAttribute("class")).toContain(expectedClass);
+  };
 
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.getAttribute("class")).toContain(
-          "la-ball-scale-multiple"
-        );
-      });
+  describe("type input", () => {
+    it("should set the default type class when not specified", () => {
+      testTypeClass(undefined, "la-ball-scale-multiple");
     });
 
-    describe("when specified", () => {
-      it("should set the appropriate class", () => {
-        component.type = "fire";
-        fixture.detectChanges();
-        component.onInputChange();
-        const cdr = fixture.debugElement.injector.get<ChangeDetectorRef>(
-          ChangeDetectorRef as any
-        );
-        cdr.detectChanges();
-
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.getAttribute("class")).toContain("la-fire");
-      });
+    it("should set the specified type class when specified", () => {
+      testTypeClass("fire", "la-fire");
     });
   });
 
-  describe("the fullScreen input", () => {
-    describe("when not specified", () => {
-      it("should set the default fixed poition", () => {
-        fixture.detectChanges();
+  const testPosition = (fullScreen: boolean, expectedPosition: string) => {
+    component.fullScreen = fullScreen;
+    fixture.detectChanges();
+    elementStyle = getComputedStyle(
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
+    );
+    expect(elementStyle.position).toBe(expectedPosition);
+  };
 
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        expect(elementStyle.position).toBe("fixed");
-      });
+  describe("fullScreen input", () => {
+    it("should set the fixed position when not specified", () => {
+      testPosition(undefined, "fixed");
     });
 
-    describe("when specified", () => {
-      it("should set the absolute position if false", () => {
-        component.fullScreen = false;
-        fixture.detectChanges();
-
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        expect(elementStyle.position).toBe("absolute");
-      });
+    it("should set the absolute position when specified as false", () => {
+      testPosition(false, "absolute");
     });
   });
 
-  describe("the name input", () => {
-    describe("when not specified", () => {
-      it("should call getSpinner with the default name", () => {
-        fixture.detectChanges();
-
-        expect(spinnerSpyGet).toHaveBeenCalledWith("primary");
-      });
+  describe("name input", () => {
+    it("should call getSpinner with the default name when not specified", () => {
+      fixture.detectChanges();
+      expect(spinnerSpyGet).toHaveBeenCalledWith("primary");
     });
 
-    describe("when specified", () => {
-      it("should call getSpinner with the specified name", () => {
-        const specifiedName = "custom-name";
-        component.name = specifiedName;
-        fixture.detectChanges();
-
-        expect(spinnerSpyGet).toHaveBeenCalledWith(specifiedName);
-      });
+    it("should call getSpinner with the specified name", () => {
+      const specifiedName = "custom-name";
+      component.name = specifiedName;
+      fixture.detectChanges();
+      expect(spinnerSpyGet).toHaveBeenCalledWith(specifiedName);
     });
   });
 
-  describe("the zIndex input", () => {
-    describe("when not specified", () => {
-      it("should set the default zIndex value", () => {
-        fixture.detectChanges();
+  const testZIndex = (specifiedZIndex: number, expectedZIndex: string) => {
+    component.zIndex = specifiedZIndex;
+    fixture.detectChanges();
+    elementStyle = getComputedStyle(
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
+    );
+    const secondElementStyle = getComputedStyle(
+      fixture.nativeElement.querySelector(".loading-text"),
+    );
+    expect(elementStyle.zIndex).toBe(expectedZIndex);
+    expect(secondElementStyle.zIndex).toBe(expectedZIndex);
+  };
 
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        const secondElementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".loading-text")
-        );
-        expect(elementStyle.zIndex).toBe("99999");
-        expect(secondElementStyle.zIndex).toBe("99999");
-      });
+  describe("zIndex input", () => {
+    it("should set the default zIndex value when not specified", () => {
+      testZIndex(undefined, "99999");
     });
 
-    describe("when specified", () => {
-      it("should set the specified zIndex value", () => {
-        const specifiedZIndex = 99;
-        component.zIndex = specifiedZIndex;
-        fixture.detectChanges();
-
-        elementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".ngx-spinner-overlay")
-        );
-        const secondElementStyle = getComputedStyle(
-          fixture.nativeElement.querySelector(".loading-text")
-        );
-        expect(elementStyle.zIndex).toBe("" + specifiedZIndex);
-        expect(secondElementStyle.zIndex).toBe("" + specifiedZIndex);
-      });
+    it("should set the specified zIndex value", () => {
+      testZIndex(99, "99");
     });
   });
 
-  describe("the template input", () => {
-    describe("when not specified", () => {
-      it("should set the default null value", () => {
-        fixture.detectChanges();
+  const testTemplate = (specifiedTemplate: string, expectedContent: string) => {
+    component.template = specifiedTemplate;
+    fixture.detectChanges();
+    const childElement = fixture.nativeElement.querySelector(
+      ".ngx-spinner-overlay div",
+    );
+    expect(childElement.textContent).toBe(expectedContent);
+  };
 
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.textContent).toBe("");
-      });
+  describe("template input", () => {
+    it("should set the default null value when not specified", () => {
+      testTemplate(undefined, "");
     });
 
-    describe("when specified", () => {
-      it("should set the specified zIndex value", () => {
-        const specifiedTemplate = "test template";
-        component.template = specifiedTemplate;
-        fixture.detectChanges();
-
-        const parentElement = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        const childElement = parentElement.querySelector("div");
-        expect(childElement.textContent).toBe(specifiedTemplate);
-      });
+    it("should set the specified template content", () => {
+      testTemplate("test template", "test template");
     });
   });
 
-  describe("the showSpinner input", () => {
-    describe("when not specified", () => {
-      it("should set showSpinner to false", () => {
-        fixture.detectChanges();
-
-        expect(component.showSpinner).toBe(false);
-      });
+  describe("showSpinner input", () => {
+    it("should default to false when not specified", () => {
+      fixture.detectChanges();
+      expect(component.showSpinner).toBe(false);
     });
 
-    describe("when specified", () => {
-      it("should call show() from spinner service if true specified", () => {
-        fixture.detectChanges();
-        component.ngOnChanges({
-          showSpinner: new SimpleChange(component.showSpinner, true, false),
-        });
-
-        expect(spinnerSpyShow).toHaveBeenCalled();
+    it("should call show() from spinner service when true specified", () => {
+      component.showSpinner = true;
+      fixture.detectChanges();
+      component.ngOnChanges({
+        showSpinner: new SimpleChange(false, true, false),
       });
+      expect(spinnerSpyShow).toHaveBeenCalled();
+    });
 
-      it("should call hide() from spinner service if false specified", () => {
-        fixture.detectChanges();
-        component.ngOnChanges({
-          showSpinner: new SimpleChange(true, component.showSpinner, false),
-        });
-
-        expect(spinnerSpyHide).toHaveBeenCalled();
+    it("should call hide() from spinner service when false specified", () => {
+      component.showSpinner = false;
+      fixture.detectChanges();
+      component.ngOnChanges({
+        showSpinner: new SimpleChange(true, false, false),
       });
+      expect(spinnerSpyHide).toHaveBeenCalled();
     });
   });
 
-  describe("the disableAnimation input", () => {
-    describe("when not specified", () => {
-      it("should not set the ng-animate-disabled class", () => {
-        fixture.detectChanges();
+  const testDisableAnimation = (
+    disableAnimation: boolean,
+    expectedClass: string,
+  ) => {
+    component.disableAnimation = disableAnimation;
+    fixture.detectChanges();
+    const element = fixture.nativeElement.querySelector(".ngx-spinner-overlay");
+    expect(element.getAttribute("class")).toContain(expectedClass);
+  };
 
-        const element = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        expect(element.getAttribute("class")).not.toContain(
-          "ng-animate-disabled"
-        );
-      });
+  describe("disableAnimation input", () => {
+    it("should not set the ng-animate-disabled class when not specified", () => {
+      testDisableAnimation(undefined, "");
     });
 
-    describe("when specified", () => {
-      it("should set the absolute position if false", () => {
-        component.disableAnimation = true;
-        fixture.detectChanges();
-
-        const element = fixture.debugElement.nativeElement.querySelector(
-          ".ngx-spinner-overlay"
-        );
-        expect(element.getAttribute("class")).toContain("ng-animate-disabled");
-      });
+    it("should set the ng-animate-disabled class when specified as true", () => {
+      testDisableAnimation(true, "ng-animate-disabled");
     });
   });
 });

@@ -5,5 +5,5 @@ export interface NgxSpinnerConfig {
 }
 
 export const NGX_SPINNER_CONFIG = new InjectionToken<NgxSpinnerConfig>(
-  "NGX_SPINNER_CONFIG"
+  "NGX_SPINNER_CONFIG",
 );
