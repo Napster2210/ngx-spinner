@@ -1,5 +1,19 @@
 import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor } from '@angular/common';
+import { BannerComponent } from './banner/banner.component';
+import { HeaderComponent } from './header/header.component';
 
 const TABLET_SIZE = 768;
 const MOBILE_SIZE = 425;
@@ -11,9 +25,11 @@ const MOBILE_SIZE = 425;
  * @class AppComponent
  */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: true,
+    imports: [HeaderComponent, BannerComponent, NgIf, MatButtonModule, MatExpansionModule, MatGridListModule, MatFormFieldModule, MatSelectModule, FormsModule, NgFor, MatOptionModule, MatInputModule, ColorPickerModule, MatSlideToggleModule, MatRadioModule, NgxSpinnerModule]
 })
 export class AppComponent {
   /**

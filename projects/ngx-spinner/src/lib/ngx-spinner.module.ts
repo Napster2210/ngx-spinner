@@ -5,9 +5,8 @@ import { SafeHtmlPipe } from "./safe-html.pipe";
 import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [NgxSpinnerComponent, SafeHtmlPipe],
-  exports: [NgxSpinnerComponent],
+    imports: [CommonModule, NgxSpinnerComponent, SafeHtmlPipe],
+    exports: [NgxSpinnerComponent],
 })
 export class NgxSpinnerModule {
   static forRoot(

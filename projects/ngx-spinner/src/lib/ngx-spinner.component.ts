@@ -33,6 +33,7 @@ import {
 import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
 
 @Component({
+  standalone: true,
   selector: "ngx-spinner",
   templateUrl: "ngx-spinner.component.html",
   styleUrls: ["./ngx-spinner.component.css"],
