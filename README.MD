@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 18. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 19. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -20,18 +20,19 @@ A library with more than 50 different loading spinners for Angular 4 - 18. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2016%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2017%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2018%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2019%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 18 support 🥳🥳🥳🥳
+- Angular 19 support 🥳🥳🥳🥳
 
 Use appropriate version based on your Angular version.
 
-| Angular 18  | Angular 17  | Angular 16  | Angular 15  |
-| ----------- | ----------- | ----------- | ----------- |
-| >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` | >=`v15.0.1` |
+| Angular 19  | Angular 18  | Angular 17  | Angular 16  | Angular 15  |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` | >=`v15.0.1` |
 
 | Angular 14  | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
