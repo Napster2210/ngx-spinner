@@ -51,13 +51,16 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "aot": true,
-            "outputPath": "dist/ngx-tester",
+            "outputPath": {
+              "base": "dist/ngx-tester"
+            },
             "index": "projects/ngx-tester/src/index.html",
-            "main": "projects/ngx-tester/src/main.ts",
-            "polyfills": "projects/ngx-tester/src/polyfills.ts",
+            "polyfills": [
+              "projects/ngx-tester/src/polyfills.ts"
+            ],
             "tsConfig": "projects/ngx-tester/tsconfig.app.json",
             "assets": [
               "projects/ngx-tester/src/favicon.ico",
@@ -119,7 +122,8 @@
               "dist/ngx-spinner/animations/timer.css",
               "dist/ngx-spinner/animations/triangle-skew-spin.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "projects/ngx-tester/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -135,8 +139,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
