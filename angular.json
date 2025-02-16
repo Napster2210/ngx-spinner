@@ -158,10 +158,10 @@
           "options": {},
           "configurations": {
             "production": {
-              "browserTarget": "ngx-tester:build:production"
+              "buildTarget": "ngx-tester:build:production"
             },
             "development": {
-              "browserTarget": "ngx-tester:build:development"
+              "buildTarget": "ngx-tester:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -169,7 +169,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-tester:build"
+            "buildTarget": "ngx-tester:build"
           }
         },
         "test": {
