@@ -11,5 +11,6 @@
     "postbuild",
     "rgba",
     "tsickle"
-  ]
+  ],
+  "angular.enable-strict-mode-prompt": false
 }
