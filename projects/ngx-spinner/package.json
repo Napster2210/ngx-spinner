@@ -3,7 +3,7 @@
   "version": "19.0.0",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-    "copy:collection": "cp schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
+    "copy:collection": "cp ./schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
     "postbuild": "npm run copy:collection"
   },
   "repository": {

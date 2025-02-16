@@ -1,13 +1,5 @@
-// import { getWorkspace } from '@schematics/angular/utility/config';
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
 import { chain, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
 import {
   addModuleImportToRootModule,
   getAppModulePath,
@@ -20,11 +12,11 @@ import {
 const spinnerModuleName = 'NgxSpinnerModule';
 
 export default function (options: any): Rule {
-  return (host: Tree, _context: SchematicContext) => {
-    const workspace = ''; //getWorkspace(host);
+  return async (host: Tree, _context: SchematicContext) => {
+    const workspace = await getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);
 
-    if (project.projectType === 'application') {
+    if (project.extensions.projectType === 'application') {
       return chain([
         addSpinnerModule(options),
       ]);
@@ -33,9 +25,9 @@ export default function (options: any): Rule {
   };
 }
 
-function addSpinnerModule(options: any) {
-  return (host: Tree, _context: SchematicContext) => {
-    const workspace = ''; //getWorkspace(host);
+function addSpinnerModule(options: any): Rule {
+  return async (host: Tree, _context: SchematicContext) => {
+    const workspace = await getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);
     const appModulePath = getAppModulePath(host, getProjectMainFile(project));
 
