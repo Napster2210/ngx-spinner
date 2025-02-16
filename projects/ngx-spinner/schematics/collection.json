@@ -3,12 +3,12 @@
   "schematics": {
     "ng-add": {
       "description": "Add ngx-spinner to the project.",
-      "factory": "./ng-add/index#ngAdd"
+      "factory": "./ng-add/index#default"
     },
     "ng-add-setup-project": {
       "description": "Sets up the specified project after the ng-add dependencies have been installed.",
       "private": true,
-      "factory": "./ng-add/setup-project"
+      "factory": "./ng-add/setup-project#default"
     }
   }
 }

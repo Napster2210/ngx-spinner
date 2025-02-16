@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve ngx-tester -o",
-    "build:lib": "ng build ngx-spinner && npm run copy",
+    "build:lib": "ng build ngx-spinner && npm run copy && npm run build:schematics",
     "copy": "cp README.md LICENSE.md dist/ngx-spinner/",
     "build:schematics": "cd projects/ngx-spinner && npm run build",
     "build:app": "ng build ngx-tester",
@@ -14,6 +14,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^19.1.7",
     "@angular/animations": "^19.1.6",
     "@angular/cdk": "^19.1.4",
     "@angular/common": "~19.1.6",
@@ -27,36 +28,45 @@
     "@schematics/angular": "^11.2.4",
     "core-js": "^3.4.8",
     "ngx-color-picker": "^14.0.0",
+    "ngx-spinner": "^18.0.0",
     "rxjs": "~6.6.6",
     "tslib": "^2.3.1",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.7",
-    "@angular-eslint/builder": "16.0.2",
-    "@angular-eslint/eslint-plugin": "16.0.2",
-    "@angular-eslint/eslint-plugin-template": "16.0.2",
-    "@angular-eslint/schematics": "16.0.2",
-    "@angular-eslint/template-parser": "16.0.2",
+    "@angular-eslint/builder": "^19.1.0",
+    "@angular-eslint/eslint-plugin": "^19.1.0",
+    "@angular-eslint/eslint-plugin-template": "^19.1.0",
+    "@angular-eslint/schematics": "^19.1.0",
+    "@angular-eslint/template-parser": "^19.1.0",
     "@angular/cli": "~19.1.7",
     "@angular/compiler-cli": "~19.1.6",
     "@angular/language-service": "~19.1.6",
-    "@types/jasmine": "~3.6.0",
+    "@types/jasmine": "~3.10.0",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^12.20.5",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "@typescript-eslint/utils": "^8.24.0",
     "eslint": "^8.39.0",
-    "jasmine-core": "~3.6.0",
+    "jasmine-core": "~3.10.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.20",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-jasmine-html-reporter": "^1.6.0",
     "ng-packagr": "^19.1.2",
     "protractor": "^7.0.0",
     "ts-node": "^8.5.4",
     "typescript": "5.5.4"
+  },
+  "resolutions": {
+    "@typescript-eslint/utils": "^8.24.0"
+  },
+  "schematics": "projects/ngx-spinner/schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   }
 }
