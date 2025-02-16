@@ -4,12 +4,12 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": false,
     "module": "es2020",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "ES2022",
     "typeRoots": [
