@@ -11,11 +11,32 @@ describe("SafeHtmlPipe", () => {
       imports: [BrowserModule],
     });
 
-    sanitizer = TestBed.get(DomSanitizer);
+    sanitizer = TestBed.inject(DomSanitizer);
     pipe = new SafeHtmlPipe(sanitizer);
   });
 
   it("should create an instance", () => {
     expect(pipe).toBeTruthy();
+  });
+
+  it("should transform HTML string to SafeHtml", () => {
+    const htmlString = "<div>Test</div>";
+    const safeHtml = pipe.transform(htmlString);
+    expect(safeHtml).toEqual(sanitizer.bypassSecurityTrustHtml(htmlString));
+  });
+
+  it("should return empty string for null input", () => {
+    const safeHtml = pipe.transform(null);
+    expect(safeHtml).toEqual('');
+  });
+
+  it("should return empty string for undefined input", () => {
+    const safeHtml = pipe.transform(undefined);
+    expect(safeHtml).toEqual('');
+  });
+
+  it("should return empty string for empty string input", () => {
+    const safeHtml = pipe.transform('');
+    expect(safeHtml).toEqual('');
   });
 });
