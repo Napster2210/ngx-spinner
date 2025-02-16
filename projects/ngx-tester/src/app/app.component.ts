@@ -28,7 +28,6 @@ const MOBILE_SIZE = 425;
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: true,
     imports: [HeaderComponent, BannerComponent, NgIf, MatButtonModule, MatExpansionModule, MatGridListModule, MatFormFieldModule, MatSelectModule, FormsModule, NgFor, MatOptionModule, MatInputModule, ColorPickerModule, MatSlideToggleModule, MatRadioModule, NgxSpinnerModule]
 })
 export class AppComponent {
