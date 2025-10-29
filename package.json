@@ -60,7 +60,7 @@
     "ng-packagr": "^19.1.2",
     "protractor": "^7.0.0",
     "ts-node": "^8.5.4",
-    "typescript": "5.5.4"
+    "typescript": "5.9.3"
   },
   "resolutions": {
     "@typescript-eslint/utils": "^8.24.0"
