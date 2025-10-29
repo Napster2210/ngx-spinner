@@ -1,17 +1,4 @@
-import {
-  Component,
-  OnDestroy,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChange,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  ViewChild,
-  ElementRef,
-  Optional,
-  Inject,
-} from "@angular/core";
+import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChange, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef, inject } from "@angular/core";
 import { NgxSpinnerService } from "./ngx-spinner.service";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -47,6 +34,11 @@ import { SafeHtmlPipe } from "./safe-html.pipe";
     ]
 })
 export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
+  private spinnerService = inject(NgxSpinnerService);
+  private changeDetector = inject(ChangeDetectorRef);
+  private elementRef = inject(ElementRef);
+  private globalConfig = inject<NgxSpinnerConfig>(NGX_SPINNER_CONFIG, { optional: true });
+
   /**
    * To set backdrop color
    * Only supports RGBA color format
@@ -167,14 +159,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  constructor(
-    private spinnerService: NgxSpinnerService,
-    private changeDetector: ChangeDetectorRef,
-    private elementRef: ElementRef,
-    @Optional()
-    @Inject(NGX_SPINNER_CONFIG)
-    private globalConfig: NgxSpinnerConfig
-  ) {
+  constructor() {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;

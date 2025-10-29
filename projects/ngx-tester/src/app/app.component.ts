@@ -1,4 +1,4 @@
-import { Component, ViewChild, HostListener, OnInit } from "@angular/core";
+import { Component, ViewChild, HostListener, OnInit, inject } from "@angular/core";
 import { NgxSpinnerService, NgxSpinnerModule } from "ngx-spinner";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
@@ -45,6 +45,8 @@ const MOBILE_SIZE = 425;
 ],
 })
 export class AppComponent {
+  private spinner = inject(NgxSpinnerService);
+
   /**
    * Array for spinner size
    *
@@ -157,7 +159,7 @@ export class AppComponent {
    * @param {NgxSpinnerService} spinner Spinner service
    * @memberof AppComponent
    */
-  constructor(private spinner: NgxSpinnerService) {
+  constructor() {
     const deviceWidth = window.innerWidth;
     if (deviceWidth <= MOBILE_SIZE) {
       this.noOfColumns = 1;

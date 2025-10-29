@@ -1,6 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
 import { SafeHtmlPipe } from "./safe-html.pipe";
+import { Injector, runInInjectionContext } from "@angular/core";
 
 describe("SafeHtmlPipe", () => {
   let sanitizer: DomSanitizer;
@@ -12,7 +13,7 @@ describe("SafeHtmlPipe", () => {
     });
 
     sanitizer = TestBed.inject(DomSanitizer);
-    pipe = new SafeHtmlPipe(sanitizer);
+    pipe = runInInjectionContext(TestBed.inject(Injector), () => new SafeHtmlPipe());
   });
 
   it("should create an instance", () => {
