@@ -11,7 +11,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatButtonModule } from "@angular/material/button";
-import { NgIf, NgFor } from "@angular/common";
 import { BannerComponent } from "./banner/banner.component";
 import { HeaderComponent } from "./header/header.component";
 
@@ -31,21 +30,19 @@ const MOBILE_SIZE = 425;
   imports: [
     HeaderComponent,
     BannerComponent,
-    NgIf,
     MatButtonModule,
     MatExpansionModule,
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    NgFor,
     MatOptionModule,
     MatInputModule,
     ColorPickerModule,
     MatSlideToggleModule,
     MatRadioModule,
-    NgxSpinnerModule,
-  ],
+    NgxSpinnerModule
+],
 })
 export class AppComponent {
   /**

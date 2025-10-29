@@ -7,7 +7,7 @@ describe("NgxSpinnerService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it("should be created", () => {
-    const service: NgxSpinnerService = TestBed.get(NgxSpinnerService);
+    const service: NgxSpinnerService = TestBed.inject(NgxSpinnerService);
     expect(service).toBeTruthy();
   });
 
