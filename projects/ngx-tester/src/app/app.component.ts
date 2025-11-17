@@ -156,7 +156,6 @@ export class AppComponent {
 
   /**
    * Creates an instance of AppComponent.
-   * @param {NgxSpinnerService} spinner Spinner service
    * @memberof AppComponent
    */
   constructor() {

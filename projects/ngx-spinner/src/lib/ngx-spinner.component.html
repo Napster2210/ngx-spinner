@@ -14,8 +14,7 @@
           <div></div>
         }
       </div>
-    }
-    @if (template) {
+    } @else {
       <div [innerHTML]="template | safeHtml"></div>
     }
     <div class="loading-text" [style.z-index]="spinner.zIndex">
