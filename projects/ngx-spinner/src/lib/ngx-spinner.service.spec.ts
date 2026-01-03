@@ -7,7 +7,7 @@ describe("NgxSpinnerService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it("should be created", () => {
-    const service: NgxSpinnerService = TestBed.get(NgxSpinnerService);
+    const service: NgxSpinnerService = TestBed.inject(NgxSpinnerService);
     expect(service).toBeTruthy();
   });
 
@@ -25,39 +25,51 @@ describe("NgxSpinnerService", () => {
 
     it("should show spinner", (done) => {
       service.show(PRIMARY_SPINNER).then(() => {
-        service.getSpinner(PRIMARY_SPINNER).pipe(take(1)).subscribe((spinner) => {
-          expect(spinner).toBeTruthy();
-          expect(spinner.name).toBe(PRIMARY_SPINNER);
-          expect(spinner.show).toBe(true);
-          done();
-        });
+        service
+          .getSpinner(PRIMARY_SPINNER)
+          .pipe(take(1))
+          .subscribe((spinner) => {
+            expect(spinner).toBeTruthy();
+            expect(spinner.name).toBe(PRIMARY_SPINNER);
+            expect(spinner.show).toBe(true);
+            done();
+          });
       });
     });
 
     it("should hide spinner", (done) => {
       service.show(PRIMARY_SPINNER).then(() => {
         service.hide(PRIMARY_SPINNER).then(() => {
-          service.getSpinner(PRIMARY_SPINNER).pipe(take(1)).subscribe((spinner) => {
-            expect(spinner).toBeTruthy();
-            expect(spinner.name).toBe(PRIMARY_SPINNER);
-            expect(spinner.show).toBe(false);
-            done();
-          });
+          service
+            .getSpinner(PRIMARY_SPINNER)
+            .pipe(take(1))
+            .subscribe((spinner) => {
+              expect(spinner).toBeTruthy();
+              expect(spinner.name).toBe(PRIMARY_SPINNER);
+              expect(spinner.show).toBe(false);
+              done();
+            });
         });
       });
     });
 
     it("should show spinner with custom spinner object", (done) => {
-      const customSpinner = { bdColor: "rgba(0,0,0,0.8)", size: "large" } as NgxSpinner;
+      const customSpinner = {
+        bdColor: "rgba(0,0,0,0.8)",
+        size: "large",
+      } as NgxSpinner;
       service.show("customSpinner", customSpinner).then(() => {
-        service.getSpinner("customSpinner").pipe(take(1)).subscribe((spinner) => {
-          expect(spinner).toBeTruthy();
-          expect(spinner.name).toBe("customSpinner");
-          expect(spinner.show).toBe(true);
-          expect(spinner.bdColor).toBe("rgba(0,0,0,0.8)");
-          expect(spinner.size).toBe("large");
-          done();
-        });
+        service
+          .getSpinner("customSpinner")
+          .pipe(take(1))
+          .subscribe((spinner) => {
+            expect(spinner).toBeTruthy();
+            expect(spinner.name).toBe("customSpinner");
+            expect(spinner.show).toBe(true);
+            expect(spinner.bdColor).toBe("rgba(0,0,0,0.8)");
+            expect(spinner.size).toBe("large");
+            done();
+          });
       });
     });
   });
