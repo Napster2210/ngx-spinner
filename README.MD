@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 19. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 21. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -21,26 +21,27 @@ A library with more than 50 different loading spinners for Angular 4 - 19. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2017%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2018%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2019%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2021%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 19 support 🥳🥳🥳🥳
+- Angular 21 support 🥳🥳🥳🥳
 
 Use appropriate version based on your Angular version.
 
-| Angular 19  | Angular 18  | Angular 17  | Angular 16  | Angular 15  |
+| Angular 21  | Angular 19  | Angular 18  | Angular 17  | Angular 16  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` | >=`v15.0.1` |
+| >=`v21.0.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` |
 
-| Angular 14  | Angular 13  | Angular 12  | Angular 11  | Angular 10  |
+| Angular 15  | Angular 14  | Angular 13  | Angular 12  | Angular 11  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| >=`v14.0.0` | >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` | >=`v10.0.1` |
+| >=`v15.0.1` | >=`v14.0.0` | >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` |
 
-| Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
-| ---------- | --------- | ----------- | ---------- | ---------- |
-| >=`v9.0.1` | `v8.1.0`  | `v7.2.0`    | >=`v1.2.0` | >=`v2.0.0` |
+| Angular 10  | Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
+| ----------- | ---------- | --------- | ----------- | ---------- | ---------- |
+| >=`v10.0.1` | >=`v9.0.1` | `v8.1.0`  | `v7.2.0`    | >=`v1.2.0` | >=`v2.0.0` |
 
 ## Table of contents
 
@@ -75,7 +76,7 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 18** Support
+- **Angular 21** Support
 - Custom spinner image support(gif), you can pass `img` tag
 - Multiple Spinners
 - Configurable option through service
