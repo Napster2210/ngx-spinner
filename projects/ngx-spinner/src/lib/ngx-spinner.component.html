@@ -1,18 +1,25 @@
-<div
-  [@.disabled]="disableAnimation"
-  [@fadeIn]="'in'"
-  *ngIf="spinner.show"
-  class="ngx-spinner-overlay"
-  [style.background-color]="spinner.bdColor"
-  [style.z-index]="spinner.zIndex"
-  [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'"
-  #overlay
->
-  <div *ngIf="!template" [class]="spinner.class" [style.color]="spinner.color">
-    <div *ngFor="let index of spinner.divArray"></div>
+@if (spinner.show) {
+  <div
+    [@.disabled]="disableAnimation"
+    [@fadeIn]="'in'"
+    class="ngx-spinner-overlay"
+    [style.background-color]="spinner.bdColor"
+    [style.z-index]="spinner.zIndex"
+    [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'"
+    #overlay
+    >
+    @if (!template) {
+      <div [class]="spinner.class" [style.color]="spinner.color">
+        @for (index of spinner.divArray; track index) {
+          <div></div>
+        }
+      </div>
+    }
+    @if (template) {
+      <div [innerHTML]="template | safeHtml"></div>
+    }
+    <div class="loading-text" [style.z-index]="spinner.zIndex">
+      <ng-content></ng-content>
+    </div>
   </div>
-  <div *ngIf="template" [innerHTML]="template | safeHtml"></div>
-  <div class="loading-text" [style.z-index]="spinner.zIndex">
-    <ng-content></ng-content>
-  </div>
-</div>
+}

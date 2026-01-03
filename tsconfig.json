@@ -15,10 +15,6 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
     "paths": {
       "ngx-spinner": [
         "dist/ngx-spinner"
