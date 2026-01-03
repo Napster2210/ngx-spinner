@@ -1,6 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
 import { SafeHtmlPipe } from "./safe-html.pipe";
+import { Injector, runInInjectionContext } from "@angular/core";
 
 describe("SafeHtmlPipe", () => {
   let sanitizer: DomSanitizer;
@@ -12,7 +13,10 @@ describe("SafeHtmlPipe", () => {
     });
 
     sanitizer = TestBed.inject(DomSanitizer);
-    pipe = new SafeHtmlPipe(sanitizer);
+    pipe = runInInjectionContext(
+      TestBed.inject(Injector),
+      () => new SafeHtmlPipe()
+    );
   });
 
   it("should create an instance", () => {
@@ -27,16 +31,16 @@ describe("SafeHtmlPipe", () => {
 
   it("should return empty string for null input", () => {
     const safeHtml = pipe.transform(null);
-    expect(safeHtml).toEqual('');
+    expect(safeHtml).toEqual("");
   });
 
   it("should return empty string for undefined input", () => {
     const safeHtml = pipe.transform(undefined);
-    expect(safeHtml).toEqual('');
+    expect(safeHtml).toEqual("");
   });
 
   it("should return empty string for empty string input", () => {
-    const safeHtml = pipe.transform('');
-    expect(safeHtml).toEqual('');
+    const safeHtml = pipe.transform("");
+    expect(safeHtml).toEqual("");
   });
 });

@@ -12,16 +12,10 @@
     "resolveJsonModule": true,
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "paths": {
-      "ngx-spinner": [
-        "dist/ngx-spinner"
-      ],
-      "ngx-spinner/*": [
-        "dist/ngx-spinner/*"
-      ]
+      "ngx-spinner": ["dist/ngx-spinner"],
+      "ngx-spinner/*": ["dist/ngx-spinner/*"]
     },
     "useDefineForClassFields": false
   }
