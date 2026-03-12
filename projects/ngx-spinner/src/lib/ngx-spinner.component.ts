@@ -22,30 +22,15 @@ import {
   NgxSpinner,
   PRIMARY_SPINNER,
 } from "./ngx-spinner.enum";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
 import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
 import { SafeHtmlPipe } from "./safe-html.pipe";
 
-
 @Component({
-    imports: [SafeHtmlPipe],
-    selector: "ngx-spinner",
-    templateUrl: "ngx-spinner.component.html",
-    styleUrls: ["./ngx-spinner.component.css"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    animations: [
-        trigger("fadeIn", [
-            state("in", style({ opacity: 1 })),
-            transition(":enter", [style({ opacity: 0 }), animate(300)]),
-            transition(":leave", animate(200, style({ opacity: 0 }))),
-        ]),
-    ]
+  imports: [SafeHtmlPipe],
+  selector: "ngx-spinner",
+  templateUrl: "ngx-spinner.component.html",
+  styleUrls: ["./ngx-spinner.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
   /**
@@ -174,7 +159,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
     private elementRef: ElementRef,
     @Optional()
     @Inject(NGX_SPINNER_CONFIG)
-    private globalConfig: NgxSpinnerConfig
+    private globalConfig: NgxSpinnerConfig,
   ) {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;

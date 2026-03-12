@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, SimpleChange } from "@angular/core";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+
 import { NgxSpinnerComponent } from "./ngx-spinner.component";
 import { NgxSpinnerService } from "./ngx-spinner.service";
 import { SafeHtmlPipe } from "./safe-html.pipe";
@@ -17,7 +17,7 @@ describe("NgxSpinnerComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, NgxSpinnerComponent, SafeHtmlPipe],
+      imports: [NgxSpinnerComponent, SafeHtmlPipe],
       providers: [NgxSpinnerService],
     }).compileComponents();
   }));
@@ -41,12 +41,12 @@ describe("NgxSpinnerComponent", () => {
 
   const testBackgroundColor = (
     specifiedColor: string,
-    expectedColor: string
+    expectedColor: string,
   ) => {
     component.bdColor = specifiedColor;
     fixture.detectChanges();
     elementStyle = getComputedStyle(
-      fixture.nativeElement.querySelector(".ngx-spinner-overlay")
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
     );
     expect(elementStyle.backgroundColor).toBe(expectedColor);
   };
@@ -67,7 +67,7 @@ describe("NgxSpinnerComponent", () => {
     component.onInputChange();
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
-      ".ngx-spinner-overlay div"
+      ".ngx-spinner-overlay div",
     );
     expect(childElement.getAttribute("class")).toContain(expectedClass);
   };
@@ -86,7 +86,7 @@ describe("NgxSpinnerComponent", () => {
     component.color = specifiedColor;
     fixture.detectChanges();
     const childElementStyle = getComputedStyle(
-      fixture.nativeElement.querySelector(".ngx-spinner-overlay div")
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay div"),
     );
     expect(childElementStyle.color).toContain(expectedColor);
   };
@@ -107,7 +107,7 @@ describe("NgxSpinnerComponent", () => {
     component.onInputChange();
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
-      ".ngx-spinner-overlay div"
+      ".ngx-spinner-overlay div",
     );
     expect(childElement.getAttribute("class")).toContain(expectedClass);
   };
@@ -126,7 +126,7 @@ describe("NgxSpinnerComponent", () => {
     component.fullScreen = fullScreen;
     fixture.detectChanges();
     elementStyle = getComputedStyle(
-      fixture.nativeElement.querySelector(".ngx-spinner-overlay")
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
     );
     expect(elementStyle.position).toBe(expectedPosition);
   };
@@ -159,10 +159,10 @@ describe("NgxSpinnerComponent", () => {
     component.zIndex = specifiedZIndex;
     fixture.detectChanges();
     elementStyle = getComputedStyle(
-      fixture.nativeElement.querySelector(".ngx-spinner-overlay")
+      fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
     );
     const secondElementStyle = getComputedStyle(
-      fixture.nativeElement.querySelector(".loading-text")
+      fixture.nativeElement.querySelector(".loading-text"),
     );
     expect(elementStyle.zIndex).toBe(expectedZIndex);
     expect(secondElementStyle.zIndex).toBe(expectedZIndex);
@@ -182,7 +182,7 @@ describe("NgxSpinnerComponent", () => {
     component.template = specifiedTemplate;
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
-      ".ngx-spinner-overlay div"
+      ".ngx-spinner-overlay div",
     );
     expect(childElement.textContent).toBe(expectedContent);
   };
@@ -224,24 +224,32 @@ describe("NgxSpinnerComponent", () => {
 
   const testDisableAnimation = (
     disableAnimation: boolean,
-    expectedClass: string
+    expectedClass: string,
   ) => {
     component.disableAnimation = disableAnimation;
+    // Ensure spinner is shown so the element exists in the DOM
+    component.spinner = { ...component.spinner, show: true };
     fixture.detectChanges();
+
     const element = fixture.nativeElement.querySelector(".ngx-spinner-overlay");
-    expect(element.getAttribute("class")).toContain(expectedClass);
+
+    if (expectedClass) {
+      expect(element.classList).toContain(expectedClass);
+    } else {
+      expect(element.classList).not.toContain("no-animate");
+    }
   };
 
   describe("disableAnimation input", () => {
-    it("should not set the ng-animate-disabled class when not specified", () => {
+    it("should not set the no-animate class when not specified", () => {
       testDisableAnimation(undefined, "");
     });
 
-    it("should set the ng-animate-disabled class when specified as true", () => {
-      testDisableAnimation(true, "ng-animate-disabled");
+    it("should set the no-animate class when specified as true", () => {
+      testDisableAnimation(true, "no-animate");
     });
 
-    it("should not set the ng-animate-disabled class when specified as false", () => {
+    it("should not set the no-animate class when specified as false", () => {
       testDisableAnimation(false, "");
     });
   });

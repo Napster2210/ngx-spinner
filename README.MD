@@ -132,9 +132,9 @@ Add css animation files to angular.json config
 ```jsonc
 {
   "styles": [
-    "node_modules/ngx-spinner/animations/ball-scale-multiple.css" // ===> Add css file based on your animation name(here it's "ball-scale-multiple")
+    "node_modules/ngx-spinner/animations/ball-scale-multiple.css", // ===> Add css file based on your animation name(here it's "ball-scale-multiple")
     // You're able to add multiple files if you need
-  ]
+  ],
 }
 ```
 
@@ -142,14 +142,12 @@ Import `NgxSpinnerModule` in in the root module(`AppModule`):
 
 ```typescript
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   imports: [
     // ...
-    BrowserAnimationsModule,
     NgxSpinnerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

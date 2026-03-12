@@ -1,13 +1,13 @@
 @if (spinner.show) {
   <div
-    [@.disabled]="disableAnimation"
-    [@fadeIn]="'in'"
     class="ngx-spinner-overlay"
+    [class.no-animate]="disableAnimation"
+    [animate.leave]="disableAnimation ? '' : 'fade-out'"
     [style.background-color]="spinner.bdColor"
     [style.z-index]="spinner.zIndex"
     [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'"
     #overlay
-    >
+  >
     @if (!template) {
       <div [class]="spinner.class" [style.color]="spinner.color">
         @for (index of spinner.divArray; track index) {
