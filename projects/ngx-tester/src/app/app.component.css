@@ -51,8 +51,6 @@ mat-grid-tile {
 .code {
   position: relative;
   margin-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -106,8 +104,6 @@ mat-grid-tile {
 .button-container {
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   margin: 0 auto;
   padding-top: 2em;
