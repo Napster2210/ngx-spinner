@@ -33,7 +33,7 @@ Use appropriate version based on your Angular version.
 
 | Angular 21  | Angular 19  | Angular 18  | Angular 17  | Angular 16  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| >=`v21.0.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` |
+| >=`v21.1.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` |
 
 | Angular 15  | Angular 14  | Angular 13  | Angular 12  | Angular 11  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
@@ -233,12 +233,7 @@ See [Demo](#demo)
 #### Using Spinner Type
 
 ```html
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple"
->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 ```
@@ -268,8 +263,7 @@ this.spinner.show("mySpinner", {
   size: "large",
   bdColor: "rgba(0, 0, 0, 1)",
   color: "white",
-  template:
-    "<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />",
+  template: "<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />",
 });
 ```
 
