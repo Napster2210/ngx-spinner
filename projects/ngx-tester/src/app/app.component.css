@@ -1,121 +1,56 @@
-mat-accordion {
-  width: 100%;
-}
-
-mat-form-field {
-  width: 90%;
-}
-
-mat-expansion-panel {
-  position: relative;
-  overflow: visible;
-}
-
-mat-expansion-panel-header {
-  background-color: lightgray !important;
-}
-
-mat-grid-list {
-  margin-top: 15px;
-}
-
-mat-grid-tile {
-  overflow: unset;
-}
-
-.radio-btn {
-  padding-right: 10px;
-  padding-bottom: 1.34375em;
-}
-
-.container {
-  display: flex;
-  padding: 20px;
-  flex: 1 auto;
-  flex-direction: column;
-}
-
-.code-container {
-  display: flex;
-  margin: 20px auto;
-  flex-direction: column;
-  font-size: 1rem;
-}
-
-.code-outer {
-  font-size: 1rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.code {
-  position: relative;
-  margin-bottom: 10px;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  background-color: #303030;
-  color: #ce9178;
-  padding: 10px;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 1rem;
-}
-
-.code .tag-name {
-  color: #569cd6;
-  line-height: 20px;
-  font-weight: 700;
-  margin-right: 10px;
-  font-size: 1rem;
-}
-
-.code .input-wrapper {
-  margin: 2px;
-  font-size: 1rem;
-}
-
-.code .input-name {
-  color: #9cdcfe;
-  font-size: 1rem;
-}
-
-.copy-btn {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.filter-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding-top: 15px;
-}
-
-.label-text {
+:host {
   display: block;
-  position: inherit;
-  font-size: 11px;
-  margin-bottom: 8px;
-  color: rgba(0, 0, 0, 0.54);
+  height: 100%;
 }
 
-.button-container {
+.shell {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  padding-top: 2em;
+  min-height: 100vh;
 }
 
-:host ::ng-deep .mat-grid-tile .mat-figure {
+.main-grid {
+  flex: 1;
+  display: grid;
+  min-height: 0;
+  grid-template-columns: clamp(260px, 22vw, 340px) minmax(0, 1fr) clamp(300px, 24vw, 380px);
+}
+
+.right-rail {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  min-height: 0;
+  overflow: auto;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
 }
 
-@media only screen and (max-width: 600px) {
-  .container {
-    padding: 10px;
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.footer-right {
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    overflow: visible;
+  }
+
+  .right-rail {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    overflow: visible;
   }
 }

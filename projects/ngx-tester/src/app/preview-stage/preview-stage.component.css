@@ -1,0 +1,154 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 auto 0 0;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+}
+
+.play-btn {
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.play-btn.active {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.hint {
+  margin: 0;
+  padding: 0 20px 10px;
+  font-size: 11px;
+  color: var(--dim);
+}
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 24px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.window {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+  min-height: 340px;
+  max-height: 100%;
+}
+
+.window-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.filename {
+  font-size: 11px;
+  color: var(--dim);
+  margin-left: 6px;
+}
+
+.window-body {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.skel-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.skel {
+  border-radius: 4px;
+  background: var(--skel);
+}
+
+.content-area {
+  position: relative;
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-label {
+  font-size: 11px;
+  color: var(--dim);
+}
+
+.loading-text {
+  margin-top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.skel-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.skel-cards .skel {
+  border-radius: 9px;
+}

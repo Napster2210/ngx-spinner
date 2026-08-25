@@ -29,6 +29,7 @@ A library with more than 50 different loading spinners for Angular 4 - 22. (http
 ## What's New
 
 - Angular 22 support 🥳🥳🥳🥳
+- **Brand new demo/playground site** ([live here](https://napster2210.github.io/ngx-spinner/)) - a from-scratch redesign with a searchable animation gallery, a live preview stage driving the real `<ngx-spinner>` component, a configuration panel covering every option, and a generated-code panel (HTML template + TypeScript service usage) with one-click copy and a dark/light theme toggle. See [Demo](#demo).
 - Optional HTTP interceptor - show/hide the spinner automatically around HTTP requests instead of calling `NgxSpinnerService` from every component. See [HTTP Interceptor](#http-interceptor).
 - Fixed stacking behind `MatDialog` and other Angular CDK overlays - the fullscreen spinner now renders in the browser's native top layer via the [Popover API](https://developer.mozilla.org/docs/Web/API/Popover_API), with an opt-out via `[usePopover]="false"`. See [Available Options](#available-options).
 - Fixed `ng add ngx-spinner` - it now works correctly for standalone apps (the Angular default since v17) in addition to NgModule-based apps, and no longer requires passing `--project` explicitly.
@@ -60,7 +61,6 @@ Use appropriate version based on your Angular version.
 - [Browser Support](#browser-support)
 - [Features](#features)
 - [Demo](#demo)
-  - [StackBlitz Demo](#stackblitz-demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Methods](#methods)
@@ -95,7 +95,7 @@ Use appropriate version based on your Angular version.
 - `show()/hide()` methods return promise
 - Dynamic `z-index`
 - Smooth animation while `hide/show` the spinner
-- New updated DEMO website
+- Redesigned demo/playground site with a live preview, generated-code panel, and dark/light theme
 - Option to disable fade animation
 - Show/Hide spinner from template using @Input() variable
 - Smaller bundle size
@@ -104,17 +104,13 @@ Use appropriate version based on your Angular version.
 
 ## Demo
 
-[Working Demo](https://napster2210.github.io/ngx-spinner/)
+[Working Demo](https://napster2210.github.io/ngx-spinner/) - a redesigned playground for exploring the library, built entirely with the real `ngx-spinner` package (not a mockup). It gives you:
 
-### StackBlitz Demo
-
-- [Normal Usage](https://stackblitz.com/edit/angular-kruvnm)
-
-- [Inside Container](https://stackblitz.com/edit/angular-7arfhb)
-
-- [Multiple Spinner](https://stackblitz.com/edit/angular-utwjxi)
-
-- [Change Options Through Service](https://stackblitz.com/edit/angular-exgxk2)
+- A searchable gallery of all 53+ animation types, grouped for quick scanning.
+- A live preview stage that renders the real `<ngx-spinner>` component with your chosen options, including a working "Show spinner" trigger for both fullscreen and contained modes.
+- A configuration panel covering every real option - `size`, `color`, `bdColor` (with an opacity slider), `fullScreen`, `name`, `zIndex`, `showSpinner`, `disableAnimation`, `usePopover`, loading text, and a custom-template field for the image/gif use case.
+- A generated-code panel with a one-click copy button, switchable between the HTML template usage and the `NgxSpinnerService` usage shown below.
+- A dark/light theme toggle, and a responsive layout that stacks cleanly on mobile.
 
 ## Installation
 
