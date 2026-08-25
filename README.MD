@@ -5,25 +5,25 @@ A library with more than 50 different loading spinners for Angular 4 - 22. (http
   <h1 align="center">NgxSpinner</h1>
 </p>
 
-[![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%207%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%208%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%209%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2010%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2011%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2014%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2015%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2016%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2017%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2018%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2019%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2021%2B-blue.svg?style=flat-square)]()
-[![Support](https://img.shields.io/badge/Support-Angular%2022%2B-blue.svg?style=flat-square)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%204%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%205%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%206%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%207%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%208%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%209%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2010%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2011%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2012%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2013%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2014%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2015%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2016%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2017%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2018%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2019%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2021%2B-blue.svg?style=flat-square)](<>)
+[![Support](https://img.shields.io/badge/Support-Angular%2022%2B-blue.svg?style=flat-square)](<>)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](<>)
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
@@ -40,15 +40,9 @@ Use appropriate version based on your Angular version.
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | >=`v22.0.0` | >=`v21.0.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` |
 
-| Angular 16  |
-| ----------- |
-| >=`v16.0.2` |
-
-
-
-| Angular 15  | Angular 14  | Angular 13  | Angular 12  | Angular 11  |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| >=`v15.0.1` | >=`v14.0.0` | >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` |
+| Angular 16  | Angular 15  | Angular 14  | Angular 13  | Angular 12  | Angular 11  |
+| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| >=`v16.0.2` | >=`v15.0.1` | >=`v14.0.0` | >=`v13.1.1` | >=`v12.0.0` | >=`v11.0.2` |
 
 | Angular 10  | Angular 9  | Angular 8 | Angular 6/7 | Angular 5  | Angular 4  |
 | ----------- | ---------- | --------- | ----------- | ---------- | ---------- |
@@ -317,7 +311,11 @@ import { NgxSpinnerInterceptor } from "ngx-spinner";
 
 @NgModule({
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: NgxSpinnerInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NgxSpinnerInterceptor,
+      multi: true,
+    },
   ],
 })
 export class AppModule {}
