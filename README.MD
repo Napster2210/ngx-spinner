@@ -26,6 +26,8 @@ A library with more than 50 different loading spinners for Angular 4 - 22. (http
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](<>)
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+> ⭐ If this library saves you time, consider [sponsoring the project](https://github.com/sponsors/Napster2210) to support ongoing maintenance.
+
 ## What's New
 
 - Angular 22 support 🥳🥳🥳🥳

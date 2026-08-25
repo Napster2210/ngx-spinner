@@ -1,6 +1,10 @@
 {
   "name": "ngx-spinner",
   "version": "22.0.0",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Napster2210"
+  },
   "engines": {
     "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
   },
