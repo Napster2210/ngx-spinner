@@ -96,6 +96,17 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    */
   @Input() disableAnimation = false;
   /**
+   * Whether a fullscreen spinner should render using the native Popover API
+   * (browser "top layer"), so it can appear above other top-layer elements
+   * such as MatDialog (Angular CDK v21+ overlays default to
+   * `usePopover: true`). Falls back to the legacy fixed-position overlay
+   * automatically in browsers without Popover API support. Has no effect
+   * when `fullScreen` is `false`.
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  @Input() usePopover?: boolean;
+  /**
    * Spinner Object
    *
    * @memberof NgxSpinnerComponent
@@ -132,6 +143,31 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   @ViewChild("overlay") spinnerDOM!: { nativeElement: HTMLElement };
+
+  /**
+   * Whether the current browser supports the native Popover API.
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  private static readonly popoverSupported =
+    typeof HTMLElement !== "undefined" &&
+    "showPopover" in HTMLElement.prototype;
+
+  /**
+   * Whether the overlay for the current spinner state should render using
+   * the native Popover API.
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  get usesPopover(): boolean {
+    return (
+      this.spinner.fullScreen &&
+      this.effectiveUsePopover &&
+      NgxSpinnerComponent.popoverSupported
+    );
+  }
+
+  private effectiveUsePopover = true;
 
   // TODO: https://github.com/Napster2210/ngx-spinner/issues/259
   // @HostListener("document:keydown", ["$event"])
@@ -183,7 +219,26 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
           this.onInputChange();
         }
         this.changeDetector.detectChanges();
+        this.syncPopoverState();
       });
+  }
+
+  /**
+   * Promotes the overlay into the native Popover API "top layer" when
+   * `usesPopover` is enabled, so it can render above other top-layer
+   * elements such as MatDialog. No-op otherwise, or when the element is
+   * already open.
+   *
+   * @memberof NgxSpinnerComponent
+   */
+  private syncPopoverState(): void {
+    if (!this.usesPopover) {
+      return;
+    }
+    const element = this.spinnerDOM?.nativeElement;
+    if (element && !element.matches(":popover-open")) {
+      element.showPopover();
+    }
   }
 
   /**
@@ -219,7 +274,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   setDefaultOptions = () => {
-    const { type } = this.globalConfig ?? {};
+    const { type, usePopover: globalUsePopover } = this.globalConfig ?? {};
+    this.effectiveUsePopover = this.usePopover ?? globalUsePopover ?? true;
     this.spinner = NgxSpinner.create({
       name: this.name,
       bdColor: this.bdColor,

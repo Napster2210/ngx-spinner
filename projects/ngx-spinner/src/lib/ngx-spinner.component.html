@@ -6,6 +6,7 @@
     [style.background-color]="spinner.bdColor"
     [style.z-index]="spinner.zIndex"
     [style.position]="spinner.fullScreen ? 'fixed' : 'absolute'"
+    [attr.popover]="usesPopover ? 'manual' : null"
     #overlay
   >
     @if (!template) {

@@ -236,6 +236,8 @@ See [Demo](#demo)
   To show/hide spinner from template using variable
 - **[disableAnimation]**: `true` or `false`
   To enable/disable fade animation of spinner, default `false`
+- **[usePopover]**: `true` or `false`
+  Since Angular CDK v21, overlays like `MatDialog` render in the browser's native "top layer" by default, which ignores normal `z-index` stacking. When `fullScreen` is `true` (default), ngx-spinner also promotes its overlay into the top layer via the native [Popover API](https://developer.mozilla.org/docs/Web/API/Popover_API) so it can render above such overlays, falling back automatically in browsers without Popover API support. Set to `false` to opt out and use the legacy fixed-position overlay instead. Default `true`. Has no effect when `fullScreen` is `false`. Can also be set globally via `provideSpinnerConfig({ usePopover: false })`.
 
 #### Using Spinner Type
 

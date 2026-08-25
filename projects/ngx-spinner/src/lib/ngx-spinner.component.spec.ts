@@ -256,6 +256,41 @@ describe("NgxSpinnerComponent", () => {
     });
   });
 
+  describe("usePopover", () => {
+    it("promotes the fullscreen overlay into the native popover top layer by default", async () => {
+      fixture.detectChanges();
+      await spinnerService.show(component.name);
+      fixture.detectChanges();
+      const overlay = fixture.nativeElement.querySelector(
+        ".ngx-spinner-overlay",
+      );
+      expect(overlay.getAttribute("popover")).toBe("manual");
+      expect(overlay.matches(":popover-open")).toBeTrue();
+    });
+
+    it("does not set a popover attribute when usePopover is false", async () => {
+      component.usePopover = false;
+      fixture.detectChanges();
+      await spinnerService.show(component.name);
+      fixture.detectChanges();
+      const overlay = fixture.nativeElement.querySelector(
+        ".ngx-spinner-overlay",
+      );
+      expect(overlay.hasAttribute("popover")).toBeFalse();
+    });
+
+    it("does not set a popover attribute for a non-fullscreen spinner", async () => {
+      component.fullScreen = false;
+      fixture.detectChanges();
+      await spinnerService.show(component.name);
+      fixture.detectChanges();
+      const overlay = fixture.nativeElement.querySelector(
+        ".ngx-spinner-overlay",
+      );
+      expect(overlay.hasAttribute("popover")).toBeFalse();
+    });
+  });
+
   describe("ngOnInit", () => {
     it("should call setDefaultOptions and initObservable", () => {
       spyOn(component, "setDefaultOptions");
