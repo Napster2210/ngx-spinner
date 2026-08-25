@@ -29,6 +29,9 @@ A library with more than 50 different loading spinners for Angular 4 - 22. (http
 ## What's New
 
 - Angular 22 support 🥳🥳🥳🥳
+- Optional HTTP interceptor - show/hide the spinner automatically around HTTP requests instead of calling `NgxSpinnerService` from every component. See [HTTP Interceptor](#http-interceptor).
+- Fixed stacking behind `MatDialog` and other Angular CDK overlays - the fullscreen spinner now renders in the browser's native top layer via the [Popover API](https://developer.mozilla.org/docs/Web/API/Popover_API), with an opt-out via `[usePopover]="false"`. See [Available Options](#available-options).
+- Fixed `ng add ngx-spinner` - it now works correctly for standalone apps (the Angular default since v17) in addition to NgModule-based apps, and no longer requires passing `--project` explicitly.
 
 Use appropriate version based on your Angular version.
 
@@ -66,11 +69,11 @@ Use appropriate version based on your Angular version.
   - [Using Custom Spinner](#using-custom-spinner)
   - [NOTE](#note)
   - [How to use type?](#how-to-use-type)
+- [HTTP Interceptor](#http-interceptor)
 - [Useful Tips](#useful-tips)
 - [Versioning](#versioning)
 - [Creator](#creator)
   - [Yuvraj Chauhan](#yuvraj-chauhan)
-- [Future Plan](#future-plan)
 - [Ask Me](#ask-me)
 - [Credits](#credits)
   - [License](#license)
@@ -88,6 +91,7 @@ Use appropriate version based on your Angular version.
 - Multiple Spinners
 - Configurable option through service
 - Fullscreen Mode(Enable/Disable)
+- Renders above `MatDialog` and other Angular CDK overlays via the native Popover API, with an opt-out
 - `show()/hide()` methods return promise
 - Dynamic `z-index`
 - Smooth animation while `hide/show` the spinner
@@ -95,6 +99,8 @@ Use appropriate version based on your Angular version.
 - Option to disable fade animation
 - Show/Hide spinner from template using @Input() variable
 - Smaller bundle size
+- Optional HTTP interceptor to drive the spinner from HTTP activity, with no changes required to existing `NgxSpinnerService`/`<ngx-spinner>` usage
+- Single-command setup via `ng add ngx-spinner`, for both standalone and NgModule-based apps
 
 ## Demo
 
@@ -290,6 +296,73 @@ this.spinner.show("mySpinner", {
   - For more information you can check it out [Demo](https://napster2210.github.io/ngx-spinner/)
   - For smaller bundle size you need to add css for `ball-8bits` animation(e.g. `ball-8bits.css`)
 
+## HTTP Interceptor
+
+This is entirely **optional** - `NgxSpinnerService` and `<ngx-spinner>` continue to work exactly as before whether or not you use it. If you'd rather not call `show()`/`hide()` from every component that makes an HTTP call, you can register the interceptor once and it will show the spinner while requests are in flight and hide it once they've all completed.
+
+It keeps a count of concurrent requests per spinner name, so the spinner only hides after every in-flight request for that name has finished - not just the first one to complete.
+
+#### Standalone apps
+
+```ts
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
+import { ngxSpinnerInterceptor } from "ngx-spinner";
+
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient(withInterceptors([ngxSpinnerInterceptor]))],
+});
+```
+
+#### NgModule-based apps
+
+```ts
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { NgxSpinnerInterceptor } from "ngx-spinner";
+
+@NgModule({
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: NgxSpinnerInterceptor, multi: true },
+  ],
+})
+export class AppModule {}
+```
+
+#### Configuration
+
+By default the interceptor drives the `primary` spinner with no extra options. Customize it via `provideNgxSpinnerHttpConfig()` (or the equivalent `NGX_SPINNER_HTTP_CONFIG` provider in an NgModule app):
+
+```ts
+import { provideNgxSpinnerHttpConfig } from "ngx-spinner";
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideHttpClient(withInterceptors([ngxSpinnerInterceptor])),
+    provideNgxSpinnerHttpConfig({
+      name: "httpSpinner", // which spinner to show/hide, default `primary`
+      spinner: { type: "ball-scale-multiple", color: "#fff" }, // extra show() options
+      excludedUrls: ["/api/poll", /\/assets\//], // strings or RegExp, matched against the request URL
+    }),
+  ],
+});
+```
+
+#### Skipping individual requests
+
+Opt a single request out of the interceptor via its `HttpContext`, regardless of `excludedUrls`:
+
+```ts
+import { HttpContext } from "@angular/common/http";
+import { NGX_SPINNER_SKIP } from "ngx-spinner";
+
+this.http.get("/api/background-sync", {
+  context: new HttpContext().set(NGX_SPINNER_SKIP, true),
+});
+```
+
+#### NOTE
+
+- If you're already showing the same spinner `name` manually elsewhere (e.g. `spinnerService.show('primary')` for a non-HTTP reason) while the interceptor is also driving it, the two aren't aware of each other - whichever one hides it last wins. Use a dedicated `name` for the interceptor via `provideNgxSpinnerHttpConfig({ name: '...' })` if you want to avoid that overlap.
+
 ## Useful Tips
 
 - Make sure you've added `CUSTOM_ELEMENTS_SCHEMA` as your schema in your main module.
@@ -311,10 +384,6 @@ For more information on SemVer, please visit http://semver.org.
 #### [Yuvraj Chauhan](mailto:yuvrajchauhan3113@gmail.com)
 
 - [@GitHub](https://github.com/Napster2210)
-
-## Future Plan
-
-- Interceptor Implementation
 
 ## Ask Me
 
