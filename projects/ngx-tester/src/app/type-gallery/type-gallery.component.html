@@ -23,40 +23,11 @@
           (click)="select(t.name)"
         >
           <span class="icon">
-            @switch (t.family) {
-              @case ("dots") {
-                <span class="fam-dots">
-                  <i></i><i></i><i></i>
-                </span>
+            <div class="spinner-icon" [class]="'la-' + t.name">
+              @for (d of t.divs; track d) {
+                <div></div>
               }
-              @case ("ring") {
-                <span class="fam-ring">
-                  <i></i><i></i>
-                </span>
-              }
-              @case ("spin") {
-                <span class="fam-spin">
-                  @for (d of [0, 1, 2, 3, 4, 5, 6, 7]; track d) {
-                    <i [style.--i]="d"></i>
-                  }
-                </span>
-              }
-              @case ("grid") {
-                <span class="fam-grid">
-                  @for (d of [0, 1, 2, 3, 4, 5, 6, 7, 8]; track d) {
-                    <i [style.--i]="d"></i>
-                  }
-                </span>
-              }
-              @case ("bars") {
-                <span class="fam-bars">
-                  <i></i><i></i><i></i><i></i><i></i>
-                </span>
-              }
-              @case ("square") {
-                <span class="fam-square"></span>
-              }
-            }
+            </div>
           </span>
           <span class="name mono">{{ t.name }}</span>
         </button>

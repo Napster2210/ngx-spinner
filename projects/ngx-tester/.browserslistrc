@@ -2,10 +2,14 @@
 # For additional information regarding the format and rule options, please see:
 # https://github.com/browserslist/browserslist#queries
 #
-# For IE 9-11 support, please remove 'not' from the last line of the file and adjust as needed
+# 'last 2 versions' was replaced with explicit per-family queries below - it pulls in the last
+# 2 versions of every browser browserslist tracks (KaiOS, Opera Mini, UC/QQ Browser, etc.), which
+# Angular does not support and warns about on every build.
 
-> 0.5%
-last 2 versions
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Edge versions
+last 2 Safari versions
+last 2 iOS versions
 Firefox ESR
 not dead
-not IE 9-11

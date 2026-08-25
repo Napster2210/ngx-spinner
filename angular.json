@@ -10,7 +10,7 @@
       "prefix": "ngx",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-spinner/tsconfig.lib.json",
             "project": "projects/ngx-spinner/ng-package.json"
@@ -25,7 +25,7 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "main": "projects/ngx-spinner/src/test.ts",
             "tsConfig": "projects/ngx-spinner/tsconfig.spec.json",
@@ -51,7 +51,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "aot": true,
             "outputPath": {
@@ -151,12 +151,14 @@
                 }
               ]
             },
-            "development": {}
+            "development": {
+              "optimization": false
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "options": {},
           "configurations": {
             "production": {
@@ -169,16 +171,16 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular/build:extract-i18n",
           "options": {
             "buildTarget": "ngx-tester:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "main": "projects/ngx-tester/src/test.ts",
-            "polyfills": "projects/ngx-tester/src/polyfills.ts",
+            "polyfills": ["projects/ngx-tester/src/polyfills.ts"],
             "tsConfig": "projects/ngx-tester/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-tester/karma.conf.js",
             "styles": [
