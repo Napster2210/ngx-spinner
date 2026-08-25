@@ -3,7 +3,7 @@
   "version": "22.0.0",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-    "copy:collection": "cp ./schematics/collection.json ../../dist/ngx-spinner/schematics/collection.json",
+    "copy:collection": "cp ./schematics/collection.json ./schematics/package.json ../../dist/ngx-spinner/schematics/ && cp ./schematics/ng-add/schema.json ../../dist/ngx-spinner/schematics/ng-add/",
     "postbuild": "npm run copy:collection"
   },
   "repository": {
