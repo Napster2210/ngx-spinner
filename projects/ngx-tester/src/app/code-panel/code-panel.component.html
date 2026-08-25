@@ -1,0 +1,19 @@
+<div class="panel">
+  <div class="head-row">
+    <h2 class="eyebrow">Generated code</h2>
+  </div>
+  <div class="tabs">
+    <button type="button" class="tab" [class.active]="tab() === 'html'" (click)="setTab('html')">
+      Template (HTML)
+    </button>
+    <button type="button" class="tab" [class.active]="tab() === 'ts'" (click)="setTab('ts')">Service (TS)</button>
+  </div>
+  <div class="code-wrap">
+    <div class="code-box">
+      <button type="button" class="copy-btn" [class.copied]="copied()" (click)="copy()">
+        {{ copied() ? "Copied" : "Copy" }}
+      </button>
+      <pre class="mono">@for (tok of tokens(); track $index) {<span [class]="'tok-' + tok.className">{{ tok.text }}</span>}</pre>
+    </div>
+  </div>
+</div>

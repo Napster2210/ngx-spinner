@@ -1,0 +1,148 @@
+<div class="panel">
+  <div class="section">
+    <h2 class="eyebrow">Configuration</h2>
+
+    <div class="field">
+      <label class="field-label"><span>Size</span><code class="mono">size</code></label>
+      <div class="segmented">
+        @for (s of sizes; track s) {
+          <button
+            type="button"
+            class="segment"
+            [class.active]="config().size === s"
+            (click)="setSize(s)"
+          >
+            {{ s }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label"><span>Spinner color</span><code class="mono">color</code></label>
+      <div class="color-row">
+        <input
+          type="color"
+          class="swatch"
+          [value]="config().color"
+          (input)="patch({ color: $any($event.target).value })"
+        />
+        <input
+          type="text"
+          class="text-input mono"
+          [value]="config().color"
+          (change)="patch({ color: $any($event.target).value })"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label"><span>Backdrop</span><code class="mono">bdColor</code></label>
+      <div class="color-row">
+        <input
+          type="color"
+          class="swatch"
+          [value]="config().bdColor"
+          (input)="patch({ bdColor: $any($event.target).value })"
+        />
+        <div class="range-col">
+          <div class="range-head mono">
+            <span>opacity</span><span>{{ config().alpha }}%</span>
+          </div>
+          <input type="range" min="0" max="100" [value]="config().alpha" (input)="onAlphaInput($event)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label class="field-label"><span>Name</span><code class="mono">name</code></label>
+        <input
+          type="text"
+          class="text-input mono"
+          [value]="config().name"
+          (change)="patch({ name: $any($event.target).value })"
+        />
+      </div>
+      <div class="field">
+        <label class="field-label"><span>Z-index</span><code class="mono">zIndex</code></label>
+        <input
+          type="number"
+          class="text-input mono"
+          [value]="config().zIndex"
+          (change)="onZIndexChange($event)"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label"><span>Loading text</span><code class="mono">ng-content</code></label>
+      <input
+        type="text"
+        class="text-input"
+        placeholder="Loading…"
+        [value]="config().loadingText"
+        (change)="patch({ loadingText: $any($event.target).value })"
+      />
+    </div>
+
+    <details class="advanced">
+      <summary>Advanced: custom template</summary>
+      <label class="field-label"><span>Custom HTML/image</span><code class="mono">template</code></label>
+      <textarea
+        class="text-input mono"
+        rows="3"
+        placeholder="<img src='https://example.com/loader.gif' />"
+        [value]="config().template ?? ''"
+        (change)="patch({ template: $any($event.target).value || null })"
+      ></textarea>
+    </details>
+
+    <div class="switch-group">
+      <div class="switch-row">
+        <div class="switch-copy">
+          <span>Full screen</span>
+          <code class="mono">fullScreen</code>
+        </div>
+        <button type="button" class="switch" [class.on]="config().fullScreen" (click)="toggle('fullScreen')">
+          <span class="knob"></span>
+        </button>
+      </div>
+      <div class="divider"></div>
+      <div class="switch-row">
+        <div class="switch-copy">
+          <span>Show spinner</span>
+          <code class="mono">showSpinner</code>
+        </div>
+        <button type="button" class="switch" [class.on]="config().showSpinner" (click)="toggle('showSpinner')">
+          <span class="knob"></span>
+        </button>
+      </div>
+      <div class="divider"></div>
+      <div class="switch-row">
+        <div class="switch-copy">
+          <span>Disable fade animation</span>
+          <code class="mono">disableAnimation</code>
+        </div>
+        <button
+          type="button"
+          class="switch"
+          [class.on]="config().disableAnimation"
+          (click)="toggle('disableAnimation')"
+        >
+          <span class="knob"></span>
+        </button>
+      </div>
+      <div class="divider"></div>
+      <div class="switch-row">
+        <div class="switch-copy">
+          <span>Use popover</span>
+          <code class="mono">usePopover</code>
+        </div>
+        <button type="button" class="switch" [class.on]="config().usePopover" (click)="toggle('usePopover')">
+          <span class="knob"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

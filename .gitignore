@@ -36,6 +36,7 @@ yarn-error.log
 testem.log
 /typings
 .prettierrc
+.claude/*
 
 # System Files
 .DS_Store

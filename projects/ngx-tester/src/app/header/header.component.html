@@ -1,7 +1,28 @@
-<mat-toolbar color="primary" class="toolbar">
-  <span>
-    <img src="assets/logo.png" alt="logo" class="header-logo" />
-  </span>
-  <span>NgxSpinner</span>
-  <span class="version">v{{packageVersion}}</span>
-</mat-toolbar>
+<header class="toolbar">
+  <div class="brand">
+    <div class="mark">
+      <span class="ring"></span>
+    </div>
+    <div class="brand-text">
+      <span class="mono name">ngx-spinner</span>
+      <span class="tagline">50+ loading spinners for Angular</span>
+    </div>
+  </div>
+
+  <div class="install">
+    <span class="mono">npm i ngx-spinner</span>
+    <button type="button" class="ghost-btn" (click)="copyInstall()">
+      {{ installCopied() ? "Copied" : "Copy" }}
+    </button>
+  </div>
+
+  <div class="links">
+    <a class="link" href="https://github.com/napster2210/ngx-spinner" target="_blank" rel="noopener">
+      <span class="mono">GitHub</span>
+    </a>
+    <a class="link mono" href="https://www.npmjs.com/package/ngx-spinner" target="_blank" rel="noopener">npm</a>
+    <button type="button" class="icon-btn" title="Toggle theme" (click)="themeToggle.emit()">
+      {{ theme() === "dark" ? "☀" : "☾" }}
+    </button>
+  </div>
+</header>

@@ -1,0 +1,58 @@
+<div class="panel">
+  <div class="panel-head">
+    <h2 class="eyebrow">Preview</h2>
+    <span class="badge mono">{{ config().type }}</span>
+    <button type="button" class="play-btn" [class.active]="config().showSpinner" (click)="toggleShow.emit()">
+      {{ config().showSpinner ? "Hide spinner" : "Show spinner" }}
+    </button>
+  </div>
+  @if (config().fullScreen) {
+    <p class="hint mono">Fullscreen spinners cover the whole page, so this one hides itself after 3s.</p>
+  }
+
+  <div class="stage">
+    <div class="window">
+      <div class="window-bar">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="filename mono">app.component.html</span>
+      </div>
+
+      <div class="window-body">
+        <div class="skel-lines">
+          <div class="skel" style="width: 42%; height: 13px"></div>
+          <div class="skel" style="width: 66%; height: 9px"></div>
+        </div>
+
+        <div class="content-area">
+          <span class="content-label mono">content area</span>
+
+          <ngx-spinner
+            [name]="config().name"
+            [type]="config().type"
+            [size]="config().size"
+            [color]="config().color"
+            [bdColor]="config().bdColor"
+            [fullScreen]="config().fullScreen"
+            [zIndex]="config().zIndex"
+            [disableAnimation]="config().disableAnimation"
+            [usePopover]="config().usePopover"
+            [template]="config().template"
+            [showSpinner]="config().showSpinner"
+          >
+            @if (config().loadingText) {
+              <p class="loading-text mono" [style.color]="config().color">{{ config().loadingText }}</p>
+            }
+          </ngx-spinner>
+        </div>
+
+        <div class="skel-cards">
+          <div class="skel" style="height: 56px"></div>
+          <div class="skel" style="height: 56px"></div>
+          <div class="skel" style="height: 56px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
