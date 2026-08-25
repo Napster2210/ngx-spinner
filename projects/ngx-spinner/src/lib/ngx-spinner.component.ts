@@ -9,8 +9,7 @@ import {
   ChangeDetectorRef,
   ViewChild,
   ElementRef,
-  Optional,
-  Inject,
+  inject,
 } from "@angular/core";
 import { NgxSpinnerService } from "./ngx-spinner.service";
 import { Subject } from "rxjs";
@@ -22,7 +21,7 @@ import {
   NgxSpinner,
   PRIMARY_SPINNER,
 } from "./ngx-spinner.enum";
-import { NgxSpinnerConfig, NGX_SPINNER_CONFIG } from "./config";
+import { NGX_SPINNER_CONFIG } from "./config";
 import { SafeHtmlPipe } from "./safe-html.pipe";
 
 @Component({
@@ -56,7 +55,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  @Input() type: string;
+  @Input() type!: string;
   /**
    * To toggle fullscreen mode
    *
@@ -80,7 +79,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  @Input() template: string;
+  @Input() template: string | null = null;
   /**
    * Show/Hide the spinner
    *
@@ -95,7 +94,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @type {boolean}
    * @memberof NgxSpinnerComponent
    */
-  @Input() disableAnimation: boolean = false;
+  @Input() disableAnimation = false;
   /**
    * Spinner Object
    *
@@ -107,7 +106,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  divArray: Array<number>;
+  divArray: number[];
   /**
    * Counter for div
    *
@@ -126,13 +125,13 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    **/
-  ngUnsubscribe: Subject<void> = new Subject();
+  ngUnsubscribe = new Subject<void>();
   /**
    * Element Reference
    *
    * @memberof NgxSpinnerComponent
    */
-  @ViewChild("overlay") spinnerDOM: { nativeElement: any };
+  @ViewChild("overlay") spinnerDOM!: { nativeElement: HTMLElement };
 
   // TODO: https://github.com/Napster2210/ngx-spinner/issues/259
   // @HostListener("document:keydown", ["$event"])
@@ -148,19 +147,17 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
   //   }
   // }
 
+  private spinnerService = inject(NgxSpinnerService);
+  private changeDetector = inject(ChangeDetectorRef);
+  private elementRef = inject(ElementRef);
+  private globalConfig = inject(NGX_SPINNER_CONFIG, { optional: true });
+
   /**
    * Creates an instance of NgxSpinnerComponent.
    *
    * @memberof NgxSpinnerComponent
    */
-  constructor(
-    private spinnerService: NgxSpinnerService,
-    private changeDetector: ChangeDetectorRef,
-    private elementRef: ElementRef,
-    @Optional()
-    @Inject(NGX_SPINNER_CONFIG)
-    private globalConfig: NgxSpinnerConfig,
-  ) {
+  constructor() {
     this.bdColor = DEFAULTS.BD_COLOR;
     this.zIndex = DEFAULTS.Z_INDEX;
     this.color = DEFAULTS.SPINNER_COLOR;
@@ -206,11 +203,14 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @returns {boolean}
    * @memberof NgxSpinnerComponent
    */
-  isSpinnerZone(element: any): boolean {
+  isSpinnerZone(element: Node | null): boolean {
+    if (!element) {
+      return false;
+    }
     if (element === this.elementRef.nativeElement.parentElement) {
       return true;
     }
-    return element.parentNode && this.isSpinnerZone(element.parentNode);
+    return this.isSpinnerZone(element.parentNode);
   }
 
   /**
@@ -240,7 +240,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    *
    * @memberof NgxSpinnerComponent
    */
-  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+  ngOnChanges(changes: Record<string, SimpleChange>) {
     for (const propName in changes) {
       if (propName) {
         const changedProp = changes[propName];
@@ -251,7 +251,8 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
           changedProp.currentValue !== changedProp.previousValue
         ) {
           if (changedProp.currentValue !== "") {
-            this.spinner[propName] = changedProp.currentValue;
+            (this.spinner as unknown as Record<string, unknown>)[propName] =
+              changedProp.currentValue;
             if (propName === "showSpinner") {
               if (changedProp.currentValue) {
                 this.spinnerService.show(this.spinner.name, this.spinner);
@@ -274,7 +275,7 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   getClass(type: string, size: Size): string {
-    this.spinner.divCount = LOADERS[type];
+    this.spinner.divCount = LOADERS[type as keyof typeof LOADERS];
     this.spinner.divArray = Array(this.spinner.divCount)
       .fill(0)
       .map((_, i) => i);

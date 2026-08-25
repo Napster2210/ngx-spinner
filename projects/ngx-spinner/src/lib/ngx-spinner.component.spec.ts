@@ -40,10 +40,10 @@ describe("NgxSpinnerComponent", () => {
   });
 
   const testBackgroundColor = (
-    specifiedColor: string,
+    specifiedColor: string | undefined,
     expectedColor: string,
   ) => {
-    component.bdColor = specifiedColor;
+    component.bdColor = specifiedColor as string;
     fixture.detectChanges();
     elementStyle = getComputedStyle(
       fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
@@ -65,6 +65,7 @@ describe("NgxSpinnerComponent", () => {
     component.size = specifiedSize;
     fixture.detectChanges();
     component.onInputChange();
+    (component as unknown as { changeDetector: ChangeDetectorRef }).changeDetector.markForCheck();
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
       ".ngx-spinner-overlay div",
@@ -82,8 +83,8 @@ describe("NgxSpinnerComponent", () => {
     });
   });
 
-  const testColor = (specifiedColor: string, expectedColor: string) => {
-    component.color = specifiedColor;
+  const testColor = (specifiedColor: string | undefined, expectedColor: string) => {
+    component.color = specifiedColor as string;
     fixture.detectChanges();
     const childElementStyle = getComputedStyle(
       fixture.nativeElement.querySelector(".ngx-spinner-overlay div"),
@@ -105,6 +106,7 @@ describe("NgxSpinnerComponent", () => {
     component.type = specifiedType;
     fixture.detectChanges();
     component.onInputChange();
+    (component as unknown as { changeDetector: ChangeDetectorRef }).changeDetector.markForCheck();
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
       ".ngx-spinner-overlay div",
@@ -155,8 +157,8 @@ describe("NgxSpinnerComponent", () => {
     });
   });
 
-  const testZIndex = (specifiedZIndex: number, expectedZIndex: string) => {
-    component.zIndex = specifiedZIndex;
+  const testZIndex = (specifiedZIndex: number | undefined, expectedZIndex: string) => {
+    component.zIndex = specifiedZIndex as number;
     fixture.detectChanges();
     elementStyle = getComputedStyle(
       fixture.nativeElement.querySelector(".ngx-spinner-overlay"),
@@ -178,8 +180,8 @@ describe("NgxSpinnerComponent", () => {
     });
   });
 
-  const testTemplate = (specifiedTemplate: string, expectedContent: string) => {
-    component.template = specifiedTemplate;
+  const testTemplate = (specifiedTemplate: string | undefined, expectedContent: string) => {
+    component.template = specifiedTemplate as string;
     fixture.detectChanges();
     const childElement = fixture.nativeElement.querySelector(
       ".ngx-spinner-overlay div",
@@ -223,10 +225,10 @@ describe("NgxSpinnerComponent", () => {
   });
 
   const testDisableAnimation = (
-    disableAnimation: boolean,
+    disableAnimation: boolean | undefined,
     expectedClass: string,
   ) => {
-    component.disableAnimation = disableAnimation;
+    component.disableAnimation = disableAnimation as boolean;
     // Ensure spinner is shown so the element exists in the DOM
     component.spinner = { ...component.spinner, show: true };
     fixture.detectChanges();

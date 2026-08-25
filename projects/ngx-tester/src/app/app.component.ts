@@ -5,10 +5,10 @@ import {
   OnInit,
   inject,
 } from "@angular/core";
-import { NgxSpinnerService, NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerService, NgxSpinnerModule, Size } from "ngx-spinner";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ColorPickerModule } from "ngx-color-picker";
+import { ColorPickerDirective } from "ngx-color-picker";
 import { MatInputModule } from "@angular/material/input";
 import { MatOptionModule } from "@angular/material/core";
 import { FormsModule } from "@angular/forms";
@@ -23,6 +23,16 @@ import { HeaderComponent } from "./header/header.component";
 
 const TABLET_SIZE = 768;
 const MOBILE_SIZE = 425;
+
+interface DemoSpinnerConfig {
+  bdColor: string;
+  size: Size;
+  color: string;
+  type: string;
+  fullScreen: boolean;
+  template: string | null;
+  showSpinner: boolean;
+}
 
 /**
  * App Component
@@ -45,7 +55,7 @@ const MOBILE_SIZE = 425;
     FormsModule,
     MatOptionModule,
     MatInputModule,
-    ColorPickerModule,
+    ColorPickerDirective,
     MatSlideToggleModule,
     MatRadioModule,
     NgxSpinnerModule,
@@ -75,7 +85,7 @@ export class AppComponent {
    * @type {object}
    * @memberof AppComponent
    */
-  spinnerConfig: object = {
+  spinnerConfig: DemoSpinnerConfig = {
     bdColor: "rgba(0, 0, 0, 0.8)",
     size: "medium",
     color: "#fff",
@@ -146,13 +156,13 @@ export class AppComponent {
     "triangle-skew-spin",
   ];
 
-  @ViewChild("codeElem") codeElement;
+  @ViewChild("codeElem") codeElement!: { nativeElement: HTMLElement };
 
   noOfColumns = 3;
 
   @HostListener("window:resize", ["$event"])
-  onResize(event) {
-    const deviceWidth = event.target.innerWidth;
+  onResize(event: UIEvent) {
+    const deviceWidth = (event.target as Window).innerWidth;
     if (deviceWidth <= MOBILE_SIZE) {
       this.noOfColumns = 1;
     } else if (deviceWidth <= TABLET_SIZE) {
@@ -191,12 +201,12 @@ export class AppComponent {
    */
   copyCode = () => {
     const copyText = this.codeElement.nativeElement; // document.getElementsByClassName('code');
-    window.getSelection().selectAllChildren(copyText);
+    window.getSelection()?.selectAllChildren(copyText);
     document.execCommand("copy");
-    window.getSelection().removeAllRanges();
+    window.getSelection()?.removeAllRanges();
   };
 
   setFullscreenMode = () => {
-    this.spinnerConfig["fullScreen"] = !this.spinnerConfig["fullScreen"];
+    this.spinnerConfig.fullScreen = !this.spinnerConfig.fullScreen;
   };
 }

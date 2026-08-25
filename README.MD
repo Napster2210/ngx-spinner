@@ -1,4 +1,4 @@
-A library with more than 50 different loading spinners for Angular 4 - 21. (https://napster2210.github.io/ngx-spinner/)
+A library with more than 50 different loading spinners for Angular 4 - 22. (https://napster2210.github.io/ngx-spinner/)
 
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/Napster2210/ngx-spinner/gh-pages/assets/logo.png">
@@ -22,18 +22,25 @@ A library with more than 50 different loading spinners for Angular 4 - 21. (http
 [![Support](https://img.shields.io/badge/Support-Angular%2018%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2019%2B-blue.svg?style=flat-square)]()
 [![Support](https://img.shields.io/badge/Support-Angular%2021%2B-blue.svg?style=flat-square)]()
+[![Support](https://img.shields.io/badge/Support-Angular%2022%2B-blue.svg?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## What's New
 
-- Angular 21 support 🥳🥳🥳🥳
+- Angular 22 support 🥳🥳🥳🥳
 
 Use appropriate version based on your Angular version.
 
-| Angular 21  | Angular 19  | Angular 18  | Angular 17  | Angular 16  |
+| Angular 22  | Angular 21  | Angular 19  | Angular 18  | Angular 17  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| >=`v21.0.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` | >=`v16.0.2` |
+| >=`v22.0.0` | >=`v21.0.0` | >=`v19.0.0` | >=`v18.0.0` | >=`v17.0.0` |
+
+| Angular 16  |
+| ----------- |
+| >=`v16.0.2` |
+
+
 
 | Angular 15  | Angular 14  | Angular 13  | Angular 12  | Angular 11  |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
@@ -76,7 +83,7 @@ Use appropriate version based on your Angular version.
 
 ## Features
 
-- **Angular 21** Support
+- **Angular 22** Support
 - Custom spinner image support(gif), you can pass `img` tag
 - Multiple Spinners
 - Configurable option through service

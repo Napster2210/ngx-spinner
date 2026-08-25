@@ -11,7 +11,11 @@ import {
 /** Name of the ngx-spinner module */
 const spinnerModuleName = 'NgxSpinnerModule';
 
-export default function (options: any): Rule {
+interface NgAddOptions {
+  project?: string;
+}
+
+export default function (options: NgAddOptions): Rule {
   return async (host: Tree, _context: SchematicContext) => {
     const workspace = await getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);
@@ -25,7 +29,7 @@ export default function (options: any): Rule {
   };
 }
 
-function addSpinnerModule(options: any): Rule {
+function addSpinnerModule(options: NgAddOptions): Rule {
   return async (host: Tree, _context: SchematicContext) => {
     const workspace = await getWorkspace(host);
     const project = getProjectFromWorkspace(workspace, options.project);

@@ -3,7 +3,6 @@ import {
   importProvidersFrom,
   provideZoneChangeDetection,
 } from "@angular/core";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 import { environment } from "./environments/environment";
 import { AppComponent } from "./app/app.component";
@@ -18,7 +17,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { ColorPickerModule } from "ngx-color-picker";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
 
@@ -33,7 +31,6 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
-      ColorPickerModule,
       MatToolbarModule,
       MatGridListModule,
       MatFormFieldModule,

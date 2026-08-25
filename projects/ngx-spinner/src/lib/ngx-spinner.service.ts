@@ -12,12 +12,7 @@ export class NgxSpinnerService {
    *
    * @memberof NgxSpinnerService
    */
-  public spinnerObservable = new BehaviorSubject<NgxSpinner>(null);
-  /**
-   * Creates an instance of NgxSpinnerService.
-   * @memberof NgxSpinnerService
-   */
-  constructor() {}
+  public spinnerObservable = new BehaviorSubject<NgxSpinner | null>(null);
   /**
    * Get subscription of desired spinner
    * @memberof NgxSpinnerService
@@ -25,7 +20,7 @@ export class NgxSpinnerService {
   getSpinner(name: string): Observable<NgxSpinner> {
     return this.spinnerObservable
       .asObservable()
-      .pipe(filter((x: NgxSpinner) => x && x.name === name));
+      .pipe(filter((x): x is NgxSpinner => !!x && x.name === name));
   }
   /**
    * To show spinner
@@ -53,7 +48,7 @@ export class NgxSpinnerService {
    *
    * @memberof NgxSpinnerService
    */
-  hide(name: string = PRIMARY_SPINNER, debounce: number = 10) {
+  hide(name: string = PRIMARY_SPINNER, debounce = 10) {
     return new Promise((resolve, _reject) => {
       setTimeout(() => {
         this.spinnerObservable.next(new NgxSpinner({ name, show: false }));
