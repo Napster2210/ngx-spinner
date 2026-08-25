@@ -26,7 +26,17 @@ A library with more than 50 different loading spinners for Angular 4 - 22. (http
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](<>)
 [![Gitter](https://badges.gitter.im/ngx-spinner/community.svg)](https://gitter.im/ngx-spinner/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-> ⭐ If this library saves you time, consider [sponsoring the project](https://github.com/sponsors/Napster2210) to support ongoing maintenance.
+<p align="center">
+  ⭐ If this library saves you time, consider supporting its ongoing maintenance:
+  <br /><br />
+  <a href="https://github.com/sponsors/Napster2210" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" height="36">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://buymeacoffee.com/napster2210" target="_blank" rel="noopener">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="36">
+  </a>
+</p>
 
 ## What's New
 
